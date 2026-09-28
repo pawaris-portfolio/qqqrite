@@ -117,6 +117,18 @@
     .card ul { list-style: none; color: var(--text-muted); font-size: 0.95rem; }
     .card ul li { margin-bottom: 0.6rem; }
     .card strong { color: #fff; }
+
+    /* Timeline style for education */
+    .edu-item {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed var(--surface-border);
+    }
+    .edu-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
   </style>
 </head>
 <body>
@@ -133,7 +145,7 @@
     <div class="badge">Content Strategy • Digital Marketing • Leadership</div>
     <h1>สวัสดีครับ ผม ปวริศ จันทร์จู (ไปร์ท)</h1>
     <p class="intro-p">
-      บัณฑิตเกียรตินิยม (GPA 3.44) คณะการจัดการโลจิสติกส์และการตลาดดิจิทัล มหาวิทยาลัยศรีปทุม มีจุดเด่นในการผสาน <strong>การคิดเชิงระบบ (Logistics & Analytics)</strong> เข้ากับ <strong>ความคิดสร้างสรรค์ (End-to-End Content Production)</strong> ดูแลงานได้ครบตั้งแต่วางแผน ค้นคว้าข้อมูล เขียนสคริปต์ จัดการกองถ่าย ตรวจตัดต่อ ไปจนถึง On-camera Presentation
+      บัณฑิตเกียรตินิยมอันดับ 2 คณะการจัดการโลจิสติกส์และการตลาดดิจิทัล มหาวิทยาลัยศรีปทุม มีจุดเด่นในการผสาน <strong>การคิดเชิงระบบ (Logistics & Analytics)</strong> เข้ากับ <strong>ความคิดสร้างสรรค์ (End-to-End Content Production)</strong> ดูแลงานได้ครบตั้งแต่วางแผน ค้นคว้าข้อมูล เขียนสคริปต์ จัดการกองถ่าย ตรวจตัดต่อ ไปจนถึง On-camera Presentation
     </p>
 
     <div class="btn-group">
@@ -143,24 +155,36 @@
     </div>
 
     <div class="info-grid">
+      <!-- ประวัติการศึกษา -->
       <div class="card">
-        <h3>🎓 ประวัติการศึกษา</h3>
-        <ul>
-          <li><strong>ปริญญาตรี:</strong> มหาวิทยาลัยศรีปทุม</li>
-          <li><strong>สาขา:</strong> การจัดการโลจิสติกส์และการตลาดดิจิทัล</li>
-          <li><strong>ผลการเรียน:</strong> เกียรตินิยม GPA 3.44</li>
-        </ul>
+        <h3>🎓 ประวัติการศึกษา (Education)</h3>
+        
+        <div class="edu-item">
+          <strong>ระดับปริญญาตรี</strong>
+          <p>มหาวิทยาลัยศรีปทุม</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">วิทยาลัยโลจิสติกส์และซัพพลายเชน สาขาการจัดการโลจิสติกส์และการตลาดดิจิทัล</p>
+          <p style="font-size: 0.9rem; color: var(--highlight);">เกียรตินิยมอันดับ 2 (GPA 3.44)</p>
+        </div>
+
+        <div class="edu-item">
+          <strong>มัธยมศึกษาตอนต้น และ ตอนปลาย</strong>
+          <p>โรงเรียนวิสุทธรังษี กาญจนบุรี</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">ผลการเรียนเฉลี่ย (GPA): 2.98</p>
+        </div>
       </div>
 
+      <!-- ทักษะความเชี่ยวชาญ -->
       <div class="card">
         <h3>⚡ ทักษะความเชี่ยวชาญ (Competencies)</h3>
         <ul>
           <li><strong>Content:</strong> Short-form Video, Hook Strategy, Scriptwriting</li>
           <li><strong>Production:</strong> Directing, Storyboard, Post-production QC</li>
+          <li><strong>Presentation:</strong> On-camera Host, MC, Public Speaking</li>
           <li><strong>Software:</strong> Canva, CapCut, Premiere Pro Basics, AI Tools</li>
         </ul>
       </div>
 
+      <!-- ประสบการณ์ผู้นำ -->
       <div class="card" style="grid-column: 1 / -1;">
         <h3>👥 ประสบการณ์ผู้นำและองค์กร (Leadership & Community)</h3>
         <ul>
