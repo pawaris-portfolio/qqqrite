@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featured Works | Pawaris Chanchoo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090a0f;
+      --surface: #13151f;
+      --surface-border: #222638;
+      --accent: #3b82f6;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --highlight: #38bdf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Sarabun', sans-serif;
+      line-height: 1.7;
+      padding: 0 1.5rem 4rem;
+    }
+    .container { max-width: 960px; margin: 0 auto; }
+    
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--surface-border);
+      margin-bottom: 3.5rem;
+    }
+    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.2s; }
+    .nav-links a.active, .nav-links a:hover { color: var(--highlight); }
+
+    h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .page-desc { color: var(--text-muted); margin-bottom: 2.5rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; }
+    @media(max-width: 500px) { .grid { grid-template-columns: 1fr; } }
+
+    .work-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .metric-chip {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--highlight);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .work-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: #fff; }
+    .work-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
+    .work-card ul { list-style: none; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted); }
+    .work-card ul li::before { content: "✔ "; color: var(--highlight); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="logo">PAWARIS.C</a>
+      <div class="nav-links">
+        <a href="index.html">หน้าแรก (About)</a>
+        <a href="works.html" class="active">ผลงานคอนเทนต์ (Works)</a>
+        <a href="awards.html">นวัตกรรมและรางวัล (Awards)</a>
+      </div>
+    </nav>
+
+    <h1>🎬 Featured Media & Works</h1>
+    <p class="page-desc">ประสบการณ์สร้างสรรค์คอนเทนต์สั้น (Short-form Video) สำหรับแพลตฟอร์ม TikTok ร่วมกับ SpaceNEXT</p>
+
+    <div class="grid">
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">🏆 ชนะอันดับ 3 SCG HEIM | 166.2K Views</span>
+          <h3>SCG HEIM: บ้านอากาศสะอาด</h3>
+          <p>แคมเปญประกวดทำคลิปรีวิวบ้านนวัตกรรม MODULAR เล่าจุดขาย Air Factory และระบบหมุนเวียนอากาศให้จบใน 1 นาที</p>
+          <ul>
+            <li>Research ระบบ Air Tightness</li>
+            <li>เขียน Script & ออกแบบจังหวะการเล่า</li>
+            <li>คุมกองถ่ายและตรวจเช็ก QC งานตัดต่อ</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">🔥 494.7K Views</span>
+          <h3>Modular House ทนแผ่นดินไหว 800 แกล</h3>
+          <p>คอนเทนต์เจาะจุดเด่นโครงสร้างบ้าน แปลงศัพท์วิศวกรรมให้เป็นคำถาม Hook ที่กระตุ้นความอยากรู้ของกลุ่มผู้ชม</p>
+          <ul>
+            <li>ออกแบบ Hook 3 วินาทีแรก</li>
+            <li>สรุปสเปกทางเทคนิคให้เข้าใจง่าย</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">✨ 347.4K Views</span>
+          <h3>ดิ อิดิชั่น สาทร-กัลปพฤกษ์ (Xavier)</h3>
+          <p>รีวิวบ้านหรูสไตล์ Luxury ถ่ายทอด Lifestyle และทำเลที่สะดวกสบาย</p>
+          <ul>
+            <li>รับบท On-camera Host (ดำเนินรายการเอง)</li>
+            <li>กำหนด Movement และซีนการเดินในบ้าน</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">📍 304K Views</span>
+          <h3>Nirvana DEFINE ศรีนครินทร์-พระราม 9</h3>
+          <p>รีวิวทาวน์โฮมที่เป็นได้มากกว่าบ้านเดี่ยว เจาะความคุ้มค่าและสิ่งอำนวยความสะดวก</p>
+          <ul>
+            <li>เป็นผู้ดำเนินรายการหน้ากล้อง</li>
+            <li>บรีฟตากล้องและควบคุมมุมมองนำเสนอ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
