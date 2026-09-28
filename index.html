@@ -3,14 +3,390 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pawaris | Portfolio</title>
+  <title>Pawaris Chanchoo (Prite) | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: sans-serif; max-width: 700px; margin: 50px auto; padding: 0 20px; line-height: 1.6; }
-    h1 { color: #222; }
+    :root {
+      --bg: #090a0f;
+      --surface: #13151f;
+      --surface-border: #222638;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.15);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --tag-bg: #1e293b;
+      --highlight: #38bdf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Sarabun', -apple-system, sans-serif;
+      line-height: 1.7;
+      padding: 0 1.25rem 5rem;
+    }
+    .container { max-width: 960px; margin: 0 auto; }
+
+    /* Header / Hero */
+    header {
+      padding: 4.5rem 0 3rem;
+      border-bottom: 1px solid var(--surface-border);
+    }
+    .badge {
+      display: inline-block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: var(--tag-bg);
+      color: var(--highlight);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--surface-border);
+    }
+    h1 {
+      font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-summary {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin-bottom: 2rem;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--surface-border);
+      padding: 0.65rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--highlight);
+      color: #fff;
+    }
+
+    /* Section Headings */
+    section { margin-top: 4rem; }
+    .section-title {
+      font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.5rem;
+    }
+    @media (max-width: 500px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* Card Styling */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease;
+    }
+    .card:hover {
+      border-color: var(--accent);
+    }
+    .metric-chip {
+      display: inline-block;
+      align-self: flex-start;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--highlight);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+    .role-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .role-list li {
+      margin-bottom: 0.4rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+    .role-list li::before {
+      content: "•";
+      color: var(--highlight);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* Skills Box */
+    .skills-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+    .skill-card h4 {
+      color: var(--highlight);
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+    }
+    .skill-card ul {
+      list-style: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .skill-card ul li { margin-bottom: 0.4rem; }
+
+    /* Footer */
+    footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--surface-border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-  <h1>Pawaris Portfolio</h1>
-  <p>ยินดีต้อนรับสู่หน้า Portfolio เว็บไซต์กำลังอยู่ในระหว่างพัฒนา</p>
+  <div class="container">
+    
+    <!-- Hero / Profile -->
+    <header>
+      <div class="badge">Content Creator • Digital Marketing • Innovation</div>
+      <h1>ปวริศ จันทร์จู (Pawaris Chanchoo)</h1>
+      <p class="hero-summary">
+        บัณฑิตสาขาการจัดการโลจิสติกส์และการตลาดดิจิทัล มหาวิทยาลัยศรีปทุม (เกียรตินิยม GPA 3.44) ผู้ผสมผสานการคิดเชิงระบบ (Logistics Thinking) เข้ากับความคิดสร้างสรรค์ (End-to-End Content Creation) ตั้งแต่ Research ข้อมูล, เขียนสคริปต์, กำกับการถ่ายทำ, ควบคุมงาน Post-production ไปจนถึง On-camera Presentation ที่สร้างยอดวิวรวมหลายล้านครั้ง
+      </p>
+      <div class="contact-row">
+        <a href="mailto:pawaris.cha@spumail.net" class="btn btn-primary">✉️ pawaris.cha@spumail.net</a>
+        <a href="tel:0959204697" class="btn">📞 095-920-4697</a>
+        <a href="https://instagram.com/pppritee_" target="_blank" class="btn">Instagram: @pppritee_</a>
+      </div>
+    </header>
+
+    <!-- Work Experience & Content Case Studies -->
+    <section>
+      <h2 class="section-title">🎬 Featured Works & Media Campaigns</h2>
+      <p class="section-desc">ผลงานสร้างสรรค์คอนเทนต์วิดีโอสั้น (Short-form Video) ร่วมกับ SpaceNEXT และโครงการอสังหาริมทรัพย์ชั้นนำ</p>
+
+      <div class="grid-2">
+        
+        <!-- Case 1 -->
+        <div class="card">
+          <div>
+            <span class="metric-chip">🏆 อันดับ 3 SCG HEIM | 166.2K Views</span>
+            <h3>SCG HEIM: บ้านอากาศสะอาด</h3>
+            <p>แคมเปญประกวดคลิปรีวิวบ้านนวัตกรรม MODULAR สรุปจุดขาย Air Factory และระบบโครงสร้างให้อยู่ในความยาวกระชับไม่เกิน 1 นาที โดยเล่าเรื่องให้เข้าใจง่ายและดึงดูด</p>
+            <ul class="role-list">
+              <li>Research เชิงลึกเรื่องฟังก์ชันบ้านและ Air Tightness</li>
+              <li>เขียน Storytelling Script & กำหนด Shot-list</li>
+              <li>ออกกอง บรีฟตากล้อง ควบคุมแสง และตรวจ QC งานตัดต่อ</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="card">
+          <div>
+            <span class="metric-chip">🔥 494.7K Views</span>
+            <h3>Modular House ทนแผ่นดินไหว 800 แกล</h3>
+            <p>คอนเทนต์เจาะจุดเด่นด้านวิศวกรรมโครงสร้างบ้าน แปลงศัพท์เชิงเทคนิคให้กลายเป็น Hook ที่กระตุ้นความสงสัยของผู้ชมบน TikTok</p>
+            <ul class="role-list">
+              <li>วาง Hook 3 วินาทีแรกเพื่อหยุดนิ้วโป้งคนดู</li>
+              <li>คัดกรองข้อมูลโครงสร้างที่ซับซ้อนให้ย่อยง่าย</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="card">
+          <div>
+            <span class="metric-chip">✨ 347.4K Views</span>
+            <h3>ดิ อิดิชั่น สาทร-กัลปพฤกษ์ (Xavier)</h3>
+            <p>รีวิวโครงการบ้านสไตล์ Modern Luxury เน้นบรรยากาศระดับพรีเมียมและ Lifestyle ย่านสาทร</p>
+            <ul class="role-list">
+              <li>รับหน้าที่ On-camera Host (ดำเนินรายการหน้ากล้อง)</li>
+              <li>ควบคุม Scene และ Movement ในแต่ละจุดขายของตัวบ้าน</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Case 4 -->
+        <div class="card">
+          <div>
+            <span class="metric-chip">📍 304K Views</span>
+            <h3>Nirvana DEFINE ศรีนครินทร์-พระราม 9</h3>
+            <p>พรีเมียมทาวน์โฮมที่เป็นได้มากกว่าบ้านเดี่ยว เล่าความคุ้มค่าด้านทำเล สิ่งอำนวยความสะดวก และการเดินทาง</p>
+            <ul class="role-list">
+              <li>ดำเนินรายการหน้ากล้องเอง พร้อมบรีฟมุมกล้องและจังหวะเล่าเรื่อง</li>
+              <li>ตรวจสอบ Final Cut ก่อนอัปโหลดลงช่อง Space Story</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Hackathons & Awards -->
+    <section>
+      <h2 class="section-title">🏆 Competitions & Hackathons</h2>
+      <p class="section-desc">รางวัลการแข่งขันนวัตกรรมระดับประเทศที่สะท้อนทักษะการคิดเชิงวิเคราะห์และการแก้ปัญหาธุรกิจ</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div>
+            <span class="metric-chip">🥇 ชนะเลิศระดับประเทศ (เงินรางวัล 20,000 บาท)</span>
+            <h3>Logistics Innovation Hackathon 2024 (TILOG-LOGISTIX)</h3>
+            <p><strong>ผลงาน: BOT-BOT (กลุ่ม Smart Driver & Smart Logistics)</strong> โดยสมาพันธ์โลจิสติกส์ไทย พัฒนานวัตกรรมแก้ Pain point การขนส่งและเพิ่มประสิทธิภาพระบบโลจิสติกส์ระดับชาติ</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="metric-chip">🥈 รองชนะเลิศอันดับ 2 ระดับอุดมศึกษา</span>
+            <h3>Welltech Entrepreneur (Good Health & Well-Being)</h3>
+            <p><strong>ทีม บอทบาล:</strong> ออกแบบหุ่นยนต์ AGV/Autonomous สำหรับเคลื่อนย้ายเตียงผู้ป่วยและคลังยาในโรงพยาบาล เพื่อลดภาระงานของบุคลากรทางการแพทย์</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="metric-chip">🥈 เหรียญเงินระดับประเทศ วช.</span>
+            <h3>I-New Gen Award 2024 (วันนักประดิษฐ์)</h3>
+            <p>ประกวดสิ่งประดิษฐ์และนวัตกรรมระดับอุดมศึกษา กลุ่มสุขภาพและการแพทย์ โดยสำนักงานการวิจัยแห่งชาติ (วช.) ณ BITEC บางนา</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership & Community -->
+    <section>
+      <h2 class="section-title">👥 Leadership & Experience</h2>
+      <p class="section-desc">บทบาทผู้นำองค์กรนักศึกษาและการบริหารจัดการงานอีเวนต์ขนาดใหญ่</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div>
+            <span class="metric-chip">สโมสรนักศึกษา</span>
+            <h3>ประธาน / รองประธานสโมสรนักศึกษา</h3>
+            <p>วิทยาลัยโลจิสติกส์และซัพพลายเชน มหาวิทยาลัยศรีปทุม ดูแลฝ่ายบริหาร ประสานงานระหว่างคณาจารย์และนักศึกษา พร้อมคุมภาพรวมกิจกรรมคณะ</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="metric-chip">วิทยากร & กิจกรรม</span>
+            <h3>วิทยากรบรรยาย Cold Chain & Logistics Camp</h3>
+            <p>ได้รับเชิญเป็นวิทยากรบรรยายหัวข้อโลจิสติกส์สินค้าควบคุมอุณหภูมิ (Cold Chain) วิทยาลัยเทคนิคปทุมธานี และเป็นแกนนำจัดค่าย Logistics SPU Camp #10 รองรับนักเรียนระดับมัธยมศึกษา</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Skills -->
+    <section>
+      <h2 class="section-title">⚡ Core Competencies</h2>
+      <div class="skills-wrapper">
+        <div class="skill-card">
+          <h4>Content & Production</h4>
+          <ul>
+            <li>• Creative Scriptwriting & Storytelling</li>
+            <li>• Short-form Video Hook Strategy</li>
+            <li>• On-camera Presentation & Hosting</li>
+            <li>• Production Briefing & Directing</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h4>Strategic & Business</h4>
+          <ul>
+            <li>• Digital Marketing & Logistics Strategy</li>
+            <li>• Innovation Pitching & Presentation</li>
+            <li>• Market & Product Research</li>
+            <li>• Cross-functional Team Leadership</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h4>Tools & Software</h4>
+          <ul>
+            <li>• Canva, CapCut, Video Editing Suites</li>
+            <li>• AI Assisted Workflow & Prompting</li>
+            <li>• TikTok Analytics & Social Monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© Pawaris Chanchoo. Hosted on GitHub Pages.</p>
+    </footer>
+
+  </div>
 </body>
 </html>
