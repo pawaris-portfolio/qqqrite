@@ -4,94 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Featured Works | Pawaris Chanchoo</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #090a0f;
-      --surface: #13151f;
-      --surface-border: #222638;
-      --accent: #3b82f6;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --highlight: #38bdf8;
-    }
+    :root { --bg: #090a0f; --surface: #13151f; --surface-border: #222638; --accent: #3b82f6; --text: #f1f5f9; --text-muted: #94a3b8; --highlight: #38bdf8; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Sarabun', sans-serif;
-      line-height: 1.7;
-      padding: 0 1.5rem 5rem;
-    }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Sarabun', sans-serif; line-height: 1.7; padding: 0 1.5rem 5rem; }
     .container { max-width: 1040px; margin: 0 auto; }
-    
-    /* Navigation Bar */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--surface-border);
-      margin-bottom: 3.5rem;
-    }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem 0; border-bottom: 1px solid var(--surface-border); margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1rem; }
     .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; text-decoration: none; }
-    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.2s; }
     .nav-links a.active, .nav-links a:hover { color: var(--highlight); }
-
     h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; }
     .page-desc { color: var(--text-muted); margin-bottom: 2.5rem; }
-
-    /* Cards Layout */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    .work-card {
-      background: var(--surface);
-      border: 1px solid var(--surface-border);
-      border-radius: 14px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .metric-chip {
-      display: inline-block;
-      align-self: flex-start;
-      font-size: 0.85rem;
-      font-weight: 700;
-      background: rgba(56, 189, 248, 0.1);
-      color: var(--highlight);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      padding: 0.25rem 0.65rem;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-    }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+    .work-card { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .metric-chip { display: inline-block; align-self: flex-start; font-size: 0.85rem; font-weight: 700; background: rgba(56, 189, 248, 0.1); color: var(--highlight); border: 1px solid rgba(56, 189, 248, 0.2); padding: 0.25rem 0.65rem; border-radius: 6px; margin-bottom: 1rem; }
     .work-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: #fff; }
     .work-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; }
-    .work-card ul { list-style: none; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
-    .work-card ul li::before { content: "✔ "; color: var(--highlight); }
-
-    /* TikTok Embed Container */
-    .video-wrapper {
-      margin-top: auto;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #000;
-      display: flex;
-      justify-content: center;
-    }
-    blockquote.tiktok-embed {
-      margin: 0 !important;
-      padding: 0 !important;
-      max-width: 100% !important;
-      min-width: 280px !important;
-    }
+    .video-wrapper { margin-top: auto; border-radius: 8px; overflow: hidden; background: #000; display: flex; justify-content: center; min-height: 400px; }
+    blockquote.tiktok-embed { margin: 0 !important; padding: 0 !important; max-width: 100% !important; min-width: 280px !important; }
   </style>
 </head>
 <body>
@@ -100,115 +33,104 @@
       <a href="index.html" class="logo">PAWARIS.C</a>
       <div class="nav-links">
         <a href="index.html">หน้าแรก (About)</a>
-        <a href="works.html" class="active">ผลงานคอนเทนต์ (Works)</a>
-        <a href="awards.html">นวัตกรรมและรางวัล (Awards)</a>
+        <a href="experience.html">ประสบการณ์ & กิจกรรม</a>
+        <a href="works.html" class="active">ผลงานคอนเทนต์</a>
+        <a href="awards.html">นวัตกรรม & รางวัล</a>
+        <a href="resume.html">Resume & Transcript</a>
       </div>
     </nav>
 
     <h1>🎬 Featured Media & Works</h1>
-    <p class="page-desc">รวมผลงานวิดีโอสั้น (Short-form Video) ที่วางโครงสร้างการเล่าเรื่อง ควบคุมการถ่ายทำ และเป็นผู้ดำเนินรายการ สามารถกดเล่นวิดีโอได้ทันที</p>
+    <p class="page-desc">ผลงานคอนเทนต์ทั้ง 7 แคมเปญ (รับผิดชอบแบบ End-to-End ตั้งแต่คิดบท, คุมถ่ายทำ, จนถึงการเป็นพิธีกร)</p>
 
     <div class="grid">
-      
-      <!-- Video 1: SCG HEIM -->
+      <!-- 1. บ้านและสวนแฟร์ -->
       <div class="work-card">
         <div>
-          <span class="metric-chip">🏆 ชนะอันดับ 3 SCG HEIM | 166.2K Views</span>
-          <h3>SCG HEIM: บ้านอากาศสะอาด</h3>
-          <p>แคมเปญประกวดทำคลิปรีวิวบ้านนวัตกรรม MODULAR เล่าจุดขาย Air Factory และระบบ Air Tightness ให้เข้าใจง่ายใน 1 นาที</p>
-          <ul>
-            <li>Research เชิงลึกเรื่องฟังก์ชันบ้าน</li>
-            <li>เขียน Script วาง Hook หยุดคนดู</li>
-            <li>ออกกอง คุมแสง และบรีฟช่างภาพ</li>
-          </ul>
+          <span class="metric-chip">🌟 224.9K Views</span>
+          <h3>บ้านและสวน Living Festival 2025</h3>
+          <p>พาเดินชมงาน อัปเดตเทรนด์แต่งบ้าน ครบ จบ ที่เดียว ไอเดียเพียบ เล่าเรื่องให้เพลินและน่าติดตาม</p>
         </div>
         <div class="video-wrapper">
-          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@spacestory.co/video/7566143901841624321" data-video-id="7566143901841624321">
-            <section><a target="_blank" href="https://www.tiktok.com/@spacestory.co/video/7566143901841624321">กำลังโหลดคลิป...</a></section>
-          </blockquote>
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@spacestory.co/video/7566143901841624321" data-video-id="7566143901841624321"><section></section></blockquote>
         </div>
       </div>
 
-      <!-- Video 2: Modular House -->
+      <!-- 2. FLO Condominium -->
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">🧱 100.5K Views</span>
+          <h3>FLO Condominium ย่านคลองสาน</h3>
+          <p>รีวิวคอนโดสุดชิคโทนสีอิฐ จุดเชื่อมระหว่างเมืองเก่ากับเมืองใหม่ สัมผัส Lifestyle ริมแม่น้ำเจ้าพระยา</p>
+        </div>
+        <div class="video-wrapper">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/7559565678815087879" data-video-id="7559565678815087879"><section></section></blockquote>
+        </div>
+      </div>
+
+      <!-- 3. SCG HEIM แผ่นดินไหว -->
       <div class="work-card">
         <div>
           <span class="metric-chip">🔥 494.7K Views</span>
-          <h3>Modular House ทนแผ่นดินไหว 800 แกล</h3>
-          <p>คอนเทนต์เจาะจุดเด่นด้านวิศวกรรมโครงสร้างบ้าน แปลงศัพท์เทคนิคเป็นภาษาที่ย่อยง่ายสำหรับคนทั่วไป</p>
-          <ul>
-            <li>วางคำถาม Hook กระตุ้นความสงสัย</li>
-            <li>สรุปสเปกความแข็งแรงของระบบอาคาร</li>
-            <li>ตรวจ QC งานตัดต่อและ Motion</li>
-          </ul>
+          <h3>MODULAR ทนแผ่นดินไหว 800 แกล (SCG HEIM)</h3>
+          <p>เจาะลึกนวัตกรรมญี่ปุ่น โครงสร้างเหล็ก SS400 ระบบกรองอากาศทั้งหลัง และช่อง Service ใต้พื้น</p>
         </div>
         <div class="video-wrapper">
-          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/7559565678815087879" data-video-id="7559565678815087879">
-            <section><a target="_blank" href="https://www.tiktok.com/@/video/7559565678815087879">กำลังโหลดคลิป...</a></section>
-          </blockquote>
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/7571065567113661714" data-video-id="7571065567113661714"><section></section></blockquote>
         </div>
       </div>
 
-      <!-- Video 3: Xavier Sathon -->
+      <!-- 4. AP Xavier -->
       <div class="work-card">
         <div>
           <span class="metric-chip">✨ 347.4K Views</span>
-          <h3>ดิ อิดิชั่น สาทร-กัลปพฤกษ์ (Xavier)</h3>
-          <p>รีวิวโครงการบ้านสไตล์ Modern Luxury เจาะทำเลและความสะดวกสบายของ Lifestyle คนเมือง</p>
-          <ul>
-            <li>รับบท On-camera Host ดำเนินรายการ</li>
-            <li>กำหนด Movement และมุมกล้องในตัวบ้าน</li>
-            <li>บรีฟตากล้องและควบคุมภาพรวมการผลิต</li>
-          </ul>
+          <h3>AP Xavier สาทร-กัลปพฤกษ์</h3>
+          <p>ทาวน์โฮมขายดีเล่นระดับ 3 ชั้น (Step-in House) พื้นที่ 184 ตร.ม. โปรโมชันปิดการขาย อยู่สบาย 3 ปีไม่ต้องผ่อน</p>
         </div>
         <div class="video-wrapper">
-          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/7571065567113661714" data-video-id="7571065567113661714">
-            <section><a target="_blank" href="https://www.tiktok.com/@/video/7571065567113661714">กำลังโหลดคลิป...</a></section>
-          </blockquote>
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/7584071311442398484" data-video-id="7584071311442398484"><section></section></blockquote>
         </div>
       </div>
 
-      <!-- Video 4: Nirvana DEFINE -->
+      <!-- 5. Blue Wild Warehouse -->
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">☕ 53.4K Views</span>
+          <h3>Blue Wild Warehouse</h3>
+          <p>โกดังลับ "เฟอร์เท่ เสื้อเก๋ คาเฟ่ชิค" พาสำรวจสไตล์ Midcentury Modern, Cozy Minimal และวินเทจ</p>
+        </div>
+        <div class="video-wrapper">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/7587760430647495954" data-video-id="7587760430647495954"><section></section></blockquote>
+        </div>
+      </div>
+
+      <!-- 6. SCG HEIM (ประกวดอันดับ 3) -->
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">🏆 อันดับ 3 SCG HEIM | 166.2K Views</span>
+          <h3>SCG HEIM: บ้านอากาศสะอาด</h3>
+          <p>แคมเปญประกวดคลิปรีวิวบ้านนวัตกรรม MODULA ในช่อง Space Story เล่าเรื่องโครงสร้างและ Air Factory (เขียนสคริปต์, จัดสถานที่, เช็ก QC)</p>
+        </div>
+        <div class="video-wrapper">
+          <!-- หมายเหตุ: ลิงก์ซ้ำ รอการอัปเดต ID -->
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/7569963338155805970" data-video-id="7569963338155805970"><section></section></blockquote>
+        </div>
+      </div>
+
+      <!-- 7. Nirvana DEFINE -->
       <div class="work-card">
         <div>
           <span class="metric-chip">📍 304K Views</span>
           <h3>Nirvana DEFINE ศรีนครินทร์-พระราม 9</h3>
-          <p>เจาะจุดเด่นพรีเมียมทาวน์โฮมที่เป็นได้มากกว่าบ้านเดี่ยว เล่าความคุ้มค่าและสิ่งอำนวยความสะดวก</p>
-          <ul>
-            <li>ดำเนินรายการหน้ากล้อง</li>
-            <li>คุมลำดับเล่าเรื่อง (Pacing & Story flow)</li>
-            <li>ตรวจสอบ Final Cut ก่อนนำขึ้นช่อง</li>
-          </ul>
+          <p>รีวิวโครงการพรีเมียมทาวน์โฮมที่เป็นได้มากกว่าบ้านเดี่ยว รับหน้าที่เป็นนายแบบเอง โชว์สิ่งอำนวยความสะดวก ทำเล และการเดินทาง</p>
         </div>
         <div class="video-wrapper">
-          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/7584071311442398484" data-video-id="7584071311442398484">
-            <section><a target="_blank" href="https://www.tiktok.com/@/video/7584071311442398484">กำลังโหลดคลิป...</a></section>
-          </blockquote>
-        </div>
-      </div>
-
-      <!-- Video 5: Living Festival 2025 -->
-      <div class="work-card">
-        <div>
-          <span class="metric-chip">🌟 224.9K Views</span>
-          <h3>บ้านและสวนแฟร์ Living Festival</h3>
-          <p>คอนเทนต์พาชมบูทและงานอีเวนต์เฟอร์นิเจอร์-ตกแต่งบ้าน ดำเนินรายการแบบกระชับ มีพลัง และดึงดูดสายตา</p>
-          <ul>
-            <li>คิดประเด็นไฮไลต์ของงาน</li>
-            <li>พาชมสินค้าและถ่ายทอดจุดเด่นหน้ากล้อง</li>
-            <li>ควบคุมบรรยากาศและการเล่าเรื่อง</li>
-          </ul>
-        </div>
-        <div class="video-wrapper">
-          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/7587760430647495954" data-video-id="7587760430647495954">
-            <section><a target="_blank" href="https://www.tiktok.com/@/video/7587760430647495954">กำลังโหลดคลิป...</a></section>
-          </blockquote>
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/7569963338155805970" data-video-id="7569963338155805970"><section></section></blockquote>
         </div>
       </div>
 
     </div>
   </div>
-
-  <!-- TikTok Embed Script -->
   <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
