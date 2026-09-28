@@ -23,9 +23,9 @@
       color: var(--text);
       font-family: 'Sarabun', sans-serif;
       line-height: 1.7;
-      padding: 0 1.5rem 4rem;
+      padding: 0 1.5rem 5rem;
     }
-    .container { max-width: 860px; margin: 0 auto; }
+    .container { max-width: 1000px; margin: 0 auto; }
     
     /* Navigation Bar */
     nav {
@@ -35,100 +35,37 @@
       padding: 2rem 0;
       border-bottom: 1px solid var(--surface-border);
       margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-    .logo {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 1.2rem;
-      color: #fff;
-      text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
+    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.2s; }
     .nav-links a.active, .nav-links a:hover { color: var(--highlight); }
 
-    /* Hero / Intro */
-    .badge {
-      display: inline-block;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      background: #1e293b;
-      color: var(--highlight);
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-      margin-bottom: 1.25rem;
-      border: 1px solid var(--surface-border);
-    }
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 3rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1.25rem;
-    }
-    .intro-p {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-    .btn-group { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3.5rem; }
-    .btn {
-      display: inline-block;
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--surface-border);
-      padding: 0.65rem 1.25rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-    }
+    /* Hero / Profile Layout */
+    .hero-layout { display: flex; gap: 2.5rem; align-items: center; margin-bottom: 3rem; }
+    .profile-img { width: 170px; height: 170px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); flex-shrink: 0; background-color: #1e293b; }
+    @media (max-width: 650px) { .hero-layout { flex-direction: column; text-align: center; } }
+
+    .badge { display: inline-block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; background: #1e293b; color: var(--highlight); padding: 0.35rem 0.85rem; border-radius: 9999px; margin-bottom: 1rem; border: 1px solid var(--surface-border); }
+    h1 { font-size: clamp(2rem, 4.5vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem; }
+    .intro-p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    
+    .info-list { list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; }
+    .info-list strong { color: #fff; }
+    
+    .btn-group { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn { display: inline-block; background: var(--surface); color: var(--text); border: 1px solid var(--surface-border); padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
     .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
     .btn:hover { border-color: var(--highlight); color: #fff; transform: translateY(-2px); }
 
     /* Content Blocks */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--surface-border);
-      border-radius: 12px;
-      padding: 1.75rem;
-    }
-    .card h3 {
-      font-size: 1.2rem;
-      color: var(--highlight);
-      margin-bottom: 1rem;
-      border-bottom: 1px solid var(--surface-border);
-      padding-bottom: 0.5rem;
-    }
-    .card ul { list-style: none; color: var(--text-muted); font-size: 0.95rem; }
-    .card ul li { margin-bottom: 0.6rem; }
-    .card strong { color: #fff; }
-
-    /* Timeline style for education */
-    .edu-item {
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px dashed var(--surface-border);
-    }
-    .edu-item:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .card { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 12px; padding: 1.75rem; }
+    .card h3 { font-size: 1.15rem; color: var(--highlight); margin-bottom: 1rem; border-bottom: 1px solid var(--surface-border); padding-bottom: 0.5rem; }
+    .edu-item { margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--surface-border); }
+    .edu-item:last-child { border: none; padding-bottom: 0; margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -137,61 +74,79 @@
       <a href="index.html" class="logo">PAWARIS.C</a>
       <div class="nav-links">
         <a href="index.html" class="active">หน้าแรก (About)</a>
-        <a href="works.html">ผลงานคอนเทนต์ (Works)</a>
-        <a href="awards.html">นวัตกรรมและรางวัล (Awards)</a>
+        <a href="experience.html">ประสบการณ์ & กิจกรรม</a>
+        <a href="works.html">ผลงานคอนเทนต์</a>
+        <a href="awards.html">นวัตกรรม & รางวัล</a>
+        <a href="resume.html">Resume & Transcript</a>
       </div>
     </nav>
 
-    <div class="badge">Content Strategy • Digital Marketing • Leadership</div>
-    <h1>สวัสดีครับ ผม ปวริศ จันทร์จู (ไปร์ท)</h1>
-    <p class="intro-p">
-      บัณฑิตเกียรตินิยมอันดับ 2 คณะการจัดการโลจิสติกส์และการตลาดดิจิทัล มหาวิทยาลัยศรีปทุม มีจุดเด่นในการผสาน <strong>การคิดเชิงระบบ (Logistics & Analytics)</strong> เข้ากับ <strong>ความคิดสร้างสรรค์ (End-to-End Content Production)</strong> ดูแลงานได้ครบตั้งแต่วางแผน ค้นคว้าข้อมูล เขียนสคริปต์ จัดการกองถ่าย ตรวจตัดต่อ ไปจนถึง On-camera Presentation
-    </p>
+    <div class="hero-layout">
+      <!-- รูปโปรไฟล์ที่อัปเดตชื่อไฟล์ให้ตรงกับรูปใหม่ที่อัปโหลด -->
+      <img src="profile.jpg.PNG" alt="Pawaris Chanchoo" class="profile-img" onerror="this.style.display='none'">
+      <div>
+        <div class="badge">Business Administration & Marketing Professional</div>
+        <h1>ปวริศ จันทร์จู (ไปร์ท)</h1>
+        
+        <ul class="info-list">
+          <li><strong>Date of Birth:</strong> 3 December 2003 (Age: 22)</li>
+          <li><strong>Nationality:</strong> Thai</li>
+          <li><strong>Address:</strong> Thana cluster ราชพฤกษ์-สถานีบางพลู</li>
+        </ul>
 
-    <div class="btn-group">
-      <a href="works.html" class="btn btn-primary">ดูผลงานคอนเทนต์ทั้งหมด &rarr;</a>
-      <a href="mailto:pawaris.cha@spumail.net" class="btn">✉️ pawaris.cha@spumail.net</a>
-      <a href="tel:0959204697" class="btn">📞 095-920-4697</a>
+        <p class="intro-p">
+          บัณฑิตเกียรตินิยมอันดับ 2 Dual Degree ด้านการจัดการโลจิสติกส์และการตลาดดิจิทัล ผู้ผสมผสานการคิดเชิงตรรกะแบบซัพพลายเชน เข้ากับการทำกลยุทธ์การตลาด B2B, Performance Ads, และการสร้างสรรค์คอนเทนต์สั้นที่วัดผลได้
+        </p>
+        <div class="btn-group">
+          <a href="mailto:pawaris031246@gmail.com" class="btn btn-primary">✉️ pawaris031246@gmail.com</a>
+          <a href="tel:0959204697" class="btn">📞 095-920-4697</a>
+          <!-- ปุ่มดาวน์โหลดรูปโปรไฟล์ -->
+          <a href="profile.jpg.PNG" download="Pawaris_Profile.png" class="btn">📥 ดาวน์โหลดรูปโปรไฟล์</a>
+        </div>
+      </div>
     </div>
 
-    <div class="info-grid">
-      <!-- ประวัติการศึกษา -->
+    <div class="grid">
       <div class="card">
         <h3>🎓 ประวัติการศึกษา (Education)</h3>
         
         <div class="edu-item">
-          <strong>ระดับปริญญาตรี</strong>
-          <p>มหาวิทยาลัยศรีปทุม</p>
-          <p style="font-size: 0.9rem; color: var(--text-muted);">วิทยาลัยโลจิสติกส์และซัพพลายเชน สาขาการจัดการโลจิสติกส์และการตลาดดิจิทัล</p>
-          <p style="font-size: 0.9rem; color: var(--highlight);">เกียรตินิยมอันดับ 2 (GPA 3.44)</p>
+          <strong style="color: #fff;">ปริญญาตรี (BBA - Dual Degree)</strong>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">มหาวิทยาลัยศรีปทุม (Sripatum University)</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
+            • Bachelor of Business Administration (Logistics and Supply Chain Management)<br>
+            • Bachelor of Business Administration (Digital Marketing)<br>
+            <strong>Concentration:</strong> Marketing in Digital Era / Modern Entrepreneures
+          </p>
+          <p style="font-size: 0.9rem; color: var(--highlight); font-weight: 600; margin-top: 0.5rem;">
+            เกียรตินิยมอันดับ 2 (GPA 3.44) | สำเร็จการศึกษา 14 ธ.ค. 2568
+          </p>
         </div>
 
         <div class="edu-item">
-          <strong>มัธยมศึกษาตอนต้น และ ตอนปลาย</strong>
-          <p>โรงเรียนวิสุทธรังษี กาญจนบุรี</p>
+          <strong style="color: #fff;">มัธยมศึกษาตอนต้น และ ตอนปลาย</strong>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">โรงเรียนวิสุทธรังษี กาญจนบุรี</p>
           <p style="font-size: 0.9rem; color: var(--text-muted);">ผลการเรียนเฉลี่ย (GPA): 2.98</p>
         </div>
       </div>
 
-      <!-- ทักษะความเชี่ยวชาญ -->
       <div class="card">
-        <h3>⚡ ทักษะความเชี่ยวชาญ (Competencies)</h3>
-        <ul>
-          <li><strong>Content:</strong> Short-form Video, Hook Strategy, Scriptwriting</li>
-          <li><strong>Production:</strong> Directing, Storyboard, Post-production QC</li>
-          <li><strong>Presentation:</strong> On-camera Host, MC, Public Speaking</li>
-          <li><strong>Software:</strong> Canva, CapCut, Premiere Pro Basics, AI Tools</li>
-        </ul>
-      </div>
+        <h3>⚡ ทักษะความเชี่ยวชาญ & เทคโนโลยี</h3>
+        
+        <p style="font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem;"><strong>Core Competencies:</strong></p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+          B2B Marketing & Partnerships, Performance Marketing, Lead Generation, Sales Funnel Optimization, Sales Enablement, Business Development, Strategic Thinking, Project Coordination, Cross-Functional Collaboration, Data Literacy, Leadership.
+        </p>
 
-      <!-- ประสบการณ์ผู้นำ -->
-      <div class="card" style="grid-column: 1 / -1;">
-        <h3>👥 ประสบการณ์ผู้นำและองค์กร (Leadership & Community)</h3>
-        <ul>
-          <li><strong>ประธาน / รองประธานสโมสรนักศึกษา:</strong> ดูแลงานบริหาร ประสานงานระหว่างคณะและนักศึกษา คุมภาพรวมโครงการใหญ่ เช่น Freshy Day และกิจกรรมคณะ</li>
-          <li><strong>วิทยากรรับเชิญ Cold Chain:</strong> บรรยายวิชาการหัวข้อโลจิสติกส์สินค้าควบคุมอุณหภูมิ ให้แก่นักศึกษาวิทยาลัยเทคนิคปทุมธานี</li>
-          <li><strong>หัวหน้าจัดค่าย Logistics SPU Camp #10:</strong> ถ่ายทอดความรู้และแนะแนวเส้นทางสายงานโลจิสติกส์แก่นักเรียนระดับมัธยมศึกษา</li>
-        </ul>
+        <p style="font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem;"><strong>Tools & Technology:</strong></p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Facebook Ads, Microsoft Excel, Google Workspace, Canva, CapCut, Claude, ChatGPT, Gemini, AI-Assisted Coding, Web Development.
+        </p>
+
+        <p style="font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem;"><strong>Soft Skills:</strong></p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          Communication, Teamwork, Time Management, Problem-Solving, Adaptability.
+        </p>
       </div>
     </div>
   </div>
