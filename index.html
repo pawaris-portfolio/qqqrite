@@ -8,63 +8,65 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* --------------------------------------
+       APPLE STYLE DESIGN SYSTEM
+    --------------------------------------- */
     :root {
-      --bg: #090a0f;
-      --surface: #13151f;
-      --surface-border: #222638;
-      --accent: #3b82f6;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --highlight: #38bdf8;
+      --bg: #f5f5f7;          /* สีพื้นหลัง: ขาวอมเทาแบบ Apple */
+      --surface: #ffffff;     /* สีการ์ด: ขาวล้วน */
+      --surface-border: rgba(0, 0, 0, 0.05); /* เส้นขอบบางเฉียบ */
+      --accent: #0066cc;      /* สีน้ำเงิน Apple */
+      --text: #1d1d1f;        /* สีข้อความหลัก: ดำอมเทา */
+      --text-muted: #86868b;  /* สีข้อความรอง: เทา */
+      --highlight: #0066cc;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Sarabun', sans-serif;
-      line-height: 1.7;
-      padding: 0 1.5rem 5rem;
-    }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Sarabun', sans-serif; line-height: 1.7; padding: 0 1.5rem 5rem; }
     .container { max-width: 1000px; margin: 0 auto; }
     
     /* Navigation Bar */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--surface-border);
-      margin-bottom: 3.5rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; text-decoration: none; }
-    .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 2.5rem 0; border-bottom: 1px solid var(--surface-border); margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1rem; }
+    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.2s; }
-    .nav-links a.active, .nav-links a:hover { color: var(--highlight); }
+    .nav-links a.active, .nav-links a:hover { color: var(--text); }
 
-    /* Hero / Profile Layout */
-    .hero-layout { display: flex; gap: 2.5rem; align-items: center; margin-bottom: 3rem; }
-    .profile-img { width: 170px; height: 170px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); flex-shrink: 0; background-color: #1e293b; }
+    /* Typography Overrides */
+    h1, h2, h3, strong { color: var(--text) !important; letter-spacing: -0.5px; }
+    h1 { font-size: clamp(2.2rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
+    .intro-p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    
+    /* Apple Style Cards */
+    .card { 
+      background: var(--surface); 
+      border: 1px solid var(--surface-border); 
+      border-radius: 20px; 
+      padding: 2rem; 
+      box-shadow: 0 4px 24px rgba(0,0,0,0.03);
+      transition: box-shadow 0.3s ease;
+    }
+    .card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    
+    /* Pill-shaped Buttons */
+    .btn-group { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+    .btn { display: inline-block; background: var(--surface); color: var(--text); border: 1px solid var(--surface-border); padding: 0.65rem 1.4rem; border-radius: 980px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff !important; }
+    .btn:hover { transform: scale(1.02); background: #f5f5f7; }
+    .btn-primary:hover { background: #005bb5; color: #fff !important; }
+
+    /* Badges & Chips */
+    .badge { background: rgba(0, 102, 204, 0.08); color: var(--accent); border: none; padding: 0.4rem 1rem; border-radius: 980px; font-weight: 700; font-size: 0.85rem; display: inline-block; margin-bottom: 1rem; letter-spacing: 0.5px; }
+    
+    /* Profile Image */
+    .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid var(--surface); box-shadow: 0 8px 32px rgba(0,0,0,0.08); flex-shrink: 0; }
+    .hero-layout { display: flex; gap: 3rem; align-items: center; margin-bottom: 4rem; }
     @media (max-width: 650px) { .hero-layout { flex-direction: column; text-align: center; } }
-
-    .badge { display: inline-block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; background: #1e293b; color: var(--highlight); padding: 0.35rem 0.85rem; border-radius: 9999px; margin-bottom: 1rem; border: 1px solid var(--surface-border); }
-    h1 { font-size: clamp(2rem, 4.5vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem; }
-    .intro-p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
     
-    .info-list { list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; }
-    .info-list strong { color: #fff; }
-    
-    .btn-group { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .btn { display: inline-block; background: var(--surface); color: var(--text); border: 1px solid var(--surface-border); padding: 0.6rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
-    .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .btn:hover { border-color: var(--highlight); color: #fff; transform: translateY(-2px); }
-
-    /* Content Blocks */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .card { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 12px; padding: 1.75rem; }
-    .card h3 { font-size: 1.15rem; color: var(--highlight); margin-bottom: 1rem; border-bottom: 1px solid var(--surface-border); padding-bottom: 0.5rem; }
-    .edu-item { margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--surface-border); }
+    /* Layout Details */
+    .info-list { list-style: none; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .card h3 { font-size: 1.25rem; margin-bottom: 1rem; border-bottom: 1px solid var(--surface-border); padding-bottom: 0.5rem; }
+    .edu-item { margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--surface-border); }
     .edu-item:last-child { border: none; padding-bottom: 0; margin-bottom: 0; }
   </style>
 </head>
@@ -82,8 +84,8 @@
     </nav>
 
     <div class="hero-layout">
-      <!-- รูปโปรไฟล์ที่อัปเดตชื่อไฟล์ให้ตรงกับรูปใหม่ที่อัปโหลด -->
-      <img src="รูปสมัครงาน.PNG" alt="Pawaris Chanchoo" class="profile-img" onerror="this.style.display='none'">
+      <!-- รูปโปรไฟล์ ลบคำสั่งซ่อนรูปออกแล้ว -->
+      <img src="รูปสมัครงาน.PNG" alt="Pawaris Chanchoo" class="profile-img">
       <div>
         <div class="badge">Business Administration & Marketing Professional</div>
         <h1>ปวริศ จันทร์จู (ไปร์ท)</h1>
@@ -100,8 +102,8 @@
         <div class="btn-group">
           <a href="mailto:pawaris031246@gmail.com" class="btn btn-primary">✉️ pawaris031246@gmail.com</a>
           <a href="tel:0959204697" class="btn">📞 095-920-4697</a>
-          <!-- ปุ่มดาวน์โหลดรูปโปรไฟล์ -->
-          <a href="profile.jpg.PNG" download="Pawaris_Profile.png" class="btn">📥 ดาวน์โหลดรูปโปรไฟล์</a>
+          <!-- ปุ่มดาวน์โหลดรูปโปรไฟล์ อัปเดตลิงก์ให้ตรงกัน -->
+          <a href="รูปสมัครงาน.PNG" download="Pawaris_Profile.png" class="btn">📥 ดาวน์โหลดรูปโปรไฟล์</a>
         </div>
       </div>
     </div>
@@ -111,7 +113,7 @@
         <h3>🎓 ประวัติการศึกษา (Education)</h3>
         
         <div class="edu-item">
-          <strong style="color: #fff;">ปริญญาตรี (BBA - Dual Degree)</strong>
+          <strong>ปริญญาตรี (BBA - Dual Degree)</strong>
           <p style="color: var(--text-muted); font-size: 0.95rem;">มหาวิทยาลัยศรีปทุม (Sripatum University)</p>
           <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
             • Bachelor of Business Administration (Logistics and Supply Chain Management)<br>
@@ -124,7 +126,7 @@
         </div>
 
         <div class="edu-item">
-          <strong style="color: #fff;">มัธยมศึกษาตอนต้น และ ตอนปลาย</strong>
+          <strong>มัธยมศึกษาตอนต้น และ ตอนปลาย</strong>
           <p style="color: var(--text-muted); font-size: 0.95rem;">โรงเรียนวิสุทธรังษี กาญจนบุรี</p>
           <p style="font-size: 0.9rem; color: var(--text-muted);">ผลการเรียนเฉลี่ย (GPA): 2.98</p>
         </div>
@@ -133,17 +135,17 @@
       <div class="card">
         <h3>⚡ ทักษะความเชี่ยวชาญ & เทคโนโลยี</h3>
         
-        <p style="font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem;"><strong>Core Competencies:</strong></p>
+        <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><strong>Core Competencies:</strong></p>
         <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
           B2B Marketing & Partnerships, Performance Marketing, Lead Generation, Sales Funnel Optimization, Sales Enablement, Business Development, Strategic Thinking, Project Coordination, Cross-Functional Collaboration, Data Literacy, Leadership.
         </p>
 
-        <p style="font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem;"><strong>Tools & Technology:</strong></p>
+        <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><strong>Tools & Technology:</strong></p>
         <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
           Facebook Ads, Microsoft Excel, Google Workspace, Canva, CapCut, Claude, ChatGPT, Gemini, AI-Assisted Coding, Web Development.
         </p>
 
-        <p style="font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem;"><strong>Soft Skills:</strong></p>
+        <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><strong>Soft Skills:</strong></p>
         <p style="font-size: 0.9rem; color: var(--text-muted);">
           Communication, Teamwork, Time Management, Problem-Solving, Adaptability.
         </p>
