@@ -18,7 +18,6 @@
       --accent: #0066cc;      
       --text: #1d1d1f;        
       --text-muted: #86868b;  
-      --highlight: #0066cc;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: var(--bg); color: var(--text); font-family: 'Sarabun', sans-serif; line-height: 1.7; padding: 0 1.5rem 5rem; }
@@ -36,43 +35,49 @@
     h1 { font-size: clamp(2.2rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
     .page-desc { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.15rem; }
     
-    /* Apple Style Action Cards */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+    /* Apple Style Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
     .work-card { 
       background: var(--surface); 
       border: 1px solid var(--surface-border); 
       border-radius: 20px; 
-      padding: 2.5rem; 
+      padding: 2rem; 
       box-shadow: 0 4px 24px rgba(0,0,0,0.03);
       display: flex; flex-direction: column; justify-content: space-between;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      transition: box-shadow 0.3s ease;
     }
-    .work-card:hover { 
-      box-shadow: 0 12px 32px rgba(0,0,0,0.08); 
-      transform: translateY(-4px);
+    .work-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    
+    .metric-chip { background: rgba(0, 102, 204, 0.08); color: var(--accent); border: none; padding: 0.4rem 1rem; border-radius: 980px; font-weight: 700; font-size: 0.85rem; display: inline-block; margin-bottom: 1rem; letter-spacing: 0.5px; }
+    .work-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; line-height: 1.3; }
+    .work-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    
+    /* --- SMART VIDEO FACADE SYSTEM --- */
+    .video-wrapper { 
+      margin-top: auto; border-radius: 12px; overflow: hidden; 
+      height: 650px; position: relative; border: 1px solid var(--surface-border);
+      background: #ffffff; display: flex; justify-content: center;
     }
     
-    .metric-chip { 
-      background: rgba(0, 102, 204, 0.08); color: var(--accent); border: none; 
-      padding: 0.4rem 1rem; border-radius: 980px; font-weight: 700; 
-      font-size: 0.85rem; display: inline-block; margin-bottom: 1.25rem; letter-spacing: 0.5px; 
+    .facade {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(145deg, #1d1d1f, #2c2c2e);
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      cursor: pointer; transition: background 0.3s ease; color: #ffffff; z-index: 10;
     }
-    .work-card h3 { font-size: 1.35rem; margin-bottom: 0.5rem; line-height: 1.3; }
-    .work-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 1.5rem; }
+    .facade:hover { background: linear-gradient(145deg, #2c2c2e, #3a3a3c); }
     
-    /* Action Buttons */
-    .video-action { 
-      margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--surface-border); 
-      display: flex; justify-content: space-between; align-items: center; 
+    .play-btn {
+      width: 64px; height: 64px; background: rgba(255,255,255,0.15); 
+      border-radius: 50%; display: flex; justify-content: center; align-items: center; 
+      backdrop-filter: blur(8px); margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.2s ease, background 0.2s ease;
     }
-    .platform-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-    .btn-play { 
-      background: #1d1d1f; color: #fff; padding: 0.75rem 1.5rem; border-radius: 980px; 
-      text-decoration: none; font-weight: 600; font-size: 0.95rem; 
-      transition: transform 0.2s, background 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; 
-    }
-    .btn-play:hover { transform: scale(1.03); background: #333336; }
-    .btn-play::before { content: "▶"; font-size: 0.8rem; }
+    .play-btn::after { content: "▶"; font-size: 1.5rem; color: #fff; margin-left: 4px; }
+    .facade:hover .play-btn { transform: scale(1.1); background: rgba(255,255,255,0.25); }
+    .facade-text { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; opacity: 0.8; }
+    
+    blockquote.tiktok-embed { margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; min-width: 100% !important; }
   </style>
 </head>
 <body>
@@ -99,9 +104,11 @@
           <h3>บ้านและสวน Living Festival 2025</h3>
           <p>พาเดินชมงาน อัปเดตเทรนด์แต่งบ้าน ครบ จบ ที่เดียว ไอเดียเพียบ เล่าเรื่องให้เพลินและน่าติดตาม</p>
         </div>
-        <div class="video-action">
-          <span class="platform-label">TikTok</span>
-          <a href="https://www.tiktok.com/@spacestory.co/video/7566143901841624321" target="_blank" class="btn-play">Watch Now</a>
+        <div class="video-wrapper" id="vid-1">
+          <div class="facade" onclick="playTikTok('vid-1', '7566143901841624321')">
+            <div class="play-btn"></div>
+            <span class="facade-text">Tap to Play on TikTok</span>
+          </div>
         </div>
       </div>
 
@@ -112,9 +119,11 @@
           <h3>FLO Condominium ย่านคลองสาน</h3>
           <p>รีวิวคอนโดสุดชิคโทนสีอิฐ จุดเชื่อมระหว่างเมืองเก่ากับเมืองใหม่ สัมผัส Lifestyle ริมแม่น้ำเจ้าพระยา</p>
         </div>
-        <div class="video-action">
-          <span class="platform-label">TikTok</span>
-          <a href="https://www.tiktok.com/@/video/7559565678815087879" target="_blank" class="btn-play">Watch Now</a>
+        <div class="video-wrapper" id="vid-2">
+          <div class="facade" onclick="playTikTok('vid-2', '7559565678815087879')">
+            <div class="play-btn"></div>
+            <span class="facade-text">Tap to Play on TikTok</span>
+          </div>
         </div>
       </div>
 
@@ -125,9 +134,11 @@
           <h3>MODULAR ทนแผ่นดินไหว 800 แกล (SCG HEIM)</h3>
           <p>เจาะลึกนวัตกรรมญี่ปุ่น โครงสร้างเหล็ก SS400 ระบบกรองอากาศทั้งหลัง และช่อง Service ใต้พื้น</p>
         </div>
-        <div class="video-action">
-          <span class="platform-label">TikTok</span>
-          <a href="https://www.tiktok.com/@/video/7571065567113661714" target="_blank" class="btn-play">Watch Now</a>
+        <div class="video-wrapper" id="vid-3">
+          <div class="facade" onclick="playTikTok('vid-3', '7571065567113661714')">
+            <div class="play-btn"></div>
+            <span class="facade-text">Tap to Play on TikTok</span>
+          </div>
         </div>
       </div>
 
@@ -138,9 +149,11 @@
           <h3>AP Xavier สาทร-กัลปพฤกษ์</h3>
           <p>ทาวน์โฮมขายดีเล่นระดับ 3 ชั้น (Step-in House) พื้นที่ 184 ตร.ม. โปรโมชันปิดการขาย อยู่สบาย 3 ปีไม่ต้องผ่อน</p>
         </div>
-        <div class="video-action">
-          <span class="platform-label">TikTok</span>
-          <a href="https://www.tiktok.com/@/video/7584071311442398484" target="_blank" class="btn-play">Watch Now</a>
+        <div class="video-wrapper" id="vid-4">
+          <div class="facade" onclick="playTikTok('vid-4', '7584071311442398484')">
+            <div class="play-btn"></div>
+            <span class="facade-text">Tap to Play on TikTok</span>
+          </div>
         </div>
       </div>
 
@@ -151,9 +164,11 @@
           <h3>Blue Wild Warehouse</h3>
           <p>โกดังลับ "เฟอร์เท่ เสื้อเก๋ คาเฟ่ชิค" พาสำรวจสไตล์ Midcentury Modern, Cozy Minimal และวินเทจ</p>
         </div>
-        <div class="video-action">
-          <span class="platform-label">TikTok</span>
-          <a href="https://www.tiktok.com/@/video/7587760430647495954" target="_blank" class="btn-play">Watch Now</a>
+        <div class="video-wrapper" id="vid-5">
+          <div class="facade" onclick="playTikTok('vid-5', '7587760430647495954')">
+            <div class="play-btn"></div>
+            <span class="facade-text">Tap to Play on TikTok</span>
+          </div>
         </div>
       </div>
 
@@ -164,9 +179,11 @@
           <h3>SCG HEIM: บ้านอากาศสะอาด</h3>
           <p>แคมเปญประกวดคลิปรีวิวบ้านนวัตกรรม MODULA ในช่อง Space Story เล่าเรื่องโครงสร้างและ Air Factory (เขียนสคริปต์, จัดสถานที่, เช็ก QC)</p>
         </div>
-        <div class="video-action">
-          <span class="platform-label">TikTok</span>
-          <a href="https://www.tiktok.com/@/video/7569963338155805970" target="_blank" class="btn-play">Watch Now</a>
+        <div class="video-wrapper" id="vid-6">
+          <div class="facade" onclick="playTikTok('vid-6', '7569963338155805970')">
+            <div class="play-btn"></div>
+            <span class="facade-text">Tap to Play on TikTok</span>
+          </div>
         </div>
       </div>
 
@@ -177,13 +194,31 @@
           <h3>Nirvana DEFINE ศรีนครินทร์-พระราม 9</h3>
           <p>รีวิวโครงการพรีเมียมทาวน์โฮมที่เป็นได้มากกว่าบ้านเดี่ยว รับหน้าที่เป็นนายแบบเอง โชว์สิ่งอำนวยความสะดวก ทำเล และการเดินทาง</p>
         </div>
-        <div class="video-action">
-          <span class="platform-label">TikTok</span>
-          <a href="https://www.tiktok.com/@/video/7569963338155805970" target="_blank" class="btn-play">Watch Now</a>
+        <div class="video-wrapper" id="vid-7">
+          <div class="facade" onclick="playTikTok('vid-7', '7569963338155805970')">
+            <div class="play-btn"></div>
+            <span class="facade-text">Tap to Play on TikTok</span>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
+
+  <!-- สคริปต์สำหรับจัดการการโหลดวิดีโอเมื่อถูกคลิก -->
+  <script>
+    function playTikTok(containerId, videoId) {
+      const container = document.getElementById(containerId);
+      
+      // 1. นำโค้ดวิดีโอของแท้มาใส่แทนที่หน้ากาก
+      container.innerHTML = `<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/${videoId}" data-video-id="${videoId}" style="max-width: 100%; min-width: 100%; margin: 0; padding: 0;"><section></section></blockquote>`;
+      
+      // 2. เรียกใช้งานระบบของ TikTok ให้ทำการโหลดวิดีโอขึ้นมาแสดง
+      const script = document.createElement('script');
+      script.src = "https://www.tiktok.com/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  </script>
 </body>
 </html>
