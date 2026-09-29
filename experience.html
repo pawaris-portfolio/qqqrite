@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Experience & Activities | Pawaris Chanchoo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     /* --------------------------------------
@@ -31,8 +33,8 @@
 
     /* Typography */
     h1, h2, h3, strong { color: var(--text) !important; letter-spacing: -0.5px; }
-    h1 { font-size: clamp(2.2rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
-    h2 { font-size: 1.8rem; margin: 3.5rem 0 1.5rem; font-weight: 700; }
+    h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
+    h2 { font-size: 1.75rem; margin: 3.5rem 0 1.5rem; font-weight: 700; }
     .page-desc { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.15rem; }
 
     /* Experience Cards */
@@ -50,10 +52,10 @@
     .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 1rem; gap: 1rem; }
     .exp-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.2rem; }
     .exp-company { font-size: 1.05rem; color: var(--accent); font-weight: 600; }
-    .exp-period { font-size: 0.85rem; color: var(--accent); background: rgba(0, 102, 204, 0.08); padding: 0.3rem 0.8rem; border-radius: 980px; font-weight: 600; }
+    .exp-period { font-size: 0.85rem; color: var(--accent); background: rgba(0, 102, 204, 0.08); padding: 0.35rem 0.85rem; border-radius: 980px; font-weight: 600; display: inline-block; }
     
     .exp-list { list-style: none; margin-top: 1.25rem; font-size: 1rem; color: var(--text-muted); }
-    .exp-list li { margin-bottom: 0.6rem; padding-left: 1.2rem; position: relative; }
+    .exp-list li { margin-bottom: 0.6rem; padding-left: 1.25rem; position: relative; }
     .exp-list li::before { content: "•"; color: var(--accent); position: absolute; left: 0; font-size: 1.2rem; line-height: 1.5; }
     
     /* Activities Grid */
@@ -69,6 +71,61 @@
     .act-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
     .act-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
     .act-card p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
+
+    /* --------------------------------------
+       RESPONSIVE SYSTEM (Mobile & Tablet)
+    --------------------------------------- */
+    @media (max-width: 768px) {
+      body { padding: 0 1rem 3.5rem; }
+
+      /* เมนูเลื่อนแนวนอนแบบ iOS */
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.5rem 0;
+        margin-bottom: 2rem;
+      }
+      .nav-links {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.5rem;
+        gap: 1.25rem;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+
+      h1 { font-size: 1.85rem; }
+      h2 { font-size: 1.45rem; margin: 2.5rem 0 1.25rem; }
+      .page-desc { font-size: 1rem; margin-bottom: 2rem; }
+
+      /* ปรับการ์ดประสบการณ์ให้กระชับบนมือถือ */
+      .exp-card {
+        padding: 1.5rem 1.25rem;
+        border-radius: 16px;
+      }
+      .exp-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .exp-title { font-size: 1.2rem; }
+      .exp-company { font-size: 0.95rem; margin-bottom: 0.25rem; }
+      .exp-list { font-size: 0.95rem; margin-top: 1rem; }
+
+      /* กิจกรรมจัดเรียง 1 คอลัมน์ ไม่ล้นจอ */
+      .act-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .act-card {
+        padding: 1.25rem;
+        border-radius: 14px;
+      }
+    }
   </style>
 </head>
 <body>
