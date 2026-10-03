@@ -88,6 +88,57 @@
     .data-item p { margin: 0 0 0.2rem 0; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
     .data-item strong { font-size: 1rem; }
 
+    /* Bottom Page Navigation */
+    .page-nav {
+      margin-top: 4.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--surface-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .nav-card {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 1.2rem 1.8rem;
+      border-radius: 16px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
+      min-width: 220px;
+    }
+    .nav-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .nav-card.prev { text-align: left; }
+    .nav-card.next {
+      margin-left: auto;
+      text-align: right;
+      background: var(--text);
+      color: var(--bg) !important;
+      border-color: var(--text);
+    }
+    .nav-card.next .nav-sub { color: rgba(255, 255, 255, 0.7); }
+    .nav-card.next .nav-title { color: #ffffff !important; }
+    .nav-sub {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .nav-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       body { padding: 0 1.25rem 3.5rem; }
@@ -118,6 +169,19 @@
       .doc-section { padding: 1.5rem 1.25rem; border-radius: 16px; margin-bottom: 1.75rem; }
       .btn { width: 100%; text-align: center; }
       .data-grid { grid-template-columns: 1fr; gap: 1rem; padding: 1.25rem; }
+
+      .page-nav {
+        flex-direction: column;
+        gap: 0.85rem;
+        margin-top: 3.5rem;
+        padding-top: 1.75rem;
+      }
+      .nav-card {
+        width: 100%;
+        text-align: center !important;
+        padding: 1.1rem 1.25rem;
+      }
+      .nav-card.next { margin-left: 0; }
     }
   </style>
 </head>
@@ -195,6 +259,18 @@
 
       <a href="Transcript_pawaris_chanchoo.pdf" target="_blank" class="btn">
         📥 ดาวน์โหลด Official Transcript PDF
+      </a>
+    </div>
+
+    <!-- แถบนำทางท้ายหน้า -->
+    <div class="page-nav">
+      <a href="awards.html" class="nav-card prev">
+        <span class="nav-sub">ย้อนกลับ • Previous</span>
+        <span class="nav-title">⬅ นวัตกรรม & รางวัล</span>
+      </a>
+      <a href="index.html" class="nav-card next">
+        <span class="nav-sub">สิ้นสุด • Back to Top</span>
+        <span class="nav-title">กลับสู่หน้าแรก (About) ↺</span>
       </a>
     </div>
 
