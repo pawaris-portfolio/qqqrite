@@ -103,6 +103,57 @@
     }
     .btn-external:hover { background: #e5e5ea; transform: scale(1.02); }
 
+    /* Bottom Page Navigation */
+    .page-nav {
+      margin-top: 4.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--surface-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .nav-card {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 1.2rem 1.8rem;
+      border-radius: 16px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
+      min-width: 220px;
+    }
+    .nav-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .nav-card.prev { text-align: left; }
+    .nav-card.next {
+      margin-left: auto;
+      text-align: right;
+      background: var(--text);
+      color: var(--bg) !important;
+      border-color: var(--text);
+    }
+    .nav-card.next .nav-sub { color: rgba(255, 255, 255, 0.7); }
+    .nav-card.next .nav-title { color: #ffffff !important; }
+    .nav-sub {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .nav-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       body { padding: 0 1.25rem 3.5rem; }
@@ -133,6 +184,19 @@
       .work-card { padding: 1.25rem; border-radius: 16px; }
       .video-action .btn-external { width: 100%; text-align: center; padding: 0.75rem 1rem; }
       .video-wrapper { height: 550px; }
+
+      .page-nav {
+        flex-direction: column;
+        gap: 0.85rem;
+        margin-top: 3.5rem;
+        padding-top: 1.75rem;
+      }
+      .nav-card {
+        width: 100%;
+        text-align: center !important;
+        padding: 1.1rem 1.25rem;
+      }
+      .nav-card.next { margin-left: 0; }
     }
   </style>
 </head>
@@ -312,10 +376,22 @@
       </div>
 
     </div>
+
+    <!-- แถบนำทางท้ายหน้า -->
+    <div class="page-nav">
+      <a href="experience.html" class="nav-card prev">
+        <span class="nav-sub">ย้อนกลับ • Previous</span>
+        <span class="nav-title">⬅ ประสบการณ์ & กิจกรรม</span>
+      </a>
+      <a href="awards.html" class="nav-card next">
+        <span class="nav-sub">ถัดไป • Next Chapter</span>
+        <span class="nav-title">นวัตกรรม & รางวัล ➔</span>
+      </a>
+    </div>
+
   </div>
 
   <script>
-    // สลับเปิด-ปิด Mobile Menu
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
 
@@ -324,7 +400,6 @@
       navLinks.classList.toggle('open');
     });
 
-    // โหลดวิดีโอ TikTok เมื่อแตะปุ่ม Play
     function playTikTok(containerId, videoId) {
       const container = document.getElementById(containerId);
       container.innerHTML = `<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@/video/${videoId}" data-video-id="${videoId}" style="max-width: 100%; min-width: 100%; margin: 0; padding: 0;"><section></section></blockquote>`;
