@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CAP+ PWC Marketing Team · AI Agent Structure | Pawaris Chanchoo</title>
+<title>CAP+ PWC Marketing Team · AI Agent Structure</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
@@ -209,32 +209,4 @@ html:`<div class="sop"><h4>SOP A: หาหลีดใหม่ (Outbound)</h4>
 <div class="sop"><h4>SOP B: ให้เกรดหลีด (Inbound)</h4><ul><li><b>A (10-12):</b> พร้อมขาย มีลูกค้าในมือ หรือเป็นกลุ่มหลัก</li><li><b>B (7-9):</b> มีศักยภาพ ต้องอบรม/ดูแลต่อ</li><li><b>C (1-6):</b> ยังไม่พร้อม หรือแค่ดูข้อมูล</li></ul></div>
 <div class="sop"><h4>SOP C: สรุปผลโทร</h4><span class="tag">cap-report</span><p>รายงาน + Google Slides 4 หน้า: โทรกี่ราย ติดต่อได้กี่ราย หลีดกลายเป็นตัวแทนกี่ราย ติดปัญหาอะไร</p></div>
 <div class="sop"><h4>SOP D: อ่านผลแอด</h4><span class="tag">idea-readout</span><span class="tag">performance-report</span><ul><li>CPL แยกตามแอด + สัดส่วนเกรด A/B</li><li>จังหวัด/กลุ่มที่ได้เกรด A มากที่สุด</li><li>หลีดสำหรับทำ Lookalike และรีทาร์เก็ตเข้า LINE OA</li></ul></div>
-<h5>Insight Brief (ส่งต่อให้ Campaign Planner)</h5><ol><li>สรุป 3 บรรทัด</li><li>ตัวเลขหลัก: หลีด, CPL, สัดส่วน A/B/C, จำนวนที่กลายเป็นตัวแทน</li><li>Top 3 คอนเทนต์ที่ได้เกรด A</li><li>กลุ่ม/จังหวัดที่ควรโฟกัส</li><li>Audience ที่พร้อมใช้</li></ol>
-<h5>Gate 1</h5><ul class="check"><li>ทุกตัวเลขบอกได้ว่ามาจากแหล่งไหน</li><li>ใช้เกรดตามเกณฑ์ 1-12</li><li>ไม่มีหลีดซ้ำในรายชื่อพร้อมโทร</li><li>มีข้อเสนอที่นำไปทำต่อได้จริง</li></ul>`},
-B:{title:"นักวางแผนแคมเปญ",role:"Campaign Planner · น้องแผน",spec:[["name","pwc-campaign-planner"],["description","ใช้เมื่อต้องวางแผนแอดรายเดือน ตั้ง CPL หรือออกแบบการทดลองแคมเปญ"],["model","sonnet"],["intro","นักวางแผน Performance Marketing ของ CAP+ คิดจาก CIR%, CPL และ Funnel วางแผนพาร์ทเนอร์คู่กับ Own Channel"],["connector","Meta Ads · Google Drive (Action Plan) · Insight Brief จาก Lead Analyst"]],
-html:`<div class="sop"><h4>SOP A: แผนแอดรายเดือน</h4><span class="tag">script-to-ads-planner-v2</span><span class="tag">sniper-content</span><ol><li>รับ Insight Brief</li><li>วาง Persona → Pain → Funnel (Cold / Warm / Hot / Repeat)</li><li>แบ่งงบตาม Funnel และกลุ่มพาร์ทเนอร์</li></ol></div>
-<div class="sop"><h4>SOP B: คำนวณเพดาน CPL</h4><p>คำนวณย้อนจากงบ: งบ ÷ CIR% = ยอดขายเป้า → ÷ ค่าเฉลี่ยต่อดีล = จำนวนดีล → ÷ อัตราปิด = จำนวนหลีด → งบ ÷ หลีด = CPL สูงสุด</p></div>
-<div class="sop"><h4>SOP C: ตั้งการทดลอง</h4><span class="tag">idea-test-card</span><p>กำหนดเกณฑ์ผ่าน/หยุด งบสูงสุด และวันอ่านผล ก่อนยิงแอดใหม่</p></div>
-<h5>Output</h5><p>แผนแอดรายเดือน + Brief คอนเทนต์ (กลุ่ม, Pain, Funnel, จำนวนชิ้น) ส่งให้ Content Creator</p>
-<h5>Gate 2</h5><ul class="check"><li>CPL/CIR คำนวณถูก ใช้ตัวเลขจริง</li><li>วางแผนคู่กับ Own Channel</li><li>มีเกณฑ์ผ่าน/หยุดทุกการทดลอง</li></ul>`},
-C:{title:"นักสร้างคอนเทนต์",role:"Content Creator · น้องคอนเทนต์",spec:[["name","pwc-content-creator"],["description","ใช้เมื่อต้องเขียนสคริปต์ แคปชัน หรือข้อความ Lead Ads ของ CAP+"],["model","sonnet"],["persona","คุณนุ่น"],["connector","Project docs: CirQ Plus KB, FAQ, คีย์เมสเสจ, Brand Guideline"]],
-html:`<div class="sop"><h4>SOP A: สคริปต์วิดีโอ/แอด</h4><span class="tag">capplus-content</span><ul><li>บอกให้ชัดตั้งแต่ต้นว่า CAP+ คืออะไร</li><li>Hook ดึงกลุ่มเป้าหมายตรงๆ หลายคลิปในชุดเดียว Hook ต้องไม่ซ้ำแบบ</li><li>เน้น Hard Sale ภาษาไทยตรงไปตรงมา</li></ul></div>
-<div class="sop"><h4>SOP B: แคปชันและข้อความ Lead Ads</h4><p>แยก 3 กลุ่ม: ร้านแอร์ · สถาปนิก/ดีไซเนอร์ · ตัวแทน พร้อม CTA ให้กรอกฟอร์มแล้วแอด LINE</p></div>
-<div class="sop"><h4>SOP C: ตรวจภาษาและแบรนด์</h4><span class="tag">humanizer</span><span class="tag">brand-review</span><p>ตัดสำนวน AI และตรวจกับ Brand Guideline ก่อนส่ง</p></div>
-<h5>Gate 3</h5><ul class="check"><li>ตรงคีย์เมสเสจ CAP+ / CirQ Plus</li><li>ไม่อ้างสเปก ตัวเลข หรือรีวิวที่ไม่มีหลักฐาน</li><li>มี CTA ชัด</li></ul>`},
-D:{title:"หัวหน้าโปรดักชัน",role:"Production Lead · น้องโปรดักชัน",spec:[["name","pwc-production-lead"],["description","ใช้เมื่อสคริปต์ผ่าน Gate 3 แล้วต้องทำเป็นชิ้นงานจริง"],["model","sonnet"],["intro","Production Lead ของ CAP+ เปลี่ยนสคริปต์และข้อมูลให้เป็นไฟล์พร้อมใช้ ยึด Template แบบเป๊ะๆ"],["connector","Google Drive (ฟุตเทจ แปลน ไฟล์งาน) · Project docs (Template Spec, Product KB)"]],
-html:`<div class="sop"><h4>SOP A: Storyboard / Edit Script</h4><span class="tag">cap-storyboard-v2</span><ol><li>ถามสัดส่วนคลิปก่อน (9:16 หรือ 16:9)</li><li>แบ่งท่อน Hook → ปัญหา → CAP+ คืออะไร → จุดเด่น → CTA</li><li>ใส่ภาพ, VO, Text on screen ต่อช็อต</li><li>ส่ง PDF ตาม Template CAP Storyboard (ท้ายเป็น Caption & Hashtag)</li></ol></div>
-<div class="sop"><h4>SOP B: ตรวจเสียงและจังหวะ</h4><span class="tag">earshot-listen</span><p>ตรวจเสียงเงียบ/ดังผิดจังหวะ เสียงตรงจุดตัด SFX ทับ VO · ส่งรายการแก้พร้อม timecode</p></div>
-<div class="sop"><h4>SOP C: Sales Kit / เดคพาร์ทเนอร์</h4><span class="tag">capplus-sniper-presentation</span><p>เดคแยก 3 กลุ่ม + Sales Cheat Sheet</p></div>
-<div class="sop"><h4>SOP D: แปลนและเอกสารงานระบบ</h4><span class="tag">cap-drawing</span><p>สไลด์แปลนมาตรฐาน CAP+ (ERV: Cap V2 / PPV: Cap Air) และ CAD Kit</p></div>
-<h5>Gate 4</h5><ul class="check"><li>ตรง Template 100%</li><li>สัดส่วนคลิปถูกต้อง</li><li>VO/Text ตรงกับสคริปต์ที่ผ่าน Gate 3</li><li>ข้อมูลสินค้าตรง Product KB</li><li>มี CTA และ Caption & Hashtag ครบ</li></ul>
-<h5>ส่งงานต่อ</h5><p>ถ้าฟุตเทจไม่พอ ให้แจ้ง M เพื่อส่งกลับไปปรับสคริปต์ D ไม่แก้สคริปต์เอง</p>`}
-};
-const box=document.getElementById('detail');
-function show(id){const d=D[id];document.querySelectorAll('.node').forEach(n=>n.classList.toggle('active',n.dataset.id===id));
-box.innerHTML=`<h3>${d.title}</h3><div class="role">${d.role}</div><div class="spec">${d.spec.map(([k,v])=>`<div>${k}</div><div>${v}</div>`).join('')}</div>${d.html}`;}
-document.querySelectorAll('.node').forEach(n=>n.addEventListener('click',()=>{show(n.dataset.id);box.scrollIntoView({behavior:'smooth',block:'start'})}));
-show('M');
-</script>
-</body>
-</html>
+<h5>Insight Brief (ส่งต่อให้ Campaign Planner)</h5><ol><li>สรุป
