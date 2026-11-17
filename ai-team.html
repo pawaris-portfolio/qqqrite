@@ -159,4 +159,82 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <tr><td>1. รับโจทย์ แตกงาน</td><td>ไปร์ท → Marketing Lead</td><td>โจทย์มีเป้าที่วัดได้</td></tr>
 <tr><td>2. ข้อมูลและหลีด</td><td>Lead Analyst</td><td>Gate 1: ตัวเลขมาจากข้อมูลจริง ไม่มีหลีดซ้ำ</td></tr>
 <tr><td>3. วางแผนแคมเปญ</td><td>Campaign Planner</td><td>Gate 2: CPL/CIR คำนวณถูก วางแผนคู่กับ Own Channel</td></tr>
-<tr><td>4. เขียนคอนเทนต์</td><td>Content Creator</td><td>Gate 3: ตรงคีย์เมสเสจ ไม่อ้างสิ่งที่ไม่มีหลักฐาน</td>
+<tr><td>4. เขียนคอนเทนต์</td><td>Content Creator</td><td>Gate 3: ตรงคีย์เมสเสจ ไม่อ้างสิ่งที่ไม่มีหลักฐาน</td></tr>
+<tr><td>5. ผลิตชิ้นงาน</td><td>Production Lead</td><td>Gate 4: ตรง Template ข้อมูลสินค้าตรง KB</td></tr>
+<tr><td>6. อนุมัติและปล่อยงาน</td><td>ไปร์ท</td><td>Approval สุดท้าย</td></tr>
+<tr><td>7. วัดผล วนรอบ</td><td>Lead Analyst → Marketing Lead</td><td>ผลแอด + ผลโทร เป็น Input รอบถัดไป</td></tr>
+</table>
+</section>
+
+<section>
+<h2>4. ส่วนที่ทำให้เป็น Department</h2>
+<div class="grid g3">
+<div class="card"><b>Goal</b><span class="small">จำนวนพาร์ทเนอร์ใหม่ต่อเดือน · จำนวนหลีดเกรด A · เพดาน CPL</span></div>
+<div class="card"><b>Rules</b><span class="small">Brand Guideline · คีย์เมสเสจ CAP+ / CirQ Plus · ห้ามแต่งตัวเลขหรือรีวิว · วางแผนพาร์ทเนอร์คู่กับ Own Channel เสมอ</span></div>
+<div class="card"><b>Approval</b><span class="small">ไปร์ทอนุมัติทุกครั้งก่อนงานออกนอกทีม</span></div>
+</div>
+</section>
+
+<section>
+<h2>5. ชื่อใน Plugin และ Commands</h2>
+<table>
+<tr><th>ตำแหน่ง</th><th>name</th><th>Commands</th></tr>
+<tr><td>Marketing Lead</td><td><code>pwc-marketing-lead</code></td><td><code>/pwc-plan</code></td></tr>
+<tr><td>Lead Analyst</td><td><code>pwc-lead-analyst</code></td><td><code>/pwc-hunt</code> <code>/pwc-grade</code> <code>/pwc-call-report</code> <code>/pwc-insight</code></td></tr>
+<tr><td>Campaign Planner</td><td><code>pwc-campaign-planner</code></td><td><code>/pwc-ads-plan</code> <code>/pwc-cpl</code> <code>/pwc-test</code></td></tr>
+<tr><td>Content Creator</td><td><code>pwc-content-creator</code></td><td><code>/pwc-script</code> <code>/pwc-caption</code> <code>/pwc-leadads</code></td></tr>
+<tr><td>Production Lead</td><td><code>pwc-production-lead</code></td><td><code>/pwc-storyboard</code> <code>/pwc-audio-check</code> <code>/pwc-deck</code> <code>/pwc-plan-drawing</code></td></tr>
+</table>
+</section>
+</main>
+<footer>CAP+ (Capplus Thailand) · PWC Marketing Partnership · อัปเดต พ.ย. 2026</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+
+const D={
+human:{title:"ไปร์ท · GM Marketing",role:"เจ้าของโจทย์และผู้อนุมัติสุดท้าย (Human in the loop)",spec:[["บทบาท","ให้โจทย์ · ตั้ง Goal · อนุมัติผลลัพธ์"],["อนุมัติเมื่อ","งานผ่าน Gate 1-4 ครบ และตรงเป้าของรอบนั้น"]],
+html:`<h5>สิ่งที่ไปร์ทตัดสินใจเอง</h5><ul><li>เป้าหมายรายเดือน (จำนวนพาร์ทเนอร์ หลีดเกรด A เพดาน CPL)</li><li>งบแอดและการแบ่งงบ</li><li>อนุมัติคอนเทนต์/แอดก่อนปล่อยออกนอกทีม</li></ul>`},
+M:{title:"หัวหน้าการตลาดพาร์ทเนอร์",role:"Marketing Lead (Orchestrator) · M",spec:[["name","pwc-marketing-lead"],["description","ใช้เมื่อได้โจทย์การตลาดหรือหาพาร์ทเนอร์ของ CAP+"],["model","opus (ต้องคิดและตัดสินใจ)"],["skills","dream-marketing-manager-capplus + Orchestrator Skill (ต้องเขียนเพิ่ม)"],["connector","Project docs: Action Plan 2027, คีย์เมสเสจ, Brand Guideline"]],
+html:`<div class="sop"><h4>Orchestrator: รับโจทย์ → แจกงาน → ตรวจ → ส่งมอบ</h4><ol><li>อ่านโจทย์จากไปร์ท แปลงเป็นเป้าที่วัดได้</li><li>แตกงานให้ A → B → C → D ตามลำดับ</li><li>ตรวจงานที่ Gate 1-4 ถ้าไม่ผ่านให้ส่งกลับพร้อมเหตุผล</li><li>รวมเป็นแผนเดียว ส่งไปร์ทอนุมัติ</li><li>รับผลแอดและ feedback เซลมาเริ่มรอบใหม่</li></ol></div>
+<h5>Rules</h5><ul><li>แผนพาร์ทเนอร์ต้องวางคู่กับ Own Channel เสมอ</li><li>ไม่ข้าม Gate แม้งานจะเร่ง</li><li>ไม่ปล่อยงานออกนอกทีมโดยไม่ผ่านไปร์ท</li></ul>
+<h5>Output</h5><p>แผนการตลาดฉบับเดียว: Insight → แผนแอด → คอนเทนต์ → ชิ้นงานพร้อมใช้</p>`},
+A:{title:"นักวิเคราะห์หลีด",role:"Lead Analyst · น้องอินไซต์",spec:[["name","pwc-lead-analyst"],["description","ใช้เมื่อต้องหาหลีด คัดหลีด หรืออ่านผลแอด/ผลโทร"],["model","sonnet"],["intro","นักวิเคราะห์หลีด B2B ของ CAP+ ดูแล 3 ช่องทาง (Own Channel B2B, Agent, Partnership) ทุกข้อสรุปต้องอ้างข้อมูลจริง"],["connector","Google Sheets (CAP+ Partner CRM, CAP Lead Record, ผลโทร) · Meta Ads · Google Slides"]],
+html:`<div class="sop"><h4>SOP A: หาหลีดใหม่ (Outbound)</h4><span class="tag">cap-hunt</span><span class="tag">cap-filter</span><ol><li>หาธุรกิจเป้าหมายตามจังหวัดเป็น raw list</li><li>ตัดซ้ำกับ CRM ให้คะแนน 0-100</li><li>แยก "พร้อมโทร" กับ "คัดออก/ซ้ำ" (ไม่ลบหลีดทิ้ง)</li></ol></div>
+<div class="sop"><h4>SOP B: ให้เกรดหลีด (Inbound)</h4><ul><li><b>A (10-12):</b> พร้อมขาย มีลูกค้าในมือ หรือเป็นกลุ่มหลัก</li><li><b>B (7-9):</b> มีศักยภาพ ต้องอบรม/ดูแลต่อ</li><li><b>C (1-6):</b> ยังไม่พร้อม หรือแค่ดูข้อมูล</li></ul></div>
+<div class="sop"><h4>SOP C: สรุปผลโทร</h4><span class="tag">cap-report</span><p>รายงาน + Google Slides 4 หน้า: โทรกี่ราย ติดต่อได้กี่ราย หลีดกลายเป็นตัวแทนกี่ราย ติดปัญหาอะไร</p></div>
+<div class="sop"><h4>SOP D: อ่านผลแอด</h4><span class="tag">idea-readout</span><span class="tag">performance-report</span><ul><li>CPL แยกตามแอด + สัดส่วนเกรด A/B</li><li>จังหวัด/กลุ่มที่ได้เกรด A มากที่สุด</li><li>หลีดสำหรับทำ Lookalike และรีทาร์เก็ตเข้า LINE OA</li></ul></div>
+<h5>Insight Brief (ส่งต่อให้ Campaign Planner)</h5><ol><li>สรุป 3 บรรทัด</li><li>ตัวเลขหลัก: หลีด, CPL, สัดส่วน A/B/C, จำนวนที่กลายเป็นตัวแทน</li><li>Top 3 คอนเทนต์ที่ได้เกรด A</li><li>กลุ่ม/จังหวัดที่ควรโฟกัส</li><li>Audience ที่พร้อมใช้</li></ol>
+<h5>Gate 1</h5><ul class="check"><li>ทุกตัวเลขบอกได้ว่ามาจากแหล่งไหน</li><li>ใช้เกรดตามเกณฑ์ 1-12</li><li>ไม่มีหลีดซ้ำในรายชื่อพร้อมโทร</li><li>มีข้อเสนอที่นำไปทำต่อได้จริง</li></ul>`},
+B:{title:"นักวางแผนแคมเปญ",role:"Campaign Planner · น้องแผน",spec:[["name","pwc-campaign-planner"],["description","ใช้เมื่อต้องวางแผนแอดรายเดือน ตั้ง CPL หรือออกแบบการทดลองแคมเปญ"],["model","sonnet"],["intro","นักวางแผน Performance Marketing ของ CAP+ คิดจาก CIR%, CPL และ Funnel วางแผนพาร์ทเนอร์คู่กับ Own Channel"],["connector","Meta Ads · Google Drive (Action Plan) · Insight Brief จาก Lead Analyst"]],
+html:`<div class="sop"><h4>SOP A: แผนแอดรายเดือน</h4><span class="tag">script-to-ads-planner-v2</span><span class="tag">sniper-content</span><ol><li>รับ Insight Brief</li><li>วาง Persona → Pain → Funnel (Cold / Warm / Hot / Repeat)</li><li>แบ่งงบตาม Funnel และกลุ่มพาร์ทเนอร์</li></ol></div>
+<div class="sop"><h4>SOP B: คำนวณเพดาน CPL</h4><p>คำนวณย้อนจากงบ: งบ ÷ CIR% = ยอดขายเป้า → ÷ ค่าเฉลี่ยต่อดีล = จำนวนดีล → ÷ อัตราปิด = จำนวนหลีด → งบ ÷ หลีด = CPL สูงสุด</p></div>
+<div class="sop"><h4>SOP C: ตั้งการทดลอง</h4><span class="tag">idea-test-card</span><p>กำหนดเกณฑ์ผ่าน/หยุด งบสูงสุด และวันอ่านผล ก่อนยิงแอดใหม่</p></div>
+<h5>Output</h5><p>แผนแอดรายเดือน + Brief คอนเทนต์ (กลุ่ม, Pain, Funnel, จำนวนชิ้น) ส่งให้ Content Creator</p>
+<h5>Gate 2</h5><ul class="check"><li>CPL/CIR คำนวณถูก ใช้ตัวเลขจริง</li><li>วางแผนคู่กับ Own Channel</li><li>มีเกณฑ์ผ่าน/หยุดทุกการทดลอง</li></ul>`},
+C:{title:"นักสร้างคอนเทนต์",role:"Content Creator · น้องคอนเทนต์",spec:[["name","pwc-content-creator"],["description","ใช้เมื่อต้องเขียนสคริปต์ แคปชัน หรือข้อความ Lead Ads ของ CAP+"],["model","sonnet"],["persona","คุณนุ่น"],["connector","Project docs: CirQ Plus KB, FAQ, คีย์เมสเสจ, Brand Guideline"]],
+html:`<div class="sop"><h4>SOP A: สคริปต์วิดีโอ/แอด</h4><span class="tag">capplus-content</span><ul><li>บอกให้ชัดตั้งแต่ต้นว่า CAP+ คืออะไร</li><li>Hook ดึงกลุ่มเป้าหมายตรงๆ หลายคลิปในชุดเดียว Hook ต้องไม่ซ้ำแบบ</li><li>เน้น Hard Sale ภาษาไทยตรงไปตรงมา</li></ul></div>
+<div class="sop"><h4>SOP B: แคปชันและข้อความ Lead Ads</h4><p>แยก 3 กลุ่ม: ร้านแอร์ · สถาปนิก/ดีไซเนอร์ · ตัวแทน พร้อม CTA ให้กรอกฟอร์มแล้วแอด LINE</p></div>
+<div class="sop"><h4>SOP C: ตรวจภาษาและแบรนด์</h4><span class="tag">humanizer</span><span class="tag">brand-review</span><p>ตัดสำนวน AI และตรวจกับ Brand Guideline ก่อนส่ง</p></div>
+<h5>Gate 3</h5><ul class="check"><li>ตรงคีย์เมสเสจ CAP+ / CirQ Plus</li><li>ไม่อ้างสเปก ตัวเลข หรือรีวิวที่ไม่มีหลักฐาน</li><li>มี CTA ชัด</li></ul>`},
+D:{title:"หัวหน้าโปรดักชัน",role:"Production Lead · น้องโปรดักชัน",spec:[["name","pwc-production-lead"],["description","ใช้เมื่อสคริปต์ผ่าน Gate 3 แล้วต้องทำเป็นชิ้นงานจริง"],["model","sonnet"],["intro","Production Lead ของ CAP+ เปลี่ยนสคริปต์และข้อมูลให้เป็นไฟล์พร้อมใช้ ยึด Template แบบเป๊ะๆ"],["connector","Google Drive (ฟุตเทจ แปลน ไฟล์งาน) · Project docs (Template Spec, Product KB)"]],
+html:`<div class="sop"><h4>SOP A: Storyboard / Edit Script</h4><span class="tag">cap-storyboard-v2</span><ol><li>ถามสัดส่วนคลิปก่อน (9:16 หรือ 16:9)</li><li>แบ่งท่อน Hook → ปัญหา → CAP+ คืออะไร → จุดเด่น → CTA</li><li>ใส่ภาพ, VO, Text on screen ต่อช็อต</li><li>ส่ง PDF ตาม Template CAP Storyboard (ท้ายเป็น Caption & Hashtag)</li></ol></div>
+<div class="sop"><h4>SOP B: ตรวจเสียงและจังหวะ</h4><span class="tag">earshot-listen</span><p>ตรวจเสียงเงียบ/ดังผิดจังหวะ เสียงตรงจุดตัด SFX ทับ VO · ส่งรายการแก้พร้อม timecode</p></div>
+<div class="sop"><h4>SOP C: Sales Kit / เดคพาร์ทเนอร์</h4><span class="tag">capplus-sniper-presentation</span><p>เดคแยก 3 กลุ่ม + Sales Cheat Sheet</p></div>
+<div class="sop"><h4>SOP D: แปลนและเอกสารงานระบบ</h4><span class="tag">cap-drawing</span><p>สไลด์แปลนมาตรฐาน CAP+ (ERV: Cap V2 / PPV: Cap Air) และ CAD Kit</p></div>
+<h5>Gate 4</h5><ul class="check"><li>ตรง Template 100%</li><li>สัดส่วนคลิปถูกต้อง</li><li>VO/Text ตรงกับสคริปต์ที่ผ่าน Gate 3</li><li>ข้อมูลสินค้าตรง Product KB</li><li>มี CTA และ Caption & Hashtag ครบ</li></ul>
+<h5>ส่งงานต่อ</h5><p>ถ้าฟุตเทจไม่พอ ให้แจ้ง M เพื่อส่งกลับไปปรับสคริปต์ D ไม่แก้สคริปต์เอง</p>`}
+};
+const box=document.getElementById('detail');
+function show(id){const d=D[id];document.querySelectorAll('.node').forEach(n=>n.classList.toggle('active',n.dataset.id===id));
+box.innerHTML=`<h3>${d.title}</h3><div class="role">${d.role}</div><div class="spec">${d.spec.map(([k,v])=>`<div>${k}</div><div>${v}</div>`).join('')}</div>${d.html}`;}
+document.querySelectorAll('.node').forEach(n=>n.addEventListener('click',()=>{show(n.dataset.id);box.scrollIntoView({behavior:'smooth',block:'start'})}));
+show('M');
+</script>
+</body>
+</html>
