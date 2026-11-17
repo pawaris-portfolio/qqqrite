@@ -1,100 +1,183 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Featured Works | Pawaris Chanchoo</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --surface: #ffffff;
-      --surface-border: rgba(0, 0, 0, 0.06);
-      --accent: #0066cc;
-      --text: #1d1d1f;
-      --text-muted: #86868b;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background-color: var(--bg); color: var(--text); font-family: 'Sarabun', sans-serif; line-height: 1.7; padding: 0 1.5rem 5rem; }
-    .container { max-width: 1040px; margin: 0 auto; }
-    
-    /* Navigation Bar */
-    nav { 
-      display: flex; justify-content: space-between; align-items: center; 
-      padding: 2.2rem 0; border-bottom: 1px solid var(--surface-border); 
-      margin-bottom: 3.5rem; position: relative; 
-    }
-    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.2s; }
-    .nav-links a.active, .nav-links a:hover { color: var(--text); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAP+ PWC Marketing Team · AI Agent Structure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1b3d;--muted:#5a6480;--line:#d9dfec;--bg:#f6f8fc;--card:#fff;--navy:#1a3a8f;--lead:#ece9fe;--lead-b:#6b5fd6;--sub:#e3f5ee;--sub-b:#1d9e75;--gray:#f1f2f5}
+*{box-sizing:border-box}
+body{margin:0;font-family:"IBM Plex Sans Thai",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+header{background:var(--navy);color:#fff;padding:40px 24px 32px;text-align:center}
+header h1{margin:0 0 6px;font-size:28px;font-weight:600}
+header p{margin:0;opacity:.85}
+main{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+section{margin-bottom:36px}
+h2{font-size:21px;font-weight:600;margin:0 0 14px}
+.grid{display:grid;gap:12px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.card b{display:block;margin-bottom:4px}
+.small{font-size:14px;color:var(--muted)}
+.org{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;align-items:stretch}
+.node{border-radius:12px;padding:12px 14px;text-align:center;cursor:pointer;transition:transform .15s,box-shadow .15s;border:1.5px solid transparent;min-width:170px}
+.node:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(15,27,61,.1)}
+.node.active{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--navy)}
+.node .t{font-weight:600}
+.node .s{font-size:13px;opacity:.8}
+.node .n{font-size:12px;margin-top:2px;opacity:.7}
+.lead{background:var(--lead);border-color:var(--lead-b);color:#2b2470;min-width:280px}
+.sub{background:var(--sub);border-color:var(--sub-b);color:#08503f;flex:1;max-width:220px}
+.human{background:var(--gray);border-color:#b9bdc8;color:#2c2f38}
+.connector{text-align:center;color:var(--muted);font-size:13px;margin:8px 0}
+.arrow{display:flex;align-items:center;color:var(--muted);font-size:12px;flex-direction:column;justify-content:center}
+.pipe{display:flex;gap:8px;align-items:stretch;justify-content:center;flex-wrap:wrap}
+.loop{text-align:center;color:var(--muted);font-size:14px;margin-top:14px}
+#detail{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:18px}
+#detail h3{margin:0;font-size:22px}
+#detail .role{color:var(--muted);margin-bottom:14px}
+.spec{display:grid;grid-template-columns:140px 1fr;gap:6px 14px;background:var(--bg);border-radius:10px;padding:14px;font-size:14px;margin-bottom:16px}
+.spec div:nth-child(odd){color:var(--muted)}
+code{background:#eef1f8;border-radius:4px;padding:1px 6px;font-size:13px}
+.sop{border-left:3px solid var(--sub-b);padding:4px 0 4px 14px;margin:12px 0}
+.sop h4{margin:0 0 4px;font-size:16px}
+ul,ol{margin:4px 0;padding-left:22px}
+.tag{display:inline-block;background:#eef1f8;border-radius:20px;padding:2px 10px;font-size:13px;margin:2px 4px 2px 0}
+.check li{list-style:none;margin-left:-22px}
+.check li::before{content:"☐ ";color:var(--sub-b)}
+h5{font-size:15px;margin:18px 0 6px}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left}
+th{background:#eef1f8;font-weight:600}
+.back-btn{display:inline-block;margin-bottom:20px;background:#fff;color:var(--navy);text-decoration:none;padding:8px 16px;border-radius:8px;border:1px solid var(--line);font-weight:600;font-size:14px;}
+.back-btn:hover{background:#f0f4ff;}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+@media(max-width:760px){.g4,.g3{grid-template-columns:1fr 1fr}.spec{grid-template-columns:1fr}.sub{max-width:none;min-width:45%}}
+</style>
+</head>
+<body>
+<header>
+<h1>CAP+ PWC Marketing Team</h1>
+<p>โครงสร้างทีม AI แบบ 1 Lead Agent + 4 Sub Agents + Workflow · อ้างอิงกรอบ Agentic AI for Marketing (AEIOU)</p>
+</header>
+<main>
 
-    /* Mobile Hamburger Button */
-    .menu-toggle {
-      display: none; background: none; border: none; cursor: pointer; padding: 0.5rem;
-      flex-direction: column; gap: 6px;
-    }
-    .menu-toggle span {
-      display: block; width: 22px; height: 2px; background-color: var(--text);
-      transition: all 0.3s ease; border-radius: 2px;
-    }
+<div style="margin-bottom: 20px;">
+  <a href="works.html" class="back-btn">⬅ กลับสู่หน้าผลงานคอนเทนต์</a>
+</div>
 
-    /* Typography */
-    h1, h2, h3, strong { color: var(--text) !important; letter-spacing: -0.5px; }
-    h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
-    .page-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.15rem; }
-    
-    /* PDF Banner */
-    .pdf-banner {
-      margin-bottom: 3rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
-      background: var(--surface); padding: 1.5rem 2rem; border-radius: 20px; 
-      border: 1px solid var(--surface-border); box-shadow: 0 4px 16px rgba(0,0,0,0.03);
-    }
+<section>
+<h2>1. หลักคิด</h2>
+<div class="grid g4">
+<div class="card"><b>Sub Agent = พนักงาน AI 1 คน</b><span class="small">Persona Skill (เป็นใคร) + Action Skill (ทำอะไร) + Connector (ใช้ข้อมูล/เครื่องมืออะไร)</span></div>
+<div class="card"><b>JD 1 ตำแหน่ง ใช้ SOP ได้หลายชุด</b><span class="small">Agent 1 ตัวมีได้หลาย Action Skill ตามงานแต่ละแบบ</span></div>
+<div class="card"><b>Lead Agent = หัวหน้าแผนก</b><span class="small">Orchestrator Skill: รับโจทย์ แจกงาน ตรวจ รวมงาน ส่งมอบ</span></div>
+<div class="card"><b>Team → Department</b><span class="small">Team = Lead + Sub Agents + Workflow<br>Department = Team + Goal + Rules + Approval</span></div>
+</div>
+</section>
 
-    /* Cards Grid */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-    .work-card { 
-      background: var(--surface); border: 1px solid var(--surface-border); 
-      border-radius: 20px; padding: 2rem; box-shadow: 0 4px 24px rgba(0,0,0,0.03); 
-      display: flex; flex-direction: column; justify-content: space-between; 
-      transition: box-shadow 0.3s ease;
-    }
-    .work-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-    
-    .metric-chip { background: rgba(0, 102, 204, 0.08); color: var(--accent); border: none; padding: 0.4rem 1rem; border-radius: 980px; font-weight: 700; font-size: 0.85rem; display: inline-block; margin-bottom: 1rem; letter-spacing: 0.5px; }
-    .work-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; line-height: 1.3; }
-    .work-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
-    
-    /* Smart Video Facade */
-    .video-wrapper { 
-      margin-top: auto; border-radius: 12px; overflow: hidden; 
-      height: 600px; position: relative; border: 1px solid var(--surface-border);
-      background: #ffffff; display: flex; justify-content: center;
-    }
-    
-    .facade {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(145deg, #1d1d1f, #2c2c2e);
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      cursor: pointer; transition: background 0.3s ease; color: #ffffff; z-index: 10;
-    }
-    .facade:hover { background: linear-gradient(145deg, #2c2c2e, #3a3a3c); }
-    
-    .play-btn {
-      width: 64px; height: 64px; background: rgba(255,255,255,0.15); 
-      border-radius: 50%; display: flex; justify-content: center; align-items: center; 
-      backdrop-filter: blur(8px); margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.2);
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-    .play-btn::after { content: "▶"; font-size: 1.5rem; color: #fff; margin-left: 4px; }
-    .facade:hover .play-btn { transform: scale(1.1); background: rgba(255,255,255,0.25); }
-    .facade-text { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; opacity: 0.8; }
-    
-    blockquote.tiktok-embed { margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; min-width: 100% !important; }
+<section>
+<h2>2. ผังทีม <span class="small">(กดที่ตำแหน่งเพื่อดูรายละเอียด)</span></h2>
+<div class="org">
+<div class="row"><div class="node human" data-id="human"><div class="t">ไปร์ท · GM Marketing</div><div class="s">ให้โจทย์ · อนุมัติผลลัพธ์</div></div></div>
+<div class="connector">▼</div>
+<div class="row"><div class="node lead" data-id="M"><div class="t">หัวหน้าการตลาดพาร์ทเนอร์</div><div class="s">Marketing Lead (Orchestrator)</div><div class="n">M</div></div></div>
+<div class="connector">▼ แจกงาน · ตรวจทุก Gate · รวมแผน</div>
+<div class="pipe">
+<div class="node sub" data-id="A"><div class="t">นักวิเคราะห์หลีด</div><div class="s">Lead Analyst</div><div class="n">น้องอินไซต์</div></div>
+<div class="arrow">→<span>Gate 1</span></div>
+<div class="node sub" data-id="B"><div class="t">นักวางแผนแคมเปญ</div><div class="s">Campaign Planner</div><div class="n">น้องแผน</div></div>
+<div class="arrow">→<span>Gate 2</span></div>
+<div class="node sub" data-id="C"><div class="t">นักสร้างคอนเทนต์</div><div class="s">Content Creator</div><div class="n">น้องคอนเทนต์</div></div>
+<div class="arrow">→<span>Gate 3</span></div>
+<div class="node sub" data-id="D"><div class="t">หัวหน้าโปรดักชัน</div><div class="s">Production Lead</div><div class="n">น้องโปรดักชัน</div></div>
+</div>
+<div class="connector">▼ Gate 4 → ไปร์ทอนุมัติ → ยิงแอด / ส่งพาร์ทเนอร์</div>
+<div class="loop">↻ ผลแอดและ feedback จากเซล (เมท, พี) วนกลับไปหา Marketing Lead ในรอบถัดไป</div>
+</div>
+<div id="detail"></div>
+</section>
 
-    /* Action Buttons */
-    .video-action { margin-top: 1.25rem; display: flex; justify-content: center; }
-    .btn-external { 
-      background: var(--bg); color:
+<section>
+<h2>3. Workflow และ Gate</h2>
+<table>
+<tr><th>ขั้น</th><th>ใครทำ</th><th>Gate (M ตรวจ)</th></tr>
+<tr><td>1. รับโจทย์ แตกงาน</td><td>ไปร์ท → Marketing Lead</td><td>โจทย์มีเป้าที่วัดได้</td></tr>
+<tr><td>2. ข้อมูลและหลีด</td><td>Lead Analyst</td><td>Gate 1: ตัวเลขมาจากข้อมูลจริง ไม่มีหลีดซ้ำ</td></tr>
+<tr><td>3. วางแผนแคมเปญ</td><td>Campaign Planner</td><td>Gate 2: CPL/CIR คำนวณถูก วางแผนคู่กับ Own Channel</td></tr>
+<tr><td>4. เขียนคอนเทนต์</td><td>Content Creator</td><td>Gate 3: ตรงคีย์เมสเสจ ไม่อ้างสิ่งที่ไม่มีหลักฐาน</td></tr>
+<tr><td>5. ผลิตชิ้นงาน</td><td>Production Lead</td><td>Gate 4: ตรง Template ข้อมูลสินค้าตรง KB</td></tr>
+<tr><td>6. อนุมัติและปล่อยงาน</td><td>ไปร์ท</td><td>Approval สุดท้าย</td></tr>
+<tr><td>7. วัดผล วนรอบ</td><td>Lead Analyst → Marketing Lead</td><td>ผลแอด + ผลโทร เป็น Input รอบถัดไป</td></tr>
+</table>
+</section>
+
+<section>
+<h2>4. ส่วนที่ทำให้เป็น Department</h2>
+<div class="grid g3">
+<div class="card"><b>Goal</b><span class="small">จำนวนพาร์ทเนอร์ใหม่ต่อเดือน · จำนวนหลีดเกรด A · เพดาน CPL</span></div>
+<div class="card"><b>Rules</b><span class="small">Brand Guideline · คีย์เมสเสจ CAP+ / CirQ Plus · ห้ามแต่งตัวเลขหรือรีวิว · วางแผนพาร์ทเนอร์คู่กับ Own Channel เสมอ</span></div>
+<div class="card"><b>Approval</b><span class="small">ไปร์ทอนุมัติทุกครั้งก่อนงานออกนอกทีม</span></div>
+</div>
+</section>
+
+<section>
+<h2>5. ชื่อใน Plugin และ Commands</h2>
+<table>
+<tr><th>ตำแหน่ง</th><th>name</th><th>Commands</th></tr>
+<tr><td>Marketing Lead</td><td><code>pwc-marketing-lead</code></td><td><code>/pwc-plan</code></td></tr>
+<tr><td>Lead Analyst</td><td><code>pwc-lead-analyst</code></td><td><code>/pwc-hunt</code> <code>/pwc-grade</code> <code>/pwc-call-report</code> <code>/pwc-insight</code></td></tr>
+<tr><td>Campaign Planner</td><td><code>pwc-campaign-planner</code></td><td><code>/pwc-ads-plan</code> <code>/pwc-cpl</code> <code>/pwc-test</code></td></tr>
+<tr><td>Content Creator</td><td><code>pwc-content-creator</code></td><td><code>/pwc-script</code> <code>/pwc-caption</code> <code>/pwc-leadads</code></td></tr>
+<tr><td>Production Lead</td><td><code>pwc-production-lead</code></td><td><code>/pwc-storyboard</code> <code>/pwc-audio-check</code> <code>/pwc-deck</code> <code>/pwc-plan-drawing</code></td></tr>
+</table>
+</section>
+</main>
+<footer>CAP+ (Capplus Thailand) · PWC Marketing Partnership · อัปเดต พ.ย. 2026</footer>
+
+<script>
+const D={
+human:{title:"ไปร์ท · GM Marketing",role:"เจ้าของโจทย์และผู้อนุมัติสุดท้าย (Human in the loop)",spec:[["บทบาท","ให้โจทย์ · ตั้ง Goal · อนุมัติผลลัพธ์"],["อนุมัติเมื่อ","งานผ่าน Gate 1-4 ครบ และตรงเป้าของรอบนั้น"]],
+html:`<h5>สิ่งที่ไปร์ทตัดสินใจเอง</h5><ul><li>เป้าหมายรายเดือน (จำนวนพาร์ทเนอร์ หลีดเกรด A เพดาน CPL)</li><li>งบแอดและการแบ่งงบ</li><li>อนุมัติคอนเทนต์/แอดก่อนปล่อยออกนอกทีม</li></ul>`},
+M:{title:"หัวหน้าการตลาดพาร์ทเนอร์",role:"Marketing Lead (Orchestrator) · M",spec:[["name","pwc-marketing-lead"],["description","ใช้เมื่อได้โจทย์การตลาดหรือหาพาร์ทเนอร์ของ CAP+"],["model","opus (ต้องคิดและตัดสินใจ)"],["skills","dream-marketing-manager-capplus + Orchestrator Skill (ต้องเขียนเพิ่ม)"],["connector","Project docs: Action Plan 2027, คีย์เมสเสจ, Brand Guideline"]],
+html:`<div class="sop"><h4>Orchestrator: รับโจทย์ → แจกงาน → ตรวจ → ส่งมอบ</h4><ol><li>อ่านโจทย์จากไปร์ท แปลงเป็นเป้าที่วัดได้</li><li>แตกงานให้ A → B → C → D ตามลำดับ</li><li>ตรวจงานที่ Gate 1-4 ถ้าไม่ผ่านให้ส่งกลับพร้อมเหตุผล</li><li>รวมเป็นแผนเดียว ส่งไปร์ทอนุมัติ</li><li>รับผลแอดและ feedback เซลมาเริ่มรอบใหม่</li></ol></div>
+<h5>Rules</h5><ul><li>แผนพาร์ทเนอร์ต้องวางคู่กับ Own Channel เสมอ</li><li>ไม่ข้าม Gate แม้งานจะเร่ง</li><li>ไม่ปล่อยงานออกนอกทีมโดยไม่ผ่านไปร์ท</li></ul>
+<h5>Output</h5><p>แผนการตลาดฉบับเดียว: Insight → แผนแอด → คอนเทนต์ → ชิ้นงานพร้อมใช้</p>`},
+A:{title:"นักวิเคราะห์หลีด",role:"Lead Analyst · น้องอินไซต์",spec:[["name","pwc-lead-analyst"],["description","ใช้เมื่อต้องหาหลีด คัดหลีด หรืออ่านผลแอด/ผลโทร"],["model","sonnet"],["intro","นักวิเคราะห์หลีด B2B ของ CAP+ ดูแล 3 ช่องทาง (Own Channel B2B, Agent, Partnership) ทุกข้อสรุปต้องอ้างข้อมูลจริง"],["connector","Google Sheets (CAP+ Partner CRM, CAP Lead Record, ผลโทร) · Meta Ads · Google Slides"]],
+html:`<div class="sop"><h4>SOP A: หาหลีดใหม่ (Outbound)</h4><span class="tag">cap-hunt</span><span class="tag">cap-filter</span><ol><li>หาธุรกิจเป้าหมายตามจังหวัดเป็น raw list</li><li>ตัดซ้ำกับ CRM ให้คะแนน 0-100</li><li>แยก "พร้อมโทร" กับ "คัดออก/ซ้ำ" (ไม่ลบหลีดทิ้ง)</li></ol></div>
+<div class="sop"><h4>SOP B: ให้เกรดหลีด (Inbound)</h4><ul><li><b>A (10-12):</b> พร้อมขาย มีลูกค้าในมือ หรือเป็นกลุ่มหลัก</li><li><b>B (7-9):</b> มีศักยภาพ ต้องอบรม/ดูแลต่อ</li><li><b>C (1-6):</b> ยังไม่พร้อม หรือแค่ดูข้อมูล</li></ul></div>
+<div class="sop"><h4>SOP C: สรุปผลโทร</h4><span class="tag">cap-report</span><p>รายงาน + Google Slides 4 หน้า: โทรกี่ราย ติดต่อได้กี่ราย หลีดกลายเป็นตัวแทนกี่ราย ติดปัญหาอะไร</p></div>
+<div class="sop"><h4>SOP D: อ่านผลแอด</h4><span class="tag">idea-readout</span><span class="tag">performance-report</span><ul><li>CPL แยกตามแอด + สัดส่วนเกรด A/B</li><li>จังหวัด/กลุ่มที่ได้เกรด A มากที่สุด</li><li>หลีดสำหรับทำ Lookalike และรีทาร์เก็ตเข้า LINE OA</li></ul></div>
+<h5>Insight Brief (ส่งต่อให้ Campaign Planner)</h5><ol><li>สรุป 3 บรรทัด</li><li>ตัวเลขหลัก: หลีด, CPL, สัดส่วน A/B/C, จำนวนที่กลายเป็นตัวแทน</li><li>Top 3 คอนเทนต์ที่ได้เกรด A</li><li>กลุ่ม/จังหวัดที่ควรโฟกัส</li><li>Audience ที่พร้อมใช้</li></ol>
+<h5>Gate 1</h5><ul class="check"><li>ทุกตัวเลขบอกได้ว่ามาจากแหล่งไหน</li><li>ใช้เกรดตามเกณฑ์ 1-12</li><li>ไม่มีหลีดซ้ำในรายชื่อพร้อมโทร</li><li>มีข้อเสนอที่นำไปทำต่อได้จริง</li></ul>`},
+B:{title:"นักวางแผนแคมเปญ",role:"Campaign Planner · น้องแผน",spec:[["name","pwc-campaign-planner"],["description","ใช้เมื่อต้องวางแผนแอดรายเดือน ตั้ง CPL หรือออกแบบการทดลองแคมเปญ"],["model","sonnet"],["intro","นักวางแผน Performance Marketing ของ CAP+ คิดจาก CIR%, CPL และ Funnel วางแผนพาร์ทเนอร์คู่กับ Own Channel"],["connector","Meta Ads · Google Drive (Action Plan) · Insight Brief จาก Lead Analyst"]],
+html:`<div class="sop"><h4>SOP A: แผนแอดรายเดือน</h4><span class="tag">script-to-ads-planner-v2</span><span class="tag">sniper-content</span><ol><li>รับ Insight Brief</li><li>วาง Persona → Pain → Funnel (Cold / Warm / Hot / Repeat)</li><li>แบ่งงบตาม Funnel และกลุ่มพาร์ทเนอร์</li></ol></div>
+<div class="sop"><h4>SOP B: คำนวณเพดาน CPL</h4><p>คำนวณย้อนจากงบ: งบ ÷ CIR% = ยอดขายเป้า → ÷ ค่าเฉลี่ยต่อดีล = จำนวนดีล → ÷ อัตราปิด = จำนวนหลีด → งบ ÷ หลีด = CPL สูงสุด</p></div>
+<div class="sop"><h4>SOP C: ตั้งการทดลอง</h4><span class="tag">idea-test-card</span><p>กำหนดเกณฑ์ผ่าน/หยุด งบสูงสุด และวันอ่านผล ก่อนยิงแอดใหม่</p></div>
+<h5>Output</h5><p>แผนแอดรายเดือน + Brief คอนเทนต์ (กลุ่ม, Pain, Funnel, จำนวนชิ้น) ส่งให้ Content Creator</p>
+<h5>Gate 2</h5><ul class="check"><li>CPL/CIR คำนวณถูก ใช้ตัวเลขจริง</li><li>วางแผนคู่กับ Own Channel</li><li>มีเกณฑ์ผ่าน/หยุดทุกการทดลอง</li></ul>`},
+C:{title:"นักสร้างคอนเทนต์",role:"Content Creator · น้องคอนเทนต์",spec:[["name","pwc-content-creator"],["description","ใช้เมื่อต้องเขียนสคริปต์ แคปชัน หรือข้อความ Lead Ads ของ CAP+"],["model","sonnet"],["persona","คุณนุ่น"],["connector","Project docs: CirQ Plus KB, FAQ, คีย์เมสเสจ, Brand Guideline"]],
+html:`<div class="sop"><h4>SOP A: สคริปต์วิดีโอ/แอด</h4><span class="tag">capplus-content</span><ul><li>บอกให้ชัดตั้งแต่ต้นว่า CAP+ คืออะไร</li><li>Hook ดึงกลุ่มเป้าหมายตรงๆ หลายคลิปในชุดเดียว Hook ต้องไม่ซ้ำแบบ</li><li>เน้น Hard Sale ภาษาไทยตรงไปตรงมา</li></ul></div>
+<div class="sop"><h4>SOP B: แคปชันและข้อความ Lead Ads</h4><p>แยก 3 กลุ่ม: ร้านแอร์ · สถาปนิก/ดีไซเนอร์ · ตัวแทน พร้อม CTA ให้กรอกฟอร์มแล้วแอด LINE</p></div>
+<div class="sop"><h4>SOP C: ตรวจภาษาและแบรนด์</h4><span class="tag">humanizer</span><span class="tag">brand-review</span><p>ตัดสำนวน AI และตรวจกับ Brand Guideline ก่อนส่ง</p></div>
+<h5>Gate 3</h5><ul class="check"><li>ตรงคีย์เมสเสจ CAP+ / CirQ Plus</li><li>ไม่อ้างสเปก ตัวเลข หรือรีวิวที่ไม่มีหลักฐาน</li><li>มี CTA ชัด</li></ul>`},
+D:{title:"หัวหน้าโปรดักชัน",role:"Production Lead · น้องโปรดักชัน",spec:[["name","pwc-production-lead"],["description","ใช้เมื่อสคริปต์ผ่าน Gate 3 แล้วต้องทำเป็นชิ้นงานจริง"],["model","sonnet"],["intro","Production Lead ของ CAP+ เปลี่ยนสคริปต์และข้อมูลให้เป็นไฟล์พร้อมใช้ ยึด Template แบบเป๊ะๆ"],["connector","Google Drive (ฟุตเทจ แปลน ไฟล์งาน) · Project docs (Template Spec, Product KB)"]],
+html:`<div class="sop"><h4>SOP A: Storyboard / Edit Script</h4><span class="tag">cap-storyboard-v2</span><ol><li>ถามสัดส่วนคลิปก่อน (9:16 หรือ 16:9)</li><li>แบ่งท่อน Hook → ปัญหา → CAP+ คืออะไร → จุดเด่น → CTA</li><li>ใส่ภาพ, VO, Text on screen ต่อช็อต</li><li>ส่ง PDF ตาม Template CAP Storyboard (ท้ายเป็น Caption & Hashtag)</li></ol></div>
+<div class="sop"><h4>SOP B: ตรวจเสียงและจังหวะ</h4><span class="tag">earshot-listen</span><p>ตรวจเสียงเงียบ/ดังผิดจังหวะ เสียงตรงจุดตัด SFX ทับ VO · ส่งรายการแก้พร้อม timecode</p></div>
+<div class="sop"><h4>SOP C: Sales Kit / เดคพาร์ทเนอร์</h4><span class="tag">capplus-sniper-presentation</span><p>เดคแยก 3 กลุ่ม + Sales Cheat Sheet</p></div>
+<div class="sop"><h4>SOP D: แปลนและเอกสารงานระบบ</h4><span class="tag">cap-drawing</span><p>สไลด์แปลนมาตรฐาน CAP+ (ERV: Cap V2 / PPV: Cap Air) และ CAD Kit</p></div>
+<h5>Gate 4</h5><ul class="check"><li>ตรง Template 100%</li><li>สัดส่วนคลิปถูกต้อง</li><li>VO/Text ตรงกับสคริปต์ที่ผ่าน Gate 3</li><li>ข้อมูลสินค้าตรง Product KB</li><li>มี CTA และ Caption & Hashtag ครบ</li></ul>
+<h5>ส่งงานต่อ</h5><p>ถ้าฟุตเทจไม่พอ ให้แจ้ง M เพื่อส่งกลับไปปรับสคริปต์ D ไม่แก้สคริปต์เอง</p>`}
+};
+const box=document.getElementById('detail');
+function show(id){const d=D[id];document.querySelectorAll('.node').forEach(n=>n.classList.toggle('active',n.dataset.id===id));
+box.innerHTML=`<h3>${d.title}</h3><div class="role">${d.role}</div><div class="spec">${d.spec.map(([k,v])=>`<div>${k}</div><div>${v}</div>`).join('')}</div>${d.html}`;}
+document.querySelectorAll('.node').forEach(n=>n.addEventListener('click',()=>{show(n.dataset.id);box.scrollIntoView({behavior:'smooth',block:'start'})}));
+show('M');
+</script>
+</body>
+</html>
