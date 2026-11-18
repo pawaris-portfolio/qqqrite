@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CAP+ PWC Marketing Team · AI Agent Structure & Ad Performance</title>
+<title>CAP+ PWC Marketing Team · AI Agent Structure</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#0f1b3d;--muted:#5a6480;--line:#d9dfec;--bg:#f5f5f7;--card:#fff;
@@ -33,7 +33,7 @@ header{background:var(--navy);color:#fff;padding:40px 24px 32px;text-align:cente
 header h1{margin:0 0 6px;font-size:28px;font-weight:600}
 header p{margin:0;opacity:.85}
 main{max-width:1040px;margin:0 auto;padding:28px 0 40px}
-section{margin-bottom:44px}
+section{margin-bottom:36px}
 h2{font-size:21px;font-weight:600;margin:0 0 14px}
 .grid{display:grid;gap:12px}
 .g4{grid-template-columns:repeat(4,1fr)}
@@ -69,12 +69,12 @@ ul,ol{margin:4px 0;padding-left:22px}
 .check li{list-style:none;margin-left:-22px}
 .check li::before{content:"☐ ";color:var(--sub-b)}
 h5{font-size:15px;margin:18px 0 6px}
-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px}
 th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left}
 th{background:#eef1f8;font-weight:600}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 
-/* --- Custom Styles สำหรับส่วนที่ 6: Paid Ads Performance --- */
+/* --- เพิ่มเติมสำหรับ Section ผลงานยิงแอด --- */
 .ads-divider{border:none;border-top:1px solid var(--line);margin:44px 0 36px}
 .kpi-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
 .kpi-label{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:6px}
@@ -83,5 +83,341 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 .kpi-val.navy{color:var(--navy)}
 .badge-up{display:inline-block;background:#e3f5ee;color:#08503f;border:1px solid #b5e4d2;font-size:12px;font-weight:600;padding:1px 8px;border-radius:99px;vertical-align:middle;margin-left:4px}
 .kpi-sub{font-size:12.5px;color:var(--muted);margin-top:6px}
+.bar-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.bar-title{font-weight:600;font-size:15px;margin-bottom:12px;color:var(--ink)}
+.bar-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.bar-track{width:100%;height:8px;background:#eef1f8;border-radius:99px;overflow:hidden;margin-bottom:12px}
+.bar-track:last-child{margin-bottom:0}
+.bar-fill-bad{height:100%;background:#e05260;border-radius:99px}
+.bar-fill-good{height:100%;background:var(--sub-b);border-radius:99px}
+.bar-fill-navy{height:100%;background:var(--navy);border-radius:99px}
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+.table-wrap table{border:none;border-radius:0}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.peak-row{background:#f2fbf7}
+tr.peak-row td{font-weight:600;color:#08503f}
+tr.total-row td{background:#eef1f8;font-weight:700;border-top:2px solid #c5cee3;border-bottom:none}
+.insight-note{background:#f6f8fc;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--muted);margin-top:14px}
+.insight-note strong{color:var(--ink)}
 
-.bar-box{background:var(--card);border
+@media(max-width:860px){
+  body{padding:0 1.25rem 3.5rem}
+  nav{padding:1.5rem 0;margin-bottom:1.5rem}
+  .menu-toggle{display:flex}
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;width:100%;
+    background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);
+    border:1px solid var(--surface-border);border-radius:18px;
+    flex-direction:column;padding:1.25rem;gap:0.75rem;
+    box-shadow:0 16px 32px rgba(0,0,0,0.08);z-index:100;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;padding:0.6rem 0.75rem;font-size:1rem;border-radius:8px;border-bottom:1px solid rgba(0,0,0,0.03)}
+  .nav-links a.active{background:rgba(0,102,204,0.08);color:var(--accent)}
+  .menu-toggle.active span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+  .menu-toggle.active span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+  .g4,.g3{grid-template-columns:1fr 1fr}.spec{grid-template-columns:1fr}.sub{max-width:none;min-width:45%}
+}
+@media(max-width:540px){
+  .g4,.g3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-container">
+  <nav>
+    <a href="index.html" class="logo">PAWARIS.C</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="เปิดเมนู">
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">หน้าแรก (About)</a>
+      <a href="experience.html">ประสบการณ์ & กิจกรรม</a>
+      <a href="works.html">ผลงานคอนเทนต์</a>
+      <a href="ai-team.html" class="active">ทีม AI & MarTech</a>
+      <a href="awards.html">นวัตกรรม & รางวัล</a>
+      <a href="resume.html">Resume & Transcript</a>
+    </div>
+  </nav>
+</div>
+
+<header>
+<h1>CAP+ PWC Marketing Team</h1>
+<p>โครงสร้างทีม AI แบบ 1 Lead Agent + 4 Sub Agents + Workflow · อ้างอิงกรอบ Agentic AI for Marketing (AEIOU)</p>
+</header>
+
+<main>
+<section>
+<h2>1. หลักคิด</h2>
+<div class="grid g4">
+<div class="card"><b>Sub Agent = พนักงาน AI 1 คน</b><span class="small">Persona Skill (เป็นใคร) + Action Skill (ทำอะไร) + Connector (ใช้ข้อมูล/เครื่องมืออะไร)</span></div>
+<div class="card"><b>JD 1 ตำแหน่ง ใช้ SOP ได้หลายชุด</b><span class="small">Agent 1 ตัวมีได้หลาย Action Skill ตามงานแต่ละแบบ</span></div>
+<div class="card"><b>Lead Agent = หัวหน้าแผนก</b><span class="small">Orchestrator Skill: รับโจทย์ แจกงาน ตรวจ รวมงาน ส่งมอบ</span></div>
+<div class="card"><b>Team → Department</b><span class="small">Team = Lead + Sub Agents + Workflow<br>Department = Team + Goal + Rules + Approval</span></div>
+</div>
+</section>
+
+<section>
+<h2>2. ผังทีม <span class="small">(กดที่ตำแหน่งเพื่อดูรายละเอียด)</span></h2>
+<div class="org">
+<div class="row"><div class="node human" data-id="human"><div class="t">ไปร์ท · Marketing Partnerships</div><div class="s">ให้โจทย์ · อนุมัติผลลัพธ์</div></div></div>
+<div class="connector">▼</div>
+<div class="row"><div class="node lead" data-id="M"><div class="t">หัวหน้าการตลาดพาร์ทเนอร์</div><div class="s">Marketing Lead (Orchestrator)</div><div class="n">M</div></div></div>
+<div class="connector">▼ แจกงาน · ตรวจทุก Gate · รวมแผน</div>
+<div class="pipe">
+<div class="node sub" data-id="A"><div class="t">นักวิเคราะห์หลีด</div><div class="s">Lead Analyst</div><div class="n">น้องอินไซต์</div></div>
+<div class="arrow">→<span>Gate 1</span></div>
+<div class="node sub" data-id="B"><div class="t">นักวางแผนแคมเปญ</div><div class="s">Campaign Planner</div><div class="n">น้องแผน</div></div>
+<div class="arrow">→<span>Gate 2</span></div>
+<div class="node sub" data-id="C"><div class="t">นักสร้างคอนเทนต์</div><div class="s">Content Creator</div><div class="n">น้องคอนเทนต์</div></div>
+<div class="arrow">→<span>Gate 3</span></div>
+<div class="node sub" data-id="D"><div class="t">หัวหน้าโปรดักชัน</div><div class="s">Production Lead</div><div class="n">น้องโปรดักชัน</div></div>
+</div>
+<div class="connector">▼ Gate 4 → ไปร์ทอนุมัติ → ยิงแอด / ส่งพาร์ทเนอร์</div>
+<div class="loop">↻ ผลแอดและ feedback จากเซล (เมท, พี) วนกลับไปหา Marketing Lead ในรอบถัดไป</div>
+</div>
+<div id="detail"></div>
+</section>
+
+<section>
+<h2>3. Workflow และ Gate</h2>
+<table>
+<tr><th>ขั้น</th><th>ใครทำ</th><th>Gate (M ตรวจ)</th></tr>
+<tr><td>1. รับโจทย์ แตกงาน</td><td>ไปร์ท → Marketing Lead</td><td>โจทย์มีเป้าที่วัดได้</td></tr>
+<tr><td>2. ข้อมูลและหลีด</td><td>Lead Analyst</td><td>Gate 1: ตัวเลขมาจากข้อมูลจริง ไม่มีหลีดซ้ำ</td></tr>
+<tr><td>3. วางแผนแคมเปญ</td><td>Campaign Planner</td><td>Gate 2: CPL/CIR คำนวณถูก วางแผนคู่กับ Own Channel</td></tr>
+<tr><td>4. เขียนคอนเทนต์</td><td>Content Creator</td><td>Gate 3: ตรงคีย์เมสเสจ ไม่อ้างสิ่งที่ไม่มีหลักฐาน</td></tr>
+<tr><td>5. ผลิตชิ้นงาน</td><td>Production Lead</td><td>Gate 4: ตรง Template ข้อมูลสินค้าตรง KB</td></tr>
+<tr><td>6. อนุมัติและปล่อยงาน</td><td>ไปร์ท</td><td>Approval สุดท้าย</td></tr>
+<tr><td>7. วัดผล วนรอบ</td><td>Lead Analyst → Marketing Lead</td><td>ผลแอด + ผลโทร เป็น Input รอบถัดไป</td></tr>
+</table>
+</section>
+
+<section>
+<h2>4. ส่วนที่ทำให้เป็น Department</h2>
+<div class="grid g3">
+<div class="card"><b>Goal</b><span class="small">จำนวนพาร์ทเนอร์ใหม่ต่อเดือน · จำนวนหลีดเกรด A · เพดาน CPL</span></div>
+<div class="card"><b>Rules</b><span class="small">Brand Guideline · คีย์เมสเสจ CAP+ / CirQ Plus · ห้ามแต่งตัวเลขหรือรีวิว · วางแผนพาร์ทเนอร์คู่กับ Own Channel เสมอ</span></div>
+<div class="card"><b>Approval</b><span class="small">ไปร์ทอนุมัติทุกครั้งก่อนงานออกนอกทีม</span></div>
+</div>
+</section>
+
+<section>
+<h2>5. ชื่อใน Plugin และ Commands</h2>
+<table>
+<tr><th>ตำแหน่ง</th><th>name</th><th>Commands</th></tr>
+<tr><td>Marketing Lead</td><td><code>pwc-marketing-lead</code></td><td><code>/pwc-plan</code></td></tr>
+<tr><td>Lead Analyst</td><td><code>pwc-lead-analyst</code></td><td><code>/pwc-hunt</code> <code>/pwc-grade</code> <code>/pwc-call-report</code> <code>/pwc-insight</code></td></tr>
+<tr><td>Campaign Planner</td><td><code>pwc-campaign-planner</code></td><td><code>/pwc-ads-plan</code> <code>/pwc-cpl</code> <code>/pwc-test</code></td></tr>
+<tr><td>Content Creator</td><td><code>pwc-content-creator</code></td><td><code>/pwc-script</code> <code>/pwc-caption</code> <code>/pwc-leadads</code></td></tr>
+<tr><td>Production Lead</td><td><code>pwc-production-lead</code></td><td><code>/pwc-storyboard</code> <code>/pwc-audio-check</code> <code>/pwc-deck</code> <code>/pwc-plan-drawing</code></td></tr>
+</table>
+</section>
+
+<hr class="ads-divider">
+
+<!-- =====================================================================
+     SECTION 6: PAID ADS & FULL-FUNNEL PERFORMANCE CASE STUDY (2026)
+     ===================================================================== -->
+<section id="paid-ads-performance">
+  <h2>6. ผลงานจริง: Performance Marketing &amp; Full-Funnel Optimization (2026)</h2>
+  <p class="small" style="margin:-6px 0 18px">
+    บริหารงบโฆษณา Meta Ads รวมกว่า <b>1.68 ล้านบาท</b> (Jan – Nov 2026) สำหรับกลุ่มสินค้า Home Solution ที่มีรอบการตัดสินใจซื้อสูง ปรับโครงสร้างแคมเปญและทำงานร่วมกับทีมขายเพื่อลดคอขวดของ Funnel ตั้งแต่การคัดกรองลีดคุณภาพ (QI) จนถึงการปิดการขายจริง
+  </p>
+
+  <!-- 4 KPI Cards -->
+  <div class="grid g4" style="margin-bottom:18px">
+    <div class="kpi-card">
+      <div>
+        <div class="kpi-label">งบโฆษณาที่บริหารรวม (Ad Spend)</div>
+        <div class="kpi-val navy">฿1.68M</div>
+      </div>
+      <div class="kpi-sub">1,686,790 บาท (Jan – Nov 18, 2026)[cite: 2]</div>
+    </div>
+
+    <div class="kpi-card">
+      <div>
+        <div class="kpi-label">ต้นทุนต่อลีดคุณภาพ (Cost / QI)</div>
+        <div class="kpi-val green">฿274.20 <span class="badge-up">-84.7%</span></div>
+      </div>
+      <div class="kpi-sub">ลดลงจากจุดสูงสุด ฿1,789.26 (เม.ย.)[cite: 2]</div>
+    </div>
+
+    <div class="kpi-card">
+      <div>
+        <div class="kpi-label">สัดส่วนลีดคุณภาพ (QI Rate)</div>
+        <div class="kpi-val green">33.41% <span class="badge-up">Q3 Peak</span></div>
+      </div>
+      <div class="kpi-sub">สูงสุด 53.92% ในเดือน มิ.ย. (จาก 9.20%)[cite: 2]</div>
+    </div>
+
+    <div class="kpi-card">
+      <div>
+        <div class="kpi-label">ยอดปิดการขายรวม (Total Win)</div>
+        <div class="kpi-val">309 <span class="badge-up">Orders</span></div>
+      </div>
+      <div class="kpi-sub">Blended CPA เฉลี่ย ฿5,458.87 / ออเดอร์[cite: 2]</div>
+    </div>
+  </div>
+
+  <!-- Before vs After Comparison -->
+  <div class="grid g3" style="margin-bottom:18px">
+    <div class="bar-box">
+      <div class="bar-title">1. คุณภาพลีดทักแชท (QI / All Inbox)</div>
+      <div class="bar-row"><span class="small">ก่อนปรับกลยุทธ์ (Apr)</span><b style="color:#c93b49">9.20%</b>[cite: 2]</div>
+      <div class="bar-track"><div class="bar-fill-bad" style="width:17%"></div></div>
+      <div class="bar-row"><span class="small">หลังปรับกลยุทธ์ (Q3 Avg)</span><b style="color:#0f7b5b">33.41% (Max 53.9%)</b>[cite: 2]</div>
+      <div class="bar-track"><div class="bar-fill-good" style="width:65%"></div></div>
+    </div>
+
+    <div class="bar-box">
+      <div class="bar-title">2. ต้นทุนต่อลีดคุณภาพ (Cost / QI)</div>
+      <div class="bar-row"><span class="small">ก่อนปรับกลยุทธ์ (Apr)</span><b style="color:#c93b49">฿1,789.26</b>[cite: 2]</div>
+      <div class="bar-track"><div class="bar-fill-bad" style="width:90%"></div></div>
+      <div class="bar-row"><span class="small">ช่วงล่าสุด (Q4 Oct–Nov)</span><b style="color:#0f7b5b">฿274.20 (-84.7%)</b>[cite: 2]</div>
+      <div class="bar-track"><div class="bar-fill-good" style="width:16%"></div></div>
+    </div>
+
+    <div class="bar-box">
+      <div class="bar-title">3. อัตรา Admin ตอบเกินเวลา (SLA)</div>
+      <div class="bar-row"><span class="small">ช่วงคอขวดทีมขาย (Apr)</span><b style="color:#c93b49">84.0%</b>[cite: 2]</div>
+      <div class="bar-track"><div class="bar-fill-bad" style="width:84%"></div></div>
+      <div class="bar-row"><span class="small">หลังปรับระบบตอบกลับ (Q4)</span><b style="color:var(--navy)">38.0% (-46 pp)</b>[cite: 2]</div>
+      <div class="bar-track"><div class="bar-fill-navy" style="width:38%"></div></div>
+    </div>
+  </div>
+
+  <!-- Quarterly Table -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>ช่วงเวลา (2026)</th>
+          <th class="num">งบโฆษณา (THB)</th>
+          <th class="num">ทักแชท (Inbox)</th>
+          <th class="num">ลีดคุณภาพ (QI)</th>
+          <th class="num">QI Rate</th>
+          <th class="num">Cost / QI</th>
+          <th class="num">ปิดผ่านแชท<br><span style="font-weight:400;font-size:12px;color:var(--muted)">(FB + Line)</span></th>
+          <th class="num">ปิดรวมทุกช่องทาง<br><span style="font-weight:400;font-size:12px;color:var(--muted)">(Total Win)</span></th>
+          <th class="num">Blended CPA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Q1 (Jan–Mar)</b>[cite: 2]</td>
+          <td class="num">฿436,050[cite: 2]</td>
+          <td class="num">3,124[cite: 2]</td>
+          <td class="num">804[cite: 2]</td>
+          <td class="num">25.74%[cite: 2]</td>
+          <td class="num">฿542.35[cite: 2]</td>
+          <td class="num">23[cite: 2]</td>
+          <td class="num">69[cite: 2]</td>
+          <td class="num">฿6,319.57[cite: 2]</td>
+        </tr>
+        <tr>
+          <td><b>Q2 (Apr–Jun)</b>[cite: 2]</td>
+          <td class="num">฿549,826[cite: 2]</td>
+          <td class="num">3,043[cite: 2]</td>
+          <td class="num">833[cite: 2]</td>
+          <td class="num">27.37%[cite: 2]</td>
+          <td class="num">฿660.06[cite: 2]</td>
+          <td class="num">45[cite: 2]</td>
+          <td class="num">77[cite: 2]</td>
+          <td class="num">฿7,140.59[cite: 2]</td>
+        </tr>
+        <tr class="peak-row">
+          <td>Q3 (Jul–Sep) <span class="badge-up">Peak</span></td>
+          <td class="num">฿507,056[cite: 2]</td>
+          <td class="num">4,343[cite: 2]</td>
+          <td class="num">1,451[cite: 2]</td>
+          <td class="num">33.41%[cite: 2]</td>
+          <td class="num">฿349.45[cite: 2]</td>
+          <td class="num">57[cite: 2]</td>
+          <td class="num">114[cite: 2]</td>
+          <td class="num">฿4,447.86[cite: 2]</td>
+        </tr>
+        <tr>
+          <td><b>Q4 (Oct–Nov 18)</b>[cite: 2]</td>
+          <td class="num">฿193,857[cite: 2]</td>
+          <td class="num">2,962[cite: 2]</td>
+          <td class="num">707[cite: 2]</td>
+          <td class="num">23.87%[cite: 2]</td>
+          <td class="num" style="color:#0f7b5b;font-weight:600">฿274.20[cite: 2]</td>
+          <td class="num">4[cite: 2]</td>
+          <td class="num">49[cite: 2]</td>
+          <td class="num" style="color:#0f7b5b;font-weight:600">฿3,956.27[cite: 2]</td>
+        </tr>
+        <tr class="total-row">
+          <td>รวมทั้งหมด (Jan – Nov 18)[cite: 2]</td>
+          <td class="num">฿1,686,790[cite: 2]</td>
+          <td class="num">13,472[cite: 2]</td>
+          <td class="num">3,795[cite: 2]</td>
+          <td class="num">28.17%[cite: 2]</td>
+          <td class="num" style="color:#0f7b5b">฿444.48[cite: 2]</td>
+          <td class="num">129[cite: 2]</td>
+          <td class="num">309[cite: 2]</td>
+          <td class="num" style="color:#0f7b5b">฿5,458.87[cite: 2]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-note">
+    <strong>Omnichannel &amp; Full-Funnel Insight:</strong> ในช่วง Q4 (Oct–Nov) แคมเปญ Meta Ads ทำหน้าที่สร้าง Awareness และดึง Traffic เข้ามาสอบถามสเปกสินค้า ก่อนที่ลูกค้าจะตัดสินใจสั่งซื้อผ่าน Marketplace (Shopee) เพื่อใช้โค้ดส่วนลดแคมเปญ 11.11 ส่งผลให้ Blended CPA ลดลงต่ำสุดที่ <strong>฿3,956.27 / ออเดอร์</strong> และในเดือน พ.ย. (ถึงวันที่ 18) ปิดการขายได้แล้ว 23 เคสด้วยงบโฆษณาเพียง ฿17,171.09[cite: 2]
+  </div>
+</section>
+</main>
+<footer>CAP+ (Capplus Thailand) · PWC Marketing Partnership · อัปเดต พ.ย. 2026</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+
+const D={
+human:{title:"ไปร์ท · Marketing Partnerships",role:"เจ้าของโจทย์และผู้อนุมัติสุดท้าย (Human in the loop)",spec:[["บทบาท","ให้โจทย์ · ตั้ง Goal · อนุมัติผลลัพธ์"],["อนุมัติเมื่อ","งานผ่าน Gate 1-4 ครบ และตรงเป้าของรอบนั้น"]],
+html:`<h5>สิ่งที่ไปร์ทตัดสินใจเอง</h5><ul><li>เป้าหมายรายเดือน (จำนวนพาร์ทเนอร์ หลีดเกรด A เพดาน CPL)</li><li>งบแอดและการแบ่งงบ</li><li>อนุมัติคอนเทนต์/แอดก่อนปล่อยออกนอกทีม</li></ul>`},
+M:{title:"หัวหน้าการตลาดพาร์ทเนอร์",role:"Marketing Lead (Orchestrator) · M",spec:[["name","pwc-marketing-lead"],["description","ใช้เมื่อได้โจทย์การตลาดหรือหาพาร์ทเนอร์ของ CAP+"],["model","opus (ต้องคิดและตัดสินใจ)"],["skills","dream-marketing-manager-capplus + Orchestrator Skill (ต้องเขียนเพิ่ม)"],["connector","Project docs: Action Plan 2027, คีย์เมสเสจ, Brand Guideline"]],
+html:`<div class="sop"><h4>Orchestrator: รับโจทย์ → แจกงาน → ตรวจ → ส่งมอบ</h4><ol><li>อ่านโจทย์จากไปร์ท แปลงเป็นเป้าที่วัดได้</li><li>แตกงานให้ A → B → C → D ตามลำดับ</li><li>ตรวจงานที่ Gate 1-4 ถ้าไม่ผ่านให้ส่งกลับพร้อมเหตุผล</li><li>รวมเป็นแผนเดียว ส่งไปร์ทอนุมัติ</li><li>รับผลแอดและ feedback เซลมาเริ่มรอบใหม่</li></ol></div>
+<h5>Rules</h5><ul><li>แผนพาร์ทเนอร์ต้องวางคู่กับ Own Channel เสมอ</li><li>ไม่ข้าม Gate แม้งานจะเร่ง</li><li>ไม่ปล่อยงานออกนอกทีมโดยไม่ผ่านไปร์ท</li></ul>
+<h5>Output</h5><p>แผนการตลาดฉบับเดียว: Insight → แผนแอด → คอนเทนต์ → ชิ้นงานพร้อมใช้</p>`},
+A:{title:"นักวิเคราะห์หลีด",role:"Lead Analyst · น้องอินไซต์",spec:[["name","pwc-lead-analyst"],["description","ใช้เมื่อต้องหาหลีด คัดหลีด หรืออ่านผลแอด/ผลโทร"],["model","sonnet"],["intro","นักวิเคราะห์หลีด B2B ของ CAP+ ดูแล 3 ช่องทาง (Own Channel B2B, Agent, Partnership) ทุกข้อสรุปต้องอ้างข้อมูลจริง"],["connector","Google Sheets (CAP+ Partner CRM, CAP Lead Record, ผลโทร) · Meta Ads · Google Slides"]],
+html:`<div class="sop"><h4>SOP A: หาหลีดใหม่ (Outbound)</h4><span class="tag">cap-hunt</span><span class="tag">cap-filter</span><ol><li>หาธุรกิจเป้าหมายตามจังหวัดเป็น raw list</li><li>ตัดซ้ำกับ CRM ให้คะแนน 0-100</li><li>แยก "พร้อมโทร" กับ "คัดออก/ซ้ำ" (ไม่ลบหลีดทิ้ง)</li></ol></div>
+<div class="sop"><h4>SOP B: ให้เกรดหลีด (Inbound)</h4><ul><li><b>A (10-12):</b> พร้อมขาย มีลูกค้าในมือ หรือเป็นกลุ่มหลัก</li><li><b>B (7-9):</b> มีศักยภาพ ต้องอบรม/ดูแลต่อ</li><li><b>C (1-6):</b> ยังไม่พร้อม หรือแค่ดูข้อมูล</li></ul></div>
+<div class="sop"><h4>SOP C: สรุปผลโทร</h4><span class="tag">cap-report</span><p>รายงาน + Google Slides 4 หน้า: โทรกี่ราย ติดต่อได้กี่ราย หลีดกลายเป็นตัวแทนกี่ราย ติดปัญหาอะไร</p></div>
+<div class="sop"><h4>SOP D: อ่านผลแอด</h4><span class="tag">idea-readout</span><span class="tag">performance-report</span><ul><li>CPL แยกตามแอด + สัดส่วนเกรด A/B</li><li>จังหวัด/กลุ่มที่ได้เกรด A มากที่สุด</li><li>หลีดสำหรับทำ Lookalike และรีทาร์เก็ตเข้า LINE OA</li></ul></div>
+<h5>Insight Brief (ส่งต่อให้ Campaign Planner)</h5><ol><li>สรุป 3 บรรทัด</li><li>ตัวเลขหลัก: หลีด, CPL, สัดส่วน A/B/C, จำนวนที่กลายเป็นตัวแทน</li><li>Top 3 คอนเทนต์ที่ได้เกรด A</li><li>กลุ่ม/จังหวัดที่ควรโฟกัส</li><li>Audience ที่พร้อมใช้</li></ol>
+<h5>Gate 1</h5><ul class="check"><li>ทุกตัวเลขบอกได้ว่ามาจากแหล่งไหน</li><li>ใช้เกรดตามเกณฑ์ 1-12</li><li>ไม่มีหลีดซ้ำในรายชื่อพร้อมโทร</li><li>มีข้อเสนอที่นำไปทำต่อได้จริง</li></ul>`},
+B:{title:"นักวางแผนแคมเปญ",role:"Campaign Planner · น้องแผน",spec:[["name","pwc-campaign-planner"],["description","ใช้เมื่อต้องวางแผนแอดรายเดือน ตั้ง CPL หรือออกแบบการทดลองแคมเปญ"],["model","sonnet"],["intro","นักวางแผน Performance Marketing ของ CAP+ คิดจาก CIR%, CPL และ Funnel วางแผนพาร์ทเนอร์คู่กับ Own Channel"],["connector","Meta Ads · Google Drive (Action Plan) · Insight Brief จาก Lead Analyst"]],
+html:`<div class="sop"><h4>SOP A: แผนแอดรายเดือน</h4><span class="tag">script-to-ads-planner-v2</span><span class="tag">sniper-content</span><ol><li>รับ Insight Brief</li><li>วาง Persona → Pain → Funnel (Cold / Warm / Hot / Repeat)</li><li>แบ่งงบตาม Funnel และกลุ่มพาร์ทเนอร์</li></ol></div>
+<div class="sop"><h4>SOP B: คำนวณเพดาน CPL</h4><p>คำนวณย้อนจากงบ: งบ ÷ CIR% = ยอดขายเป้า → ÷ ค่าเฉลี่ยต่อดีล = จำนวนดีล → ÷ อัตราปิด = จำนวนหลีด → งบ ÷ หลีด = CPL สูงสุด</p></div>
+<div class="sop"><h4>SOP C: ตั้งการทดลอง</h4><span class="tag">idea-test-card</span><p>กำหนดเกณฑ์ผ่าน/หยุด งบสูงสุด และวันอ่านผล ก่อนยิงแอดใหม่</p></div>
+<h5>Output</h5><p>แผนแอดรายเดือน + Brief คอนเทนต์ (กลุ่ม, Pain, Funnel, จำนวนชิ้น) ส่งให้ Content Creator</p>
+<h5>Gate 2</h5><ul class="check"><li>CPL/CIR คำนวณถูก ใช้ตัวเลขจริง</li><li>วางแผนคู่กับ Own Channel</li><li>มีเกณฑ์ผ่าน/หยุดทุกการทดลอง</li></ul>`},
+C:{title:"นักสร้างคอนเทนต์",role:"Content Creator · น้องคอนเทนต์",spec:[["name","pwc-content-creator"],["description","ใช้เมื่อต้องเขียนสคริปต์ แคปชัน หรือข้อความ Lead Ads ของ CAP+"],["model","sonnet"],["persona","คุณนุ่น"],["connector","Project docs: CirQ Plus KB, FAQ, คีย์เมสเสจ, Brand Guideline"]],
+html:`<div class="sop"><h4>SOP A: สคริปต์วิดีโอ/แอด</h4><span class="tag">capplus-content</span><ul><li>บอกให้ชัดตั้งแต่ต้นว่า CAP+ คืออะไร</li><li>Hook ดึงกลุ่มเป้าหมายตรงๆ หลายคลิปในชุดเดียว Hook ต้องไม่ซ้ำแบบ</li><li>เน้น Hard Sale ภาษาไทยตรงไปตรงมา</li></ul></div>
+<div class="sop"><h4>SOP B: แคปชันและข้อความ Lead Ads</h4><p>แยก 3 กลุ่ม: ร้านแอร์ · สถาปนิก/ดีไซเนอร์ · ตัวแทน พร้อม CTA ให้กรอกฟอร์มแล้วแอด LINE</p></div>
+<div class="sop"><h4>SOP C: ตรวจภาษาและแบรนด์</h4><span class="tag">humanizer</span><span class="tag">brand-review</span><p>ตัดสำนวน AI และตรวจกับ Brand Guideline ก่อนส่ง</p></div>
+<h5>Gate 3</h5><ul class="check"><li>ตรงคีย์เมสเสจ CAP+ / CirQ Plus</li><li>ไม่อ้างสเปก ตัวเลข หรือรีวิวที่ไม่มีหลักฐาน</li><li>มี CTA ชัด</li></ul>`},
+D:{title:"หัวหน้าโปรดักชัน",role:"Production Lead · น้องโปรดักชัน",spec:[["name","pwc-production-lead"],["description","ใช้เมื่อสคริปต์ผ่าน Gate 3 แล้วต้องทำเป็นชิ้นงานจริง"],["model","sonnet"],["intro","Production Lead ของ CAP+ เปลี่ยนสคริปต์และข้อมูลให้เป็นไฟล์พร้อมใช้ ยึด Template แบบเป๊ะๆ"],["connector","Google Drive (ฟุตเทจ แปลน ไฟล์งาน) · Project docs (Template Spec, Product KB)"]],
+html:`<div class="sop"><h4>SOP A: Storyboard / Edit Script</h4><span class="tag">cap-storyboard-v2</span><ol><li>ถามสัดส่วนคลิปก่อน (9:16 หรือ 16:9)</li><li>แบ่งท่อน Hook → ปัญหา → CAP+ คืออะไร → จุดเด่น → CTA</li><li>ใส่ภาพ, VO, Text on screen ต่อช็อต</li><li>ส่ง PDF ตาม Template CAP Storyboard (ท้ายเป็น Caption & Hashtag)</li></ol></div>
+<div class="sop"><h4>SOP B: ตรวจเสียงและจังหวะ</h4><span class="tag">earshot-listen</span><p>ตรวจเสียงเงียบ/ดังผิดจังหวะ เสียงตรงจุดตัด SFX ทับ VO · ส่งรายการแก้พร้อม timecode</p></div>
+<div class="sop"><h4>SOP C: Sales Kit / เดคพาร์ทเนอร์</h4><span class="tag">capplus-sniper-presentation</span><p>เดคแยก 3 กลุ่ม + Sales Cheat Sheet</p></div>
+<div class="sop"><h4>SOP D: แปลนและเอกสารงานระบบ</h4><span class="tag">cap-drawing</span><p>สไลด์แปลนมาตรฐาน CAP+ (ERV: Cap V2 / PPV: Cap Air) และ CAD Kit</p></div>
+<h5>Gate 4</h5><ul class="check"><li>ตรง Template 100%</li><li>สัดส่วนคลิปถูกต้อง</li><li>VO/Text ตรงกับสคริปต์ที่ผ่าน Gate 3</li><li>ข้อมูลสินค้าตรง Product KB</li><li>มี CTA และ Caption & Hashtag ครบ</li></ul>
+<h5>ส่งงานต่อ</h5><p>ถ้าฟุตเทจไม่พอ ให้แจ้ง M เพื่อส่งกลับไปปรับสคริปต์ D ไม่แก้สคริปต์เอง</p>`}
+};
+const box=document.getElementById('detail');
+function show(id){const d=D[id];document.querySelectorAll('.node').forEach(n=>n.classList.toggle('active',n.dataset.id===id));
+box.innerHTML=`<h3>${d.title}</h3><div class="role">${d.role}</div><div class="spec">${d.spec.map(([k,v])=>`<div>${k}</div><div>${v}</div>`).join('')}</div>${d.html}`;}
+document.querySelectorAll('.node').forEach(n=>n.addEventListener('click',()=>{show(n.dataset.id);box.scrollIntoView({behavior:'smooth',block:'start'})}));
+show('M');
+</script>
+</body>
+</html>
