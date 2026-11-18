@@ -27,9 +27,9 @@
       padding: 2.2rem 0; border-bottom: 1px solid var(--surface-border); 
       margin-bottom: 3.5rem; position: relative; 
     }
-    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
-    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.2s; }
+    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 0.9rem; align-items: center; flex-wrap: nowrap; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
     .nav-links a.active, .nav-links a:hover { color: var(--text); }
 
     /* Mobile Hamburger Button */
@@ -128,7 +128,7 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       body { padding: 0 1.25rem 3.5rem; }
       nav { padding: 1.5rem 0; margin-bottom: 2rem; }
       .menu-toggle { display: flex; }
@@ -141,7 +141,7 @@
         box-shadow: 0 16px 32px rgba(0,0,0,0.08); z-index: 100;
       }
       .nav-links.open { display: flex; }
-      .nav-links a { width: 100%; padding: 0.6rem 0.75rem; font-size: 1rem; border-radius: 8px; border-bottom: 1px solid rgba(0,0,0,0.03); }
+      .nav-links a { width: 100%; padding: 0.6rem 0.75rem; font-size: 1rem; border-radius: 8px; border-bottom: 1px solid rgba(0,0,0,0.03); white-space: normal; }
       .nav-links a.active { background: rgba(0, 102, 204, 0.08); color: var(--accent); }
 
       .menu-toggle.active span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
@@ -194,4 +194,102 @@
         <a href="awards.html">นวัตกรรม & รางวัล</a>
         <a href="resume.html">Resume & Transcript</a>
       </div>
-    </nav
+    </nav>
+
+    <h1>💼 Professional Experience</h1>
+    <p class="page-desc">ประวัติการทำงานด้านการตลาด ธุรกิจ และการสื่อสาร</p>
+
+    <!-- Experience 1: Capplus -->
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Marketing Partnerships</div>
+          <div class="exp-company">CAPPLUS HOME SOLUTION</div>
+        </div>
+        <span class="exp-period">Current</span>
+      </div>
+      <ul class="exp-list">
+        <li>วางกลยุทธ์การตลาดแบบ B2B และพัฒนาเครือข่ายพันธมิตร (Partnership Channels) สร้าง Leads ลูกค้าโครงการ ดีลเลอร์ และคู่ค้า</li>
+        <li>วิเคราะห์และปรับแต่ง Sales Funnel ยิงโฆษณา Facebook Ads จัดการงบประมาณ และประเมินผล ROAS</li>
+        <li>ทำงานร่วมกับทีมขายเพื่อจัดทำสื่อสนับสนุนการขาย (Sales Enablement) เช่น One-pagers, Proposals และ Case Studies</li>
+        <li>จัดแคมเปญส่งเสริมการตลาดและ Event Marketing เพิ่มการมองเห็นของแบรนด์</li>
+        <li>ประยุกต์ใช้ Web Development และ AI-assisted Coding เพื่อเพิ่มประสิทธิภาพกระบวนการภายใน</li>
+      </ul>
+    </div>
+
+    <!-- Experience 2: SpaceNEXT -->
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Creative / Content Creator (WIL)</div>
+          <div class="exp-company">SPACENEXT CO., LTD.</div>
+        </div>
+        <span class="exp-period">18 ส.ค. - 4 ธ.ค. 2568</span>
+      </div>
+      <ul class="exp-list">
+        <li>คิดคอนเทนต์และประยุกต์กระแสไวรัลให้เหมาะกับแบรนด์ พร้อม Research ข้อมูลเชิงลึก</li>
+        <li>เขียนสคริปต์เล่าเรื่อง กำหนดซีน โลเคชั่น และการเคลื่อนไหวของนายแบบ</li>
+        <li>บรีฟทีมตัดต่อ/ตากล้อง ออกกองถ่ายทำ คุมการถ่ายและจัดสถานที่</li>
+        <li>ตรวจงานก่อนเผยแพร่ ตรวจเช็กความถูกต้องและแก้งานเพิ่มเติม</li>
+        <li>โพสต์คอนเทนต์บนสื่อ TikTok, YouTube และ Monitoring คอนเทนต์ ตรวจเช็กตารางถ่ายทำให้อัปเดตทุกวัน</li>
+      </ul>
+    </div>
+
+    <h2>👥 Activities in University</h2>
+    
+    <div class="act-grid">
+      <div class="act-card">
+        <h3>ประธาน/รองประธานสโมสรนักศึกษา</h3>
+        <p>บริหารทีมงานกว่า 80 คน (ดูแลฝ่ายแอดมินและภาพรวม) จัดงานประชันเชียร์ ประกวดทูตฯ และรับผิดชอบ <strong>FRESHY DAY SPU 2023</strong></p>
+      </div>
+      <div class="act-card">
+        <h3>วิทยากร COLD CHAIN</h3>
+        <p>รับเชิญเป็นวิทยากรบรรยายโครงการอบรม โลจิสติกส์ด้านสินค้าเกษตรและอาหารควบคุมอุณหภูมิ ให้แก่นักศึกษาวิทยาลัยเทคนิคปทุมธานี</p>
+      </div>
+      <div class="act-card">
+        <h3>หัวหน้าจัดค่าย Logistics SPU Camp #10</h3>
+        <p>ค่ายแนะแนวโลจิสติกส์สำหรับมัธยมศึกษาตอนปลาย และอาชีวศึกษา ที่สามารถเก็บ PreCredit ได้</p>
+      </div>
+      <div class="act-card">
+        <h3>"Play Learn Grow Together" LSC Sport Day</h3>
+        <p>ประธานสโมสรร่วมดูแลงานกีฬาสานสัมพันธ์นักศึกษา-บุคลากร โลจิสติกส์ ม.ศรีปทุม และเป็นประธานสีลงแข่งขันบาสเกตบอล</p>
+      </div>
+      <div class="act-card">
+        <h3>ONE STOP OPEN HOUSE 2024</h3>
+        <p>จัดงานร่วมกับกระทรวง อว. (MHESI) ให้คำแนะนำและแนะแนวเส้นทางการศึกษาแบบ One Stop Service</p>
+      </div>
+      <div class="act-card">
+        <h3>SPU ปัน ปัน</h3>
+        <p>โครงการส่งมอบสิ่งของเพื่อเปลี่ยนเป็นทุนการศึกษาให้เด็กขาดโอกาส ภายใต้มูลนิธิยุวพัฒน์</p>
+      </div>
+      <div class="act-card">
+        <h3>Campus Visit วิทยาลัยโลจิสติกส์ฯ SPU</h3>
+        <p>เปิดรับเข้าเยี่ยมชมสถาบัน ห้องปฏิบัติการ ศูนย์การเรียนรู้ เพื่อสร้างแรงบันดาลใจให้นักเรียนนักศึกษา</p>
+      </div>
+    </div>
+
+    <!-- แถบนำทางท้ายหน้า -->
+    <div class="page-nav">
+      <a href="index.html" class="nav-card prev">
+        <span class="nav-sub">ย้อนกลับ • Previous</span>
+        <span class="nav-title">⬅ หน้าแรก (About)</span>
+      </a>
+      <a href="works.html" class="nav-card next">
+        <span class="nav-sub">ถัดไป • Next Chapter</span>
+        <span class="nav-title">ผลงานคอนเทนต์ ➔</span>
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
