@@ -26,9 +26,9 @@
       padding: 2.2rem 0; border-bottom: 1px solid var(--surface-border); 
       margin-bottom: 3.5rem; position: relative; 
     }
-    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
-    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.2s; }
+    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 0.9rem; align-items: center; flex-wrap: nowrap; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.2s; white-space: nowrap; }
     .nav-links a.active, .nav-links a:hover { color: var(--text); }
 
     /* Mobile Hamburger Button */
@@ -140,7 +140,7 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       body { padding: 0 1.25rem 3.5rem; }
       nav { padding: 1.5rem 0; margin-bottom: 2rem; }
       .menu-toggle { display: flex; }
@@ -156,7 +156,7 @@
       
       .nav-links a {
         width: 100%; padding: 0.6rem 0.75rem; font-size: 1rem;
-        border-radius: 8px; border-bottom: 1px solid rgba(0,0,0,0.03);
+        border-radius: 8px; border-bottom: 1px solid rgba(0,0,0,0.03); white-space: normal;
       }
       .nav-links a.active { background: rgba(0, 102, 204, 0.08); color: var(--accent); }
 
