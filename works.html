@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Content Works | Pawaris Chanchoo</title>
+  <title>Featured Works | Pawaris Chanchoo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -18,9 +18,9 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: var(--bg); color: var(--text); font-family: 'Sarabun', sans-serif; line-height: 1.7; padding: 0 1.5rem 5rem; }
-    .container { max-width: 900px; margin: 0 auto; }
+    .container { max-width: 1040px; margin: 0 auto; }
     
-    /* Navigation Bar */
+    /* Navigation Bar - ตรงกันทุกหน้า ไม่ตกบรรทัด */
     nav { 
       display: flex; justify-content: space-between; align-items: center; 
       padding: 2.2rem 0; border-bottom: 1px solid var(--surface-border); 
@@ -44,37 +44,115 @@
     /* Typography */
     h1, h2, h3, strong { color: var(--text) !important; letter-spacing: -0.5px; }
     h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
-    .page-desc { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.15rem; }
+    .page-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.15rem; }
+    
+    /* PDF Banner */
+    .pdf-banner {
+      margin-bottom: 3rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+      background: var(--surface); padding: 1.5rem 2rem; border-radius: 20px; 
+      border: 1px solid var(--surface-border); box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
 
-    /* Content Cards */
+    /* Cards Grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
     .work-card { 
       background: var(--surface); border: 1px solid var(--surface-border); 
-      border-radius: 20px; padding: 2.5rem; margin-bottom: 1.75rem; 
-      box-shadow: 0 4px 24px rgba(0,0,0,0.03); transition: box-shadow 0.3s ease;
+      border-radius: 20px; padding: 2rem; box-shadow: 0 4px 24px rgba(0,0,0,0.03); 
+      display: flex; flex-direction: column; justify-content: space-between; 
+      transition: box-shadow 0.3s ease;
     }
     .work-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-    .work-card h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
-    .work-card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 1rem; }
+    
+    .metric-chip { background: rgba(0, 102, 204, 0.08); color: var(--accent); border: none; padding: 0.4rem 1rem; border-radius: 980px; font-weight: 700; font-size: 0.85rem; display: inline-block; margin-bottom: 1rem; letter-spacing: 0.5px; }
+    .work-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; line-height: 1.3; }
+    .work-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    
+    /* Smart Video Facade */
+    .video-wrapper { 
+      margin-top: auto; border-radius: 12px; overflow: hidden; 
+      min-height: 480px; position: relative; border: 1px solid var(--surface-border);
+      background: #ffffff; display: flex; justify-content: center;
+    }
+    
+    .facade {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(145deg, #1d1d1f, #2c2c2e);
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      cursor: pointer; transition: background 0.3s ease; color: #ffffff; z-index: 10;
+    }
+    .facade:hover { background: linear-gradient(145deg, #2c2c2e, #3a3a3c); }
+    
+    .play-btn {
+      width: 64px; height: 64px; background: rgba(255,255,255,0.15); 
+      border-radius: 50%; display: flex; justify-content: center; align-items: center; 
+      backdrop-filter: blur(8px); margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .play-btn::after { content: "▶"; font-size: 1.5rem; color: #fff; margin-left: 4px; }
+    .facade:hover .play-btn { transform: scale(1.1); background: rgba(255,255,255,0.25); }
+    .facade-text { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; opacity: 0.8; }
+    
+    blockquote.tiktok-embed { margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; min-width: 100% !important; }
+
+    /* Action Buttons */
+    .video-action { margin-top: 1.25rem; display: flex; justify-content: center; }
+    .btn-external { 
+      background: var(--bg); color: var(--text); border: 1px solid var(--surface-border); 
+      padding: 0.65rem 1.25rem; border-radius: 980px; text-decoration: none; 
+      font-weight: 600; font-size: 0.9rem; transition: all 0.2s ease; display: inline-block;
+    }
+    .btn-external:hover { background: #e5e5ea; transform: scale(1.02); }
 
     /* Bottom Page Navigation */
     .page-nav {
-      margin-top: 4.5rem; padding-top: 2.5rem; border-top: 1px solid var(--surface-border);
-      display: flex; justify-content: space-between; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+      margin-top: 4.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--surface-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
     }
     .nav-card {
-      display: flex; flex-direction: column; text-decoration: none; padding: 1.2rem 1.8rem;
-      border-radius: 16px; border: 1px solid var(--surface-border); background: var(--surface);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.02); transition: all 0.2s ease; min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      padding: 1.2rem 1.8rem;
+      border-radius: 16px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
+      min-width: 220px;
     }
-    .nav-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .nav-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
     .nav-card.prev { text-align: left; }
     .nav-card.next {
-      margin-left: auto; text-align: right; background: var(--text); color: var(--bg) !important; border-color: var(--text);
+      margin-left: auto;
+      text-align: right;
+      background: var(--text);
+      color: var(--bg) !important;
+      border-color: var(--text);
     }
     .nav-card.next .nav-sub { color: rgba(255, 255, 255, 0.7); }
     .nav-card.next .nav-title { color: #ffffff !important; }
-    .nav-sub { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 0.25rem; }
-    .nav-title { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+    .nav-sub {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .nav-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
 
     /* Responsive */
     @media (max-width: 860px) {
@@ -97,11 +175,27 @@
       .menu-toggle.active span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
 
       h1 { font-size: 1.85rem; }
-      .page-desc { font-size: 1rem; margin-bottom: 2rem; }
-      .work-card { padding: 1.5rem 1.25rem; border-radius: 16px; }
+      .page-desc { font-size: 1rem; margin-bottom: 1.75rem; }
 
-      .page-nav { flex-direction: column; gap: 0.85rem; margin-top: 3.5rem; padding-top: 1.75rem; }
-      .nav-card { width: 100%; text-align: center !important; padding: 1.1rem 1.25rem; }
+      .pdf-banner { padding: 1.25rem; gap: 1rem; border-radius: 16px; }
+      .pdf-banner .btn-external { width: 100%; text-align: center; padding: 0.75rem 1rem; }
+
+      .grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .work-card { padding: 1.25rem; border-radius: 16px; }
+      .video-action .btn-external { width: 100%; text-align: center; padding: 0.75rem 1rem; }
+      .video-wrapper { min-height: 450px; }
+
+      .page-nav {
+        flex-direction: column;
+        gap: 0.85rem;
+        margin-top: 3.5rem;
+        padding-top: 1.75rem;
+      }
+      .nav-card {
+        width: 100%;
+        text-align: center !important;
+        padding: 1.1rem 1.25rem;
+      }
       .nav-card.next { margin-left: 0; }
     }
   </style>
@@ -127,12 +221,162 @@
       </div>
     </nav>
 
-    <h1>🎬 Content Creation Works</h1>
-    <p class="page-desc">ตัวอย่างผลงานการผลิตคอนเทนต์และสื่อสร้างสรรค์</p>
+    <h1>🎬 Featured Media & Works</h1>
+    <p class="page-desc">ผลงานคอนเทนต์ทั้ง 7 แคมเปญ (รับผิดชอบแบบ End-to-End ตั้งแต่คิดบท, คุมถ่ายทำ, จนถึงการเป็นพิธีกร)</p>
 
-    <div class="work-card">
-      <h3>ผลงานคอนเทนต์วิดีโอสั้น (TikTok & Reels)</h3>
-      <p>การคิดพล็อตเรื่อง การเขียนสคริปต์ และการกำกับดูแลการผลิตคอนเทนต์เพื่อสร้างการมีส่วนร่วมและยอดผู้เข้าชมสูงให้กับแบรนด์</p>
+    <!-- ปุ่มดาวน์โหลด Full Portfolio PDF -->
+    <div class="pdf-banner">
+      <div style="font-size: 2.5rem; line-height: 1;">📚</div>
+      <div style="flex-grow: 1; min-width: 200px;">
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.2rem; color: var(--text);">Full Portfolio 2026</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">รวบรวมรูปภาพเบื้องหลังการทำงานและผลงานกราฟิกฉบับสมบูรณ์ (ไฟล์ PDF)</p>
+      </div>
+      <a href="Pawaris_Portfolio_2026.pdf" target="_blank" class="btn-external" style="background: var(--text); color: var(--bg); border: none;">
+        📥 ดาวน์โหลด PDF
+      </a>
+    </div>
+
+    <div class="grid">
+      <!-- 1. บ้านและสวนแฟร์ -->
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">🌟 224.9K Views</span>
+          <h3>บ้านและสวน Living Festival 2025</h3>
+          <p>พาเดินชมงาน อัปเดตเทรนด์แต่งบ้าน ครบ จบ ที่เดียว ไอเดียเพียบ เล่าเรื่องให้เพลินและน่าติดตาม</p>
+        </div>
+        <div>
+          <div class="video-wrapper" id="vid-1">
+            <div class="facade" onclick="playTikTok('vid-1', '7566143901841624321', 'spacestory.co')">
+              <div class="play-btn"></div>
+              <span class="facade-text">Tap to Play on TikTok</span>
+            </div>
+          </div>
+          <div class="video-action">
+            <a href="https://www.tiktok.com/@spacestory.co/video/7566143901841624321" target="_blank" class="btn-external">ดูคลิปต้นฉบับ ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. FLO Condominium -->
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">🧱 100.5K Views</span>
+          <h3>FLO Condominium ย่านคลองสาน</h3>
+          <p>รีวิวคอนโดสุดชิคโทนสีอิฐ จุดเชื่อมระหว่างเมืองเก่ากับเมืองใหม่ สัมผัส Lifestyle ริมแม่น้ำเจ้าพระยา</p>
+        </div>
+        <div>
+          <div class="video-wrapper" id="vid-2">
+            <div class="facade" onclick="playTikTok('vid-2', '7559565678815087879', 'spacestory.co')">
+              <div class="play-btn"></div>
+              <span class="facade-text">Tap to Play on TikTok</span>
+            </div>
+          </div>
+          <div class="video-action">
+            <a href="https://www.tiktok.com/@spacestory.co/video/7559565678815087879" target="_blank" class="btn-external">ดูคลิปต้นฉบับ ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. SCG HEIM แผ่นดินไหว -->
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">🔥 494.7K Views</span>
+          <h3>MODULAR ทนแผ่นดินไหว 800 แกล (SCG HEIM)</h3>
+          <p>เจาะลึกนวัตกรรมญี่ปุ่น โครงสร้างเหล็ก SS400 ระบบกรองอากาศทั้งหลัง และช่อง Service ใต้พื้น</p>
+        </div>
+        <div>
+          <div class="video-wrapper" id="vid-3">
+            <div class="facade" onclick="playTikTok('vid-3', '7571065567113661714', 'spacestory.co')">
+              <div class="play-btn"></div>
+              <span class="facade-text">Tap to Play on TikTok</span>
+            </div>
+          </div>
+          <div class="video-action">
+            <a href="https://www.tiktok.com/@spacestory.co/video/7571065567113661714" target="_blank" class="btn-external">ดูคลิปต้นฉบับ ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. AP Xavier -->
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">✨ 347.4K Views</span>
+          <h3>AP Xavier สาทร-กัลปพฤกษ์</h3>
+          <p>ทาวน์โฮมขายดีเล่นระดับ 3 ชั้น (Step-in House) พื้นที่ 184 ตร.ม. โปรโมชันปิดการขาย อยู่สบาย 3 ปีไม่ต้องผ่อน</p>
+        </div>
+        <div>
+          <div class="video-wrapper" id="vid-4">
+            <div class="facade" onclick="playTikTok('vid-4', '7584071311442398484', 'spacestory.co')">
+              <div class="play-btn"></div>
+              <span class="facade-text">Tap to Play on TikTok</span>
+            </div>
+          </div>
+          <div class="video-action">
+            <a href="https://www.tiktok.com/@spacestory.co/video/7584071311442398484" target="_blank" class="btn-external">ดูคลิปต้นฉบับ ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Blue Wild Warehouse -->
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">☕ 53.4K Views</span>
+          <h3>Blue Wild Warehouse</h3>
+          <p>โกดังลับ "เฟอร์เท่ เสื้อเก๋ คาเฟ่ชิค" พาสำรวจสไตล์ Midcentury Modern, Cozy Minimal และวินเทจ</p>
+        </div>
+        <div>
+          <div class="video-wrapper" id="vid-5">
+            <div class="facade" onclick="playTikTok('vid-5', '7587760430647495954', 'spacestory.co')">
+              <div class="play-btn"></div>
+              <span class="facade-text">Tap to Play on TikTok</span>
+            </div>
+          </div>
+          <div class="video-action">
+            <a href="https://www.tiktok.com/@spacestory.co/video/7587760430647495954" target="_blank" class="btn-external">ดูคลิปต้นฉบับ ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. SCG HEIM (ประกวดอันดับ 3) -->
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">🏆 อันดับ 3 SCG HEIM | 166.2K Views</span>
+          <h3>SCG HEIM: บ้านอากาศสะอาด</h3>
+          <p>แคมเปญประกวดคลิปรีวิวบ้านนวัตกรรม MODULA ในช่อง Space Story เล่าเรื่องโครงสร้างและ Air Factory (เขียนสคริปต์, จัดสถานที่, เช็ก QC)</p>
+        </div>
+        <div>
+          <div class="video-wrapper" id="vid-6">
+            <div class="facade" onclick="playTikTok('vid-6', '7569963338155805970', 'spacestory.co')">
+              <div class="play-btn"></div>
+              <span class="facade-text">Tap to Play on TikTok</span>
+            </div>
+          </div>
+          <div class="video-action">
+            <a href="https://www.tiktok.com/@spacestory.co/video/7569963338155805970" target="_blank" class="btn-external">ดูคลิปต้นฉบับ ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Nirvana DEFINE -->
+      <div class="work-card">
+        <div>
+          <span class="metric-chip">📍 304K Views</span>
+          <h3>Nirvana DEFINE ศรีนครินทร์-พระราม 9</h3>
+          <p>รีวิวโครงการพรีเมียมทาวน์โฮมที่เป็นได้มากกว่าบ้านเดี่ยว รับหน้าที่เป็นนายแบบเอง โชว์สิ่งอำนวยความสะดวก ทำเล และการเดินทาง</p>
+        </div>
+        <div>
+          <div class="video-wrapper" id="vid-7">
+            <div class="facade" onclick="playTikTok('vid-7', '7567379093923040529', 'spacestory.co')">
+              <div class="play-btn"></div>
+              <span class="facade-text">Tap to Play on TikTok</span>
+            </div>
+          </div>
+          <div class="video-action">
+            <a href="https://www.tiktok.com/@spacestory.co/video/7567379093923040529" target="_blank" class="btn-external">ดูคลิปต้นฉบับ ↗</a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- แถบนำทางท้ายหน้า -->
@@ -157,6 +401,15 @@
       menuToggle.classList.toggle('active');
       navLinks.classList.toggle('open');
     });
+
+    function playTikTok(containerId, videoId, username = 'spacestory.co') {
+      const container = document.getElementById(containerId);
+      container.innerHTML = `<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@${username}/video/${videoId}" data-video-id="${videoId}" style="max-width: 100%; min-width: 100%; margin: 0; padding: 0;"><section></section></blockquote>`;
+      const script = document.createElement('script');
+      script.src = "https://www.tiktok.com/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
   </script>
 </body>
 </html>
