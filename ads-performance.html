@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAP+ PWC Marketing Team · Paid Ads Performance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f1b3d;--muted:#5a6480;--line:#d9dfec;--bg:#f5f5f7;--card:#fff;
+  --navy:#1a3a8f;--lead:#ece9fe;--lead-b:#6b5fd6;--sub:#e3f5ee;--sub-b:#1d9e75;--gray:#f1f2f5;
+  --surface-border: rgba(0, 0, 0, 0.06); --text: #1d1d1f; --text-muted: #86868b; --accent: #0066cc;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"IBM Plex Sans Thai",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;padding:0 1.5rem 5rem}
+
+.nav-container{max-width:1040px;margin:0 auto}
+nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:2.2rem 0;border-bottom:1px solid var(--surface-border);
+  margin-bottom:2.5rem;position:relative;font-family:'Sarabun',sans-serif;
+}
+.logo{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.3rem;color:var(--text);text-decoration:none;letter-spacing:-0.5px}
+.nav-links{display:flex;gap:1.35rem;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:0.95rem;font-weight:600;transition:color 0.2s}
+.nav-links a.active,.nav-links a:hover{color:var(--text)}
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;flex-direction:column;gap:6px}
+.menu-toggle span{display:block;width:22px;height:2px;background-color:var(--text);transition:all 0.3s ease;border-radius:2px}
+
+header{background:var(--navy);color:#fff;padding:40px 24px 32px;text-align:center;border-radius:20px;max-width:1040px;margin:0 auto}
+header h1{margin:0 0 6px;font-size:28px;font-weight:600}
+header p{margin:0;opacity:.85}
+main{max-width:1040px;margin:0 auto;padding:28px 0 40px}
+section{margin-bottom:36px}
+h2{font-size:21px;font-weight:600;margin:0 0 14px}
+.grid{display:grid;gap:12px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.small{font-size:14px;color:var(--muted)}
+
+/* --- Ads Performance Styles --- */
+.kpi-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.kpi-label{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:6px}
+.kpi-val{font-family:'Plus Jakarta Sans',"IBM Plex Sans Thai",sans-serif;font-size:26px;font-weight:800;color:var(--ink);line-height:1.2}
+.kpi-val.green{color:#0f7b5b}
+.kpi-val.navy{color:var(--navy)}
+.badge-up{display:inline-block;background:#e3f5ee;color:#08503f;border:1px solid #b5e4d2;font-size:12px;font-weight:600;padding:1px 8px;border-radius:99px;vertical-align:middle;margin-left:4px}
+.kpi-sub{font-size:12.5px;color:var(--muted);margin-top:6px}
+.bar-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.bar-title{font-weight:600;font-size:15px;margin-bottom:12px;color:var(--ink)}
+.bar-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.bar-track{width:100%;height:8px;background:#eef1f8;border-radius:99px;overflow:hidden;margin-bottom:12px}
+.bar-track:last-child{margin-bottom:0}
+.bar-fill-bad{height:100%;background:#e05260;border-radius:99px}
+.bar-fill-good{height:100%;background:var(--sub-b);border-radius:99px}
+.bar-fill-navy{height:100%;background:var(--navy);border-radius:99px}
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left}
+th{background:#eef1f8;font-weight:600}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.peak-row{background:#f2fbf7}
+tr.peak-row td{font-weight:600;color:#08503f}
+tr.total-row td{background:#eef1f8;font-weight:700;border-top:2px solid #c5cee3;border-bottom:none}
+.insight-note{background:#f6f8fc;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--muted);margin-top:14px}
+.insight-note strong{color:var(--ink)}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+
+@media(max-width:860px){
+  body{padding:0 1.25rem 3.5rem}
+  nav{padding:1.5rem 0;margin-bottom:1.5rem}
+  .menu-toggle{display:flex}
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;width:100%;
+    background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);
+    border:1px solid var(--surface-border);border-radius:18px;
+    flex-direction:column;padding:1.25rem;gap:0.75rem;
+    box-shadow:0 16px 32px rgba(0,0,0,0.08);z-index:100;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;padding:0.6rem 0.75rem;font-size:1rem;border-radius:8px;border-bottom:1px solid rgba(0,0,0,0.03)}
+  .nav-links a.active{background:rgba(0,102,204,0.08);color:var(--accent)}
+  .menu-toggle.active span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+  .menu-toggle.active span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+  .g4,.g3{grid-template-columns:1fr 1fr}
+}
+@media(max-width:540px){
+  .g4,.g3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="nav-container">
+  <nav>
+    <a href="index.html" class="logo">PAWARIS.C</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="เปิดเมนู">
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">หน้าแรก (About)</a>
+      <a href="experience.html">ประสบการณ์ & กิจกรรม</a>
+      <a href="works.html">ผลงานคอนเทนต์</a>
+      <a href="ai-team.html">ทีม AI & MarTech</a>
+      <a href="ads-performance.html" class="active">ผลงานยิงแอด</a>
+      <a href="awards.html">นวัตกรรม & รางวัล</a>
+      <a href="resume.html">Resume & Transcript</a>
+    </div>
+  </nav>
+</div>
+
+<header>
+<h1>Performance Marketing &amp; Full-Funnel Optimization</h1>
+<p>วิเคราะห์ผลงานแคมเปญ Meta Ads และการบริหาร Lead Funnel (Jan – Nov 2026)</p>
+</header>
+
+<main>
+<section>
+  <p class="small" style="margin:0 0 18px">
+    บริหารงบโฆษณา Meta Ads รวมกว่า <b>1.68 ล้านบาท</b> สำหรับกลุ่มสินค้า Home Solution ที่มีรอบการตัดสินใจซื้อสูง ปรับโครงสร้างแคมเปญและทำงานร่วมกับทีมขายเพื่อลดคอขวดของ Funnel ตั้งแต่การคัดกรองลีดคุณภาพ (QI) จนถึงการปิดการขายจริง
+  </p>
+
+  <!-- 4 KPI Cards -->
+  <div class="grid g4" style="margin-bottom:18px">
+    <div class="kpi-card">
+      <div>
+        <div class="kpi-label">งบโฆษณาที่บริหารรวม (Ad Spend)</div>
+        <div class="kpi-val navy">฿1.68M</div>
+      </div>
+      <div class="kpi-sub">1,686,790 บาท (Jan – Nov 18, 2026)</div>
+    </div>
+
+    <div class="kpi-card">
+      <div>
+        <div class="kpi-label">ต้นทุนต่อลีดคุณภาพ (Cost / QI)</div>
+        <div class="kpi-val green">฿274.20 <span class="badge-up">-84.7%</span></div>
+      </div>
+      <div class="kpi-sub">ลดลงจากจุดสูงสุด ฿1,789.26 (เม.ย.)</div>
+    </div>
+
+    <div class="kpi-card">
+      <div>
+        <div class="kpi-label">สัดส่วนลีดคุณภาพ (QI Rate)</div>
+        <div class="kpi-val green">33.41% <span class="badge-up">Q3 Peak</span></div>
+      </div>
+      <div class="kpi-sub">สูงสุด 53.92% ในเดือน มิ.ย. (จาก 9.20%)</div>
+    </div>
+
+    <div class="kpi-card">
+      <div>
+        <div class="kpi-label">ยอดปิดการขายรวม (Total Win)</div>
+        <div class="kpi-val">309 <span class="badge-up">Orders</span></div>
+      </div>
+      <div class="kpi-sub">Blended CPA เฉลี่ย ฿5,458.87 / ออเดอร์</div>
+    </div>
+  </div>
+
+  <!-- Before vs After Comparison -->
+  <div class="grid g3" style="margin-bottom:18px">
+    <div class="bar-box">
+      <div class="bar-title">1. คุณภาพลีดทักแชท (QI / All Inbox)</div>
+      <div class="bar-row"><span class="small">ก่อนปรับกลยุทธ์ (Apr)</span><b style="color:#c93b49">9.20%</b></div>
+      <div class="bar-track"><div class="bar-fill-bad" style="width:17%"></div></div>
+      <div class="bar-row"><span class="small">หลังปรับกลยุทธ์ (Q3 Avg)</span><b style="color:#0f7b5b">33.41% (Max 53.9%)</b></div>
+      <div class="bar-track"><div class="bar-fill-good" style="width:65%"></div></div>
+    </div>
+
+    <div class="bar-box">
+      <div class="bar-title">2. ต้นทุนต่อลีดคุณภาพ (Cost / QI)</div>
+      <div class="bar-row"><span class="small">ก่อนปรับกลยุทธ์ (Apr)</span><b style="color:#c93b49">฿1,789.26</b></div>
+      <div class="bar-track"><div class="bar-fill-bad" style="width:90%"></div></div>
+      <div class="bar-row"><span class="small">ช่วงล่าสุด (Q4 Oct–Nov)</span><b style="color:#0f7b5b">฿274.20 (-84.7%)</b></div>
+      <div class="bar-track"><div class="bar-fill-good" style="width:16%"></div></div>
+    </div>
+
+    <div class="bar-box">
+      <div class="bar-title">3. อัตรา Admin ตอบเกินเวลา (SLA)</div>
+      <div class="bar-row"><span class="small">ช่วงคอขวดทีมขาย (Apr)</span><b style="color:#c93b49">84.0%</b></div>
+      <div class="bar-track"><div class="bar-fill-bad" style="width:84%"></div></div>
+      <div class="bar-row"><span class="small">หลังปรับระบบตอบกลับ (Q4)</span><b style="color:var(--navy)">38.0% (-46 pp)</b></div>
+      <div class="bar-track"><div class="bar-fill-navy" style="width:38%"></div></div>
+    </div>
+  </div>
+
+  <!-- Quarterly Table -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>ช่วงเวลา (2026)</th>
+          <th class="num">งบโฆษณา (THB)</th>
+          <th class="num">ทักแชท (Inbox)</th>
+          <th class="num">ลีดคุณภาพ (QI)</th>
+          <th class="num">QI Rate</th>
+          <th class="num">Cost / QI</th>
+          <th class="num">ปิดผ่านแชท<br><span style="font-weight:400;font-size:12px;color:var(--muted)">(FB + Line)</span></th>
+          <th class="num">ปิดรวมทุกช่องทาง<br><span style="font-weight:400;font-size:12px;color:var(--muted)">(Total Win)</span></th>
+          <th class="num">Blended CPA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Q1 (Jan–Mar)</b></td>
+          <td class="num">฿436,050</td>
+          <td class="num">3,124</td>
+          <td class="num">804</td>
+          <td class="num">25.74%</td>
+          <td class="num">฿542.35</td>
+          <td class="num">23</td>
+          <td class="num">69</td>
+          <td class="num">฿6,319.57</td>
+        </tr>
+        <tr>
+          <td><b>Q2 (Apr–Jun)</b></td>
+          <td class="num">฿549,826</td>
+          <td class="num">3,043</td>
+          <td class="num">833</td>
+          <td class="num">27.37%</td>
+          <td class="num">฿660.06</td>
+          <td class="num">45</td>
+          <td class="num">77</td>
+          <td class="num">฿7,140.59</td>
+        </tr>
+        <tr class="peak-row">
+          <td>Q3 (Jul–Sep) <span class="badge-up">Peak</span></td>
+          <td class="num">฿507,056</td>
+          <td class="num">4,343</td>
+          <td class="num">1,451</td>
+          <td class="num">33.41%</td>
+          <td class="num">฿349.45</td>
+          <td class="num">57</td>
+          <td class="num">114</td>
+          <td class="num">฿4,447.86</td>
+        </tr>
+        <tr>
+          <td><b>Q4 (Oct–Nov 18)</b></td>
+          <td class="num">฿193,857</td>
+          <td class="num">2,962</td>
+          <td class="num">707</td>
+          <td class="num">23.87%</td>
+          <td class="num" style="color:#0f7b5b;font-weight:600">฿274.20</td>
+          <td class="num">4</td>
+          <td class="num">49</td>
+          <td class="num" style="color:#0f7b5b;font-weight:600">฿3,956.27</td>
+        </tr>
+        <tr class="total-row">
+          <td>รวมทั้งหมด (Jan – Nov 18)</td>
+          <td class="num">฿1,686,790</td>
+          <td class="num">13,472</td>
+          <td class="num">3,795</td>
+          <td class="num">28.17%</td>
+          <td class="num" style="color:#0f7b5b">฿444.48</td>
+          <td class="num">129</td>
+          <td class="num">309</td>
+          <td class="num" style="color:#0f7b5b">฿5,458.87</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-note">
+    <strong>Omnichannel &amp; Full-Funnel Insight:</strong> ในช่วง Q4 (Oct–Nov) แคมเปญ Meta Ads ทำหน้าที่สร้าง Awareness และดึง Traffic เข้ามาสอบถามสเปกสินค้า ก่อนที่ลูกค้าจะตัดสินใจสั่งซื้อผ่าน Marketplace (Shopee) เพื่อใช้โค้ดส่วนลดแคมเปญ 11.11 ส่งผลให้ Blended CPA ลดลงต่ำสุดที่ <strong>฿3,956.27 / ออเดอร์</strong> และในเดือน พ.ย. (ถึงวันที่ 18) ปิดการขายได้แล้ว 23 เคสด้วยงบโฆษณาเพียง ฿17,171.09
+  </div>
+</section>
+</main>
+<footer>CAP+ (Capplus Thailand) · PWC Marketing Partnership · อัปเดต พ.ย. 2026</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+</script>
+</body>
+</html>
