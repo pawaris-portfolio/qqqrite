@@ -74,6 +74,26 @@ th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left}
 th{background:#eef1f8;font-weight:600}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 
+/* Bottom Page Navigation */
+.page-nav {
+  margin-top: 4.5rem; padding-top: 2.5rem; border-top: 1px solid var(--surface-border);
+  display: flex; justify-content: space-between; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+}
+.nav-card {
+  display: flex; flex-direction: column; text-decoration: none; padding: 1.2rem 1.8rem;
+  border-radius: 16px; border: 1px solid var(--surface-border); background: var(--card);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.02); transition: all 0.2s ease; min-width: 220px;
+}
+.nav-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.nav-card.prev { text-align: left; }
+.nav-card.next {
+  margin-left: auto; text-align: right; background: var(--text); color: var(--bg) !important; border-color: var(--text);
+}
+.nav-card.next .nav-sub { color: rgba(255, 255, 255, 0.7); }
+.nav-card.next .nav-title { color: #ffffff !important; }
+.nav-sub { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 0.25rem; }
+.nav-title { font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+
 @media(max-width:860px){
   body{padding:0 1.25rem 3.5rem}
   nav{padding:1.5rem 0;margin-bottom:1.5rem}
@@ -91,6 +111,10 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
   .menu-toggle.active span:nth-child(1){transform:translateY(4px) rotate(45deg)}
   .menu-toggle.active span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
   .g4,.g3{grid-template-columns:1fr 1fr}.spec{grid-template-columns:1fr}.sub{max-width:none;min-width:45%}
+
+  .page-nav { flex-direction: column; gap: 0.85rem; margin-top: 3.5rem; padding-top: 1.75rem; }
+  .nav-card { width: 100%; text-align: center !important; padding: 1.1rem 1.25rem; }
+  .nav-card.next { margin-left: 0; }
 }
 </style>
 </head>
@@ -187,6 +211,18 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <tr><td>Production Lead</td><td><code>pwc-production-lead</code></td><td><code>/pwc-storyboard</code> <code>/pwc-audio-check</code> <code>/pwc-deck</code> <code>/pwc-plan-drawing</code></td></tr>
 </table>
 </section>
+
+<!-- แถบนำทางท้ายหน้า -->
+<div class="page-nav">
+  <a href="works.html" class="nav-card prev">
+    <span class="nav-sub">ย้อนกลับ • Previous</span>
+    <span class="nav-title">⬅ ผลงานคอนเทนต์</span>
+  </a>
+  <a href="ads-performance.html" class="nav-card next">
+    <span class="nav-sub">ถัดไป • Next Chapter</span>
+    <span class="nav-title">ผลงานยิงแอด ➔</span>
+  </a>
+</div>
 </main>
 <footer>CAP+ (Capplus Thailand) · PWC Marketing Partnership · อัปเดต พ.ย. 2026</footer>
 
