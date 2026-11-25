@@ -63,7 +63,7 @@
     }
     .work-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
 
-    /* Featured Split Card (วิดีโอซ้าย + โครงสร้างการทำคลิปขวา) */
+    /* Featured Split Card */
     .featured-split-card {
       grid-column: 1 / -1;
       display: grid;
@@ -132,7 +132,7 @@
       background: #111113; display: flex; justify-content: center; align-items: center;
     }
     .featured-media-col .video-wrapper {
-      min-height: 560px;
+      min-height: 580px;
     }
 
     .facade {
@@ -154,11 +154,11 @@
     .facade:hover .play-btn { transform: scale(1.1); background: rgba(255,255,255,0.25); }
     .facade-text { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; opacity: 0.85; }
 
-    .local-video {
+    .drive-iframe {
       width: 100%;
-      height: 100%;
-      min-height: 560px;
-      object-fit: contain;
+      height: 580px;
+      border: none;
+      display: block;
       background: #000000;
     }
 
@@ -262,7 +262,7 @@
       .grid { grid-template-columns: 1fr; gap: 1.5rem; }
       .work-card { padding: 1.25rem; border-radius: 16px; }
       .video-action .btn-external { width: 100%; text-align: center; padding: 0.75rem 1rem; }
-      .video-wrapper, .featured-media-col .video-wrapper, .local-video { min-height: 450px; }
+      .video-wrapper, .featured-media-col .video-wrapper, .drive-iframe { min-height: 480px; height: 480px; }
 
       .page-nav {
         flex-direction: column;
@@ -316,17 +316,19 @@
     </div>
 
     <div class="grid">
-      <!-- 0. CAP+ x Landy Home (วิดีโอซ้าย + โครงสร้างการทำงานขวา) -->
+      <!-- 0. CAP+ x Landy Home (Google Drive Embed + โครงสร้างการทำงานขวา) -->
       <div class="work-card featured-split-card">
         <div class="featured-media-col">
           <div class="video-wrapper" id="vid-capplus">
-            <div class="facade" onclick="playLocalVideo('vid-capplus', 'CAPPLUS_OpenHouse_Landy_Motion_21Slides_2m04s.mp4')">
-              <div class="play-btn"></div>
-              <span class="facade-text">Tap to Play Motion Video (02:04)</span>
-            </div>
+            <iframe
+              class="drive-iframe"
+              src="https://drive.google.com/file/d/1kPDNnkct7aduVNxffmnM8lmVk2sO3fpk/preview"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
           </div>
           <div class="video-action">
-            <a href="CAPPLUS_OpenHouse_Landy_Motion_21Slides_2m04s.mp4" target="_blank" class="btn-external">เปิดไฟล์วิดีโอ ↗</a>
+            <a href="https://drive.google.com/file/d/1kPDNnkct7aduVNxffmnM8lmVk2sO3fpk/view?usp=sharing" target="_blank" class="btn-external">เปิดดูบน Google Drive ↗</a>
           </div>
         </div>
 
@@ -529,11 +531,6 @@
       menuToggle.classList.toggle('active');
       navLinks.classList.toggle('open');
     });
-
-    function playLocalVideo(containerId, videoSrc) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = `<video class="local-video" src="${videoSrc}" controls autoplay playsinline preload="metadata"></video>`;
-    }
 
     function playTikTok(containerId, videoId, username = 'spacestory.co') {
       const container = document.getElementById(containerId);
