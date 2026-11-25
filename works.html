@@ -44,11 +44,11 @@
     /* Typography */
     h1, h2, h3, h4, strong { color: var(--text) !important; letter-spacing: -0.5px; }
     h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
-    .page-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.15rem; }
+    .page-desc { color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.15rem; }
 
-    /* PDF Banner */
+    /* Bottom PDF Banner */
     .pdf-banner {
-      margin-bottom: 3rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+      margin-top: 2.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
       background: var(--surface); padding: 1.5rem 2rem; border-radius: 20px;
       border: 1px solid var(--surface-border); box-shadow: 0 4px 16px rgba(0,0,0,0.03);
     }
@@ -175,7 +175,7 @@
 
     /* Bottom Page Navigation */
     .page-nav {
-      margin-top: 4.5rem;
+      margin-top: 3rem;
       padding-top: 2.5rem;
       border-top: 1px solid var(--surface-border);
       display: flex;
@@ -262,12 +262,12 @@
       .grid { grid-template-columns: 1fr; gap: 1.5rem; }
       .work-card { padding: 1.25rem; border-radius: 16px; }
       .video-action .btn-external { width: 100%; text-align: center; padding: 0.75rem 1rem; }
-      .video-wrapper, .featured-media-col .video-wrapper, .drive-iframe { min-height: 480px; height: 480px; }
+      .featured-media-col .video-wrapper, .drive-iframe { min-height: 480px; height: 480px; }
 
       .page-nav {
         flex-direction: column;
         gap: 0.85rem;
-        margin-top: 3.5rem;
+        margin-top: 3rem;
         padding-top: 1.75rem;
       }
       .nav-card {
@@ -302,18 +302,6 @@
 
     <h1>🎬 Featured Media & Works</h1>
     <p class="page-desc">ผลงานคอนเทนต์ทั้งวิดีโอโมชันแคมเปญและคลิปรีวิวคอนเทนต์ (ตั้งแต่การวางโครงเรื่อง/สคริปต์ ปรับจังหวะการสื่อสาร จนถึงการผลิตและนำเสนอ)</p>
-
-    <!-- ปุ่มดาวน์โหลด Full Portfolio PDF -->
-    <div class="pdf-banner">
-      <div style="font-size: 2.5rem; line-height: 1;">📚</div>
-      <div style="flex-grow: 1; min-width: 200px;">
-        <h3 style="font-size: 1.2rem; margin-bottom: 0.2rem; color: var(--text);">Full Portfolio 2026</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">รวบรวมรูปภาพเบื้องหลังการทำงานและผลงานกราฟิกฉบับสมบูรณ์ (ไฟล์ PDF)</p>
-      </div>
-      <a href="Pawaris_Portfolio_2026.pdf" target="_blank" class="btn-external" style="background: var(--text); color: var(--bg); border: none;">
-        📥 ดาวน์โหลด PDF
-      </a>
-    </div>
 
     <div class="grid">
       <!-- 0. CAP+ x Landy Home (Google Drive Embed + โครงสร้างการทำงานขวา) -->
@@ -506,7 +494,18 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <!-- แบนเนอร์ PDF ท้ายรายการ -->
+    <div class="pdf-banner">
+      <div style="font-size: 2.5rem; line-height: 1;">📚</div>
+      <div style="flex-grow: 1; min-width: 200px;">
+        <h3 style="font-size: 1.2rem; margin-bottom: 0.2rem; color: var(--text);">Portfolio กิจกรรมมหาลัย และฝึกงาน</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">รวบรวมผลงานและภาพบรรยากาศจากกิจกรรมมหาวิทยาลัยและช่วงฝึกงาน (ไฟล์ PDF)</p>
+      </div>
+      <a href="Pawaris_Portfolio_2026.pdf" target="_blank" class="btn-external" style="background: var(--text); color: var(--bg); border: none;">
+        📥 ดาวน์โหลด PDF
+      </a>
     </div>
 
     <!-- แถบนำทางท้ายหน้า -->
