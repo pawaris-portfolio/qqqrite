@@ -120,6 +120,47 @@
       color: #3a3a3c;
     }
 
+    /* Drive Archive Full-Width Card */
+    .archive-banner-card {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #ffffff 0%, #f4f8ff 100%);
+      border: 1px solid rgba(0, 102, 204, 0.16);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 1.75rem 2.25rem;
+    }
+    .archive-info {
+      flex: 1;
+    }
+    .archive-info p {
+      margin-bottom: 0 !important;
+    }
+    .archive-cta {
+      flex-shrink: 0;
+    }
+    .btn-primary-drive {
+      background: var(--accent);
+      color: #ffffff !important;
+      border: none;
+      padding: 0.85rem 1.6rem;
+      border-radius: 980px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 6px 18px rgba(0, 102, 204, 0.22);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .btn-primary-drive:hover {
+      background: #0052a3;
+      transform: translateY(-2px);
+    }
+
     .metric-chip { background: rgba(0, 102, 204, 0.08); color: var(--accent); border: none; padding: 0.4rem 1rem; border-radius: 980px; font-weight: 700; font-size: 0.85rem; display: inline-block; margin-bottom: 1rem; letter-spacing: 0.5px; }
     .work-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; line-height: 1.3; }
     .work-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
@@ -231,6 +272,15 @@
       }
       .workflow-grid {
         grid-template-columns: 1fr;
+      }
+      .archive-banner-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+      }
+      .archive-cta, .btn-primary-drive {
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -352,6 +402,20 @@
           <div class="workflow-note">
             <strong>ผลลัพธ์และบทเรียนจากการทำงาน:</strong> ลดเวลารอผลิตสื่อวิดีโอโปรโมชันแคมเปญจากเดคขายงานให้พร้อมใช้งานจริงทั้งบนเวทีและโซเชียลมีเดีย พร้อมวางมาตรฐานการส่งไฟล์เสียงฉบับเต็มตั้งแต่รอบแรกและการตรวจความสอดคล้องของตัวเลข/ชื่อรุ่นก่อน Render
           </div>
+        </div>
+      </div>
+
+      <!-- การ์ดรวมคลังคลิป 20+ ชิ้นบน Google Drive -->
+      <div class="work-card archive-banner-card">
+        <div class="archive-info">
+          <span class="metric-chip" style="margin-bottom: 0.6rem;">📁 Content Archive • 20+ Videos (1–2 Mins)</span>
+          <h3>คลังผลงานวิดีโอคอนเทนต์ทั้งหมด (Google Drive)</h3>
+          <p>รวบรวมคลิปวิดีโอโปรโมตสินค้า รีวิวฟังก์ชัน และคอนเทนต์แคมเปญการตลาดกว่า 20 ชิ้น (ความยาว 1–2 นาที/คลิป) อัปเดตต่อเนื่อง สามารถกดเข้าไปเลือกรับชมทั้งหมดได้ในโฟลเดอร์</p>
+        </div>
+        <div class="archive-cta">
+          <a href="https://drive.google.com/drive/folders/1LUSDSSxKuF5roS2XMiubW61SMM-pUsEi?usp=sharing" target="_blank" class="btn-primary-drive">
+            📂 เปิดดูคลิปทั้งหมดใน Drive ↗
+          </a>
         </div>
       </div>
 
