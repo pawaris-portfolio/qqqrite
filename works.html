@@ -19,12 +19,12 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background-color: var(--bg); color: var(--text); font-family: 'Sarabun', sans-serif; line-height: 1.7; padding: 0 1.5rem 5rem; }
     .container { max-width: 1040px; margin: 0 auto; }
-    
-    /* Navigation Bar - ตรงกันทุกหน้า ไม่ตกบรรทัด */
-    nav { 
-      display: flex; justify-content: space-between; align-items: center; 
-      padding: 2.2rem 0; border-bottom: 1px solid var(--surface-border); 
-      margin-bottom: 3.5rem; position: relative; 
+
+    /* Navigation Bar */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 2.2rem 0; border-bottom: 1px solid var(--surface-border);
+      margin-bottom: 3.5rem; position: relative;
     }
     .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text); text-decoration: none; letter-spacing: -0.5px; flex-shrink: 0; }
     .nav-links { display: flex; gap: 0.9rem; align-items: center; flex-wrap: nowrap; }
@@ -42,63 +42,133 @@
     }
 
     /* Typography */
-    h1, h2, h3, strong { color: var(--text) !important; letter-spacing: -0.5px; }
+    h1, h2, h3, h4, strong { color: var(--text) !important; letter-spacing: -0.5px; }
     h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
     .page-desc { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.15rem; }
-    
+
     /* PDF Banner */
     .pdf-banner {
       margin-bottom: 3rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
-      background: var(--surface); padding: 1.5rem 2rem; border-radius: 20px; 
+      background: var(--surface); padding: 1.5rem 2rem; border-radius: 20px;
       border: 1px solid var(--surface-border); box-shadow: 0 4px 16px rgba(0,0,0,0.03);
     }
 
     /* Cards Grid */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-    .work-card { 
-      background: var(--surface); border: 1px solid var(--surface-border); 
-      border-radius: 20px; padding: 2rem; box-shadow: 0 4px 24px rgba(0,0,0,0.03); 
-      display: flex; flex-direction: column; justify-content: space-between; 
+    .work-card {
+      background: var(--surface); border: 1px solid var(--surface-border);
+      border-radius: 20px; padding: 2rem; box-shadow: 0 4px 24px rgba(0,0,0,0.03);
+      display: flex; flex-direction: column; justify-content: space-between;
       transition: box-shadow 0.3s ease;
     }
     .work-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-    
+
+    /* Featured Split Card (วิดีโอซ้าย + โครงสร้างการทำคลิปขวา) */
+    .featured-split-card {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 2.25rem;
+      align-items: start;
+    }
+    .featured-media-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .featured-detail-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .workflow-box {
+      background: var(--bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      padding: 1.25rem 1.35rem;
+    }
+    .workflow-box h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .workflow-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      font-size: 0.88rem;
+      color: #3a3a3c;
+      line-height: 1.55;
+    }
+    .workflow-list li strong {
+      font-weight: 700;
+    }
+    .workflow-note {
+      background: rgba(0, 102, 204, 0.05);
+      border-left: 3px solid var(--accent);
+      padding: 0.85rem 1.1rem;
+      border-radius: 0 12px 12px 0;
+      font-size: 0.88rem;
+      color: #3a3a3c;
+    }
+
     .metric-chip { background: rgba(0, 102, 204, 0.08); color: var(--accent); border: none; padding: 0.4rem 1rem; border-radius: 980px; font-weight: 700; font-size: 0.85rem; display: inline-block; margin-bottom: 1rem; letter-spacing: 0.5px; }
     .work-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; line-height: 1.3; }
     .work-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
-    
+    .featured-detail-col p { margin-bottom: 0.25rem; }
+
     /* Smart Video Facade */
-    .video-wrapper { 
-      margin-top: auto; border-radius: 12px; overflow: hidden; 
+    .video-wrapper {
+      margin-top: auto; border-radius: 12px; overflow: hidden;
       min-height: 480px; position: relative; border: 1px solid var(--surface-border);
-      background: #ffffff; display: flex; justify-content: center;
+      background: #111113; display: flex; justify-content: center; align-items: center;
     }
-    
+    .featured-media-col .video-wrapper {
+      min-height: 560px;
+    }
+
     .facade {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       background: linear-gradient(145deg, #1d1d1f, #2c2c2e);
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       cursor: pointer; transition: background 0.3s ease; color: #ffffff; z-index: 10;
+      padding: 1rem; text-align: center;
     }
     .facade:hover { background: linear-gradient(145deg, #2c2c2e, #3a3a3c); }
-    
+
     .play-btn {
-      width: 64px; height: 64px; background: rgba(255,255,255,0.15); 
-      border-radius: 50%; display: flex; justify-content: center; align-items: center; 
+      width: 64px; height: 64px; background: rgba(255,255,255,0.15);
+      border-radius: 50%; display: flex; justify-content: center; align-items: center;
       backdrop-filter: blur(8px); margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.2);
       transition: transform 0.2s ease, background 0.2s ease;
     }
     .play-btn::after { content: "▶"; font-size: 1.5rem; color: #fff; margin-left: 4px; }
     .facade:hover .play-btn { transform: scale(1.1); background: rgba(255,255,255,0.25); }
-    .facade-text { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; opacity: 0.8; }
-    
+    .facade-text { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; opacity: 0.85; }
+
+    .local-video {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      object-fit: contain;
+      background: #000000;
+    }
+
     blockquote.tiktok-embed { margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; min-width: 100% !important; }
 
     /* Action Buttons */
     .video-action { margin-top: 1.25rem; display: flex; justify-content: center; }
-    .btn-external { 
-      background: var(--bg); color: var(--text); border: 1px solid var(--surface-border); 
-      padding: 0.65rem 1.25rem; border-radius: 980px; text-decoration: none; 
+    .btn-external {
+      background: var(--bg); color: var(--text); border: 1px solid var(--surface-border);
+      padding: 0.65rem 1.25rem; border-radius: 980px; text-decoration: none;
       font-weight: 600; font-size: 0.9rem; transition: all 0.2s ease; display: inline-block;
     }
     .btn-external:hover { background: #e5e5ea; transform: scale(1.02); }
@@ -155,6 +225,15 @@
     }
 
     /* Responsive */
+    @media (max-width: 920px) {
+      .featured-split-card {
+        grid-template-columns: 1fr;
+      }
+      .workflow-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 860px) {
       body { padding: 0 1.25rem 3.5rem; }
       nav { padding: 1.5rem 0; margin-bottom: 2rem; }
@@ -183,7 +262,7 @@
       .grid { grid-template-columns: 1fr; gap: 1.5rem; }
       .work-card { padding: 1.25rem; border-radius: 16px; }
       .video-action .btn-external { width: 100%; text-align: center; padding: 0.75rem 1rem; }
-      .video-wrapper { min-height: 450px; }
+      .video-wrapper, .featured-media-col .video-wrapper, .local-video { min-height: 450px; }
 
       .page-nav {
         flex-direction: column;
@@ -204,7 +283,7 @@
   <div class="container">
     <nav>
       <a href="index.html" class="logo">PAWARIS.C</a>
-      
+
       <button class="menu-toggle" id="menuToggle" aria-label="เปิดเมนู">
         <span></span>
         <span></span>
@@ -222,7 +301,7 @@
     </nav>
 
     <h1>🎬 Featured Media & Works</h1>
-    <p class="page-desc">ผลงานคอนเทนต์ทั้ง 7 แคมเปญ (รับผิดชอบแบบ End-to-End ตั้งแต่คิดบท, คุมถ่ายทำ, จนถึงการเป็นพิธีกร)</p>
+    <p class="page-desc">ผลงานคอนเทนต์ทั้งวิดีโอโมชันแคมเปญและคลิปรีวิวคอนเทนต์ (ตั้งแต่การวางโครงเรื่อง/สคริปต์ ปรับจังหวะการสื่อสาร จนถึงการผลิตและนำเสนอ)</p>
 
     <!-- ปุ่มดาวน์โหลด Full Portfolio PDF -->
     <div class="pdf-banner">
@@ -237,6 +316,55 @@
     </div>
 
     <div class="grid">
+      <!-- 0. CAP+ x Landy Home (วิดีโอซ้าย + โครงสร้างการทำงานขวา) -->
+      <div class="work-card featured-split-card">
+        <div class="featured-media-col">
+          <div class="video-wrapper" id="vid-capplus">
+            <div class="facade" onclick="playLocalVideo('vid-capplus', 'CAPPLUS_OpenHouse_Landy_Motion_21Slides_2m04s.mp4')">
+              <div class="play-btn"></div>
+              <span class="facade-text">Tap to Play Motion Video (02:04)</span>
+            </div>
+          </div>
+          <div class="video-action">
+            <a href="CAPPLUS_OpenHouse_Landy_Motion_21Slides_2m04s.mp4" target="_blank" class="btn-external">เปิดไฟล์วิดีโอ ↗</a>
+          </div>
+        </div>
+
+        <div class="featured-detail-col">
+          <div>
+            <span class="metric-chip" style="margin-bottom: 0.65rem;">✨ End-to-End AI Motion • 21 Slides • 02:04</span>
+            <h3>CAP+ x Landy Home: Open House & Pre-order</h3>
+            <p>วิดีโอโมชันแนวตั้ง (9:16) โปรโมตระบบเติมอากาศบริสุทธิ์ CAP+ สำหรับงาน Open House ของ Landy Home ครอบคลุมปัญหาฝุ่นและอากาศอับในห้องปิด ไลน์สินค้า 3 รุ่น (CIR Q+, CAP Air, CAP V2) โปรโมชัน Pre-order และสิทธิ์สำรวจหน้างานฟรี — พัฒนาตั้งแต่การดึงข้อมูลสินค้าทำเดค 21 หน้า จนถึงการแปลงเป็นโมชันที่ล็อกจังหวะตรงกับเสียงพากย์</p>
+          </div>
+
+          <div class="workflow-grid">
+            <div class="workflow-box">
+              <h4>📑 ช่วงที่ 1: สร้างสไลด์ & สคริปต์ด้วย AI</h4>
+              <ul class="workflow-list">
+                <li><strong>1. รับโจทย์และคัดข้อมูลจริง:</strong> ดึงสเปก CIR Q+, FAQ, คีย์หลักแบรนด์ และคัดกรองคำต้องห้าม</li>
+                <li><strong>2. วางโครงเรื่อง 21 หน้า:</strong> ไล่ลำดับ ปัญหา → ทางแก้ → รุ่นสินค้า → ความน่าเชื่อถือ → ปิดการขาย</li>
+                <li><strong>3. ขึ้นโครง 9:16 & ปรับดีไซน์:</strong> โค้ดเป็นหน้าเว็บ Export PDF/PPTX ปรับโทนสี ฟอนต์ ใส่รูปสินค้าจริง ผลงาน และภาพจำลองทางลม</li>
+                <li><strong>4. แปลงไฟล์แก้ได้ใน Canva & เกลาบทเวที:</strong> แยกเลเยอร์ไม่ให้ซ้อนทับกัน ส่งทีมเรียง Final 21 หน้า และเขียน Sale Script สำหรับพูดบนเวที</li>
+              </ul>
+            </div>
+
+            <div class="workflow-box">
+              <h4>🎞️ ช่วงที่ 2: แปลงสไลด์เป็นคลิปโมชัน</h4>
+              <ul class="workflow-list">
+                <li><strong>1. Fit-to-Clip Script:</strong> เขียนตาราง 21 ฉาก คุมความยาว VO ตามความเร็วเสียงจริง (~10 ตัวอักษรไทย/วินาที) ให้พูดทันทุกสไลด์</li>
+                <li><strong>2. สร้างเสียง & ล็อกไทม์ไลน์จริง:</strong> สร้างไฟล์เสียงพากย์เต็ม 2:04 นาที จับช่วงหยุดพูดเพื่อล็อกเวลาเริ่ม-จบของทั้ง 21 ฉาก</li>
+                <li><strong>3. ทำโมชันทีละฉาก:</strong> ดึงรูปจริงจาก PDF ใส่แอนิเมชันข้อความเด้งตามคำพูด ตัวเลขนับขึ้น เส้นวาดทางลม และแถบเปลี่ยนฉาก</li>
+                <li><strong>4. QC & Render 1080×1920:</strong> ตรวจเฟรมที่องค์ประกอบเยอะสุดกันภาพทับซ้อน เรนเดอร์ 30 fps ความยาวตรงเสียงพอดี</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="workflow-note">
+            <strong>ผลลัพธ์และบทเรียนจากการทำงาน:</strong> ลดเวลารอผลิตสื่อวิดีโอโปรโมชันแคมเปญจากเดคขายงานให้พร้อมใช้งานจริงทั้งบนเวทีและโซเชียลมีเดีย พร้อมวางมาตรฐานการส่งไฟล์เสียงฉบับเต็มตั้งแต่รอบแรกและการตรวจความสอดคล้องของตัวเลข/ชื่อรุ่นก่อน Render
+          </div>
+        </div>
+      </div>
+
       <!-- 1. บ้านและสวนแฟร์ -->
       <div class="work-card">
         <div>
@@ -401,6 +529,11 @@
       menuToggle.classList.toggle('active');
       navLinks.classList.toggle('open');
     });
+
+    function playLocalVideo(containerId, videoSrc) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = `<video class="local-video" src="${videoSrc}" controls autoplay playsinline preload="metadata"></video>`;
+    }
 
     function playTikTok(containerId, videoId, username = 'spacestory.co') {
       const container = document.getElementById(containerId);
